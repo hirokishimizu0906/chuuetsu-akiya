@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="長岡市・見附市・三条市など新潟県中越エリアの空き家管理。月額3,300円（税込）から。定期巡回、外観・室内確認、換気・通水、ポスト確認、写真付き報告まで。">
+  <meta name="theme-color" content="#0b3a6f">
+  <title>中越空き家管理サービス｜月額3,300円〜・写真付き定期巡回</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0b3a6f;
+      --navy2:#164f86;
+      --blue:#2b78b8;
+      --sky:#eef7fc;
+      --ink:#24364b;
+      --muted:#687789;
+      --line:#dbe6ef;
+      --white:#fff;
+      --pink:#e75b78;
+      --green:#5f9f47;
+      --deepgreen:#1d7650;
+      --shadow:0 14px 40px rgba(15,53,91,.10);
+      --radius:22px;
+      --max:1180px;
+      --header-max:1400px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:#fff;
+      font-family:"Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
+      line-height:1.8;
+      -webkit-font-smoothing:antialiased;
+      word-break:normal;
+      overflow-wrap:break-word;
+    }
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    section{scroll-margin-top:88px}
+    .container{width:min(calc(100% - 36px),var(--max));margin-inline:auto}
+    .header-container{width:min(calc(100% - 36px),var(--header-max));margin-inline:auto}
+    .eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.14em;color:var(--blue)}
+    .section-head{max-width:820px;margin:0 auto 32px;text-align:center}
+    .section-title{
+      margin:8px 0 12px;
+      color:var(--navy);
+      font-family:"Noto Serif JP",serif;
+      font-size:clamp(1.75rem,3vw,2.55rem);
+      line-height:1.4;
+      letter-spacing:.02em;
+      text-wrap:balance;
+    }
+    .section-lead{margin:0;color:var(--muted);font-size:1rem;text-wrap:pretty}
+    .btn{
+      min-height:52px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:0 24px;
+      border-radius:999px;
+      border:1px solid transparent;
+      font-weight:800;
+      white-space:nowrap;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;box-shadow:0 9px 24px rgba(11,58,111,.20)}
+    .btn-pink{background:linear-gradient(135deg,#f06a87,#dc4768);color:#fff;box-shadow:0 9px 24px rgba(225,76,108,.18)}
+    .btn-outline{background:#fff;color:var(--navy);border-color:#9db8cf}
+    .btn-light{background:#fff;color:var(--navy)}
+    .muted-note{font-size:.8rem;color:#7b8793}
+
+    /* header */
+    .site-header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(11,58,111,.08);
+    }
+    .header-inner{min-height:82px;display:flex;align-items:center;gap:26px}
+    .brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+    .brand-mark{width:64px;height:48px;color:var(--navy);flex:0 0 auto}
+    .brand-copy{line-height:1.25;white-space:nowrap}
+    .brand-copy strong{display:block;font-family:"Noto Serif JP",serif;color:var(--navy);font-size:1.15rem;letter-spacing:.04em}
+    .brand-copy span{font-size:.74rem;color:#476887}
+    .nav{margin-left:auto;display:flex;align-items:center;gap:22px;font-size:.9rem;font-weight:700;color:#324b64;white-space:nowrap}
+    .nav a{padding:8px 0}
+    .nav a:hover{color:var(--blue)}
+    .header-contact{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+    .phone-box{text-align:right;line-height:1.18;white-space:nowrap}
+    .phone-box small{display:block;color:#73808f;font-size:.66rem}
+    .phone-box strong{display:block;color:var(--navy);font-size:1.18rem;letter-spacing:.04em}
+    .menu-btn{display:none;border:0;background:#edf5fa;color:var(--navy);width:46px;height:46px;border-radius:14px;font-size:1.3rem;cursor:pointer}
+    .mobile-nav{display:none;background:#fff;border-top:1px solid #e7eef4;box-shadow:0 14px 26px rgba(11,58,111,.08)}
+    .mobile-nav.open{display:block}
+    .mobile-nav .container{display:grid;padding:8px 0 16px}
+    .mobile-nav a:not(.btn){padding:12px 4px;border-bottom:1px solid #edf2f6;font-weight:700;color:#36536d}
+
+    /* hero */
+    .hero{background:#f4f8fb;border-bottom:1px solid #e7eef4}
+    .hero-grid{
+      width:min(100%,1600px);
+      margin:auto;
+      display:grid;
+      grid-template-columns:minmax(0,1.12fr) minmax(420px,.88fr);
+      min-height:610px;
+    }
+    .hero-copy{
+      padding:72px clamp(34px,5vw,84px) 62px max(36px,calc((100vw - 1400px)/2));
+      display:flex;flex-direction:column;justify-content:center;
+    }
+    .hero-kicker{font-weight:800;color:var(--blue);letter-spacing:.05em;font-size:.95rem}
+    .hero h1{
+      margin:12px 0 18px;
+      color:var(--navy);
+      font-family:"Noto Serif JP",serif;
+      font-size:clamp(2.5rem,4vw,4.25rem);
+      line-height:1.32;
+      letter-spacing:.015em;
+      text-wrap:balance;
+    }
+    .hero h1 .hero-line{display:block}
+    .hero h1 em{font-style:normal;color:#176596}
+    .hero-sub{max-width:720px;margin:0;color:#4c6075;font-size:1.06rem}
+    .hero-price{
+      margin:26px 0 18px;
+      display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+    }
+    .price-badge{
+      display:flex;align-items:baseline;gap:7px;
+      padding:11px 18px;
+      background:#fff;
+      border:1px solid #c9dbe8;
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      color:#40566f;
+      white-space:nowrap;
+    }
+    .price-badge span{font-size:.84rem;font-weight:700}
+    .price-badge strong{font-size:2rem;line-height:1;color:var(--navy)}
+    .price-badge small{font-size:.74rem}
+    .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
+    .hero-tags span{padding:7px 12px;border-radius:999px;background:#e7f2f8;color:#285978;font-size:.82rem;font-weight:700}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-visual{
+      position:relative;
+      min-height:610px;
+      background:
+        linear-gradient(180deg,rgba(11,58,111,.04),rgba(11,58,111,.16)),
+        url("https://images.unsplash.com/photo-1782773560415-c0abbf287b04?auto=format&fit=crop&w=1800&q=82") center/cover no-repeat;
+    }
+    .hero-visual:after{
+      content:"空き家を、放置しない。";
+      position:absolute;left:26px;bottom:24px;
+      color:#fff;font-family:"Noto Serif JP",serif;font-size:1.25rem;font-weight:700;letter-spacing:.08em;
+      text-shadow:0 2px 14px rgba(0,0,0,.5);
+    }
+    .hero-note{
+      position:absolute;top:24px;right:24px;
+      max-width:220px;padding:15px 18px;border-radius:18px;
+      background:rgba(255,255,255,.93);backdrop-filter:blur(8px);
+      color:#36516c;font-size:.82rem;line-height:1.65;box-shadow:var(--shadow);
+    }
+    .hero-note b{display:block;color:var(--navy);font-size:.92rem;margin-bottom:3px}
+
+    /* plans */
+    .plans{padding:68px 0 76px;background:#fff}
+    .plans .section-head{margin-bottom:28px}
+    .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .plan{
+      position:relative;
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:var(--shadow);
+      display:flex;flex-direction:column;
+    }
+    .plan.take{border:2px solid #7eae61;transform:translateY(-4px)}
+    .plan.take:before{
+      content:"おすすめ";
+      position:absolute;top:14px;right:14px;
+      padding:5px 10px;border-radius:999px;
+      background:#5d9d42;color:#fff;font-size:.72rem;font-weight:800;
+    }
+    .plan-top{padding:26px 24px 18px;text-align:center}
+    .plan-symbol{font-size:2rem}
+    .plan h3{margin:8px 0 3px;font-family:"Noto Serif JP",serif;font-size:1.5rem}
+    .plan small{color:#6f7c8b}
+    .plan-price{margin:16px 0 0;padding:10px 8px;border:1px solid currentColor;border-radius:14px;font-size:.85rem}
+    .plan-price strong{font-size:1.95rem;margin:0 4px}
+    .plan ul{list-style:none;margin:0;padding:0 25px 20px;flex:1}
+    .plan li{padding:8px 0;border-bottom:1px dashed #e6edf2;font-size:.9rem;color:#4a5c6f}
+    .plan li:last-child{border-bottom:0}
+    .plan li:before{content:"✓";font-weight:900;margin-right:8px}
+    .plan .btn{margin:0 22px 22px}
+    .ume{color:#df5673;background:linear-gradient(180deg,#fff,#fff9fb)}
+    .take{color:#5d9943;background:linear-gradient(180deg,#fff,#fbfff8)}
+    .matsu{color:#1d7650;background:linear-gradient(180deg,#fff,#f8fffb)}
+    .plan-note{text-align:center;margin:16px 0 0;color:#768392;font-size:.8rem}
+    .price-shortcut{
+      margin:28px auto 0;
+      max-width:920px;
+      display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
+      padding:16px 20px;border-radius:18px;background:#f3f8fb;color:#4e6479;
+    }
+    .price-shortcut b{color:var(--navy)}
+
+    /* common cards */
+    .worries{padding:72px 0;background:#f7fafc}
+    .worry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .worry-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:23px;box-shadow:0 8px 28px rgba(10,50,88,.05)}
+    .worry-card .mark{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#eaf5fb;color:#1d72a7;font-weight:900;margin-bottom:13px}
+    .worry-card h3{margin:0 0 7px;color:var(--navy);font-size:1rem}
+    .worry-card p{margin:0;color:var(--muted);font-size:.88rem}
+
+    .service{padding:74px 0;background:#fff}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service-card{border:1px solid var(--line);border-radius:20px;padding:22px;background:#fff}
+    .service-no{font-size:.75rem;color:var(--blue);font-weight:800;letter-spacing:.08em}
+    .service-card h3{margin:5px 0 7px;color:var(--navy);font-size:1.05rem}
+    .service-card p{margin:0;color:var(--muted);font-size:.87rem}
+    .service-note{margin-top:20px;text-align:center;color:#7a8794;font-size:.8rem}
+
+    .report{padding:76px 0;background:#f7fafc}
+    .report-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+    .report-sheet{border:1px solid #d8e3ec;border-radius:24px;background:#fff;padding:23px;box-shadow:0 18px 45px rgba(14,51,90,.12)}
+    .report-head{display:flex;justify-content:space-between;gap:18px;padding-bottom:13px;border-bottom:2px solid #edf2f5}
+    .report-head strong{color:var(--navy)}
+    .report-status{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+    .report-item{padding:13px;border-radius:13px;background:#f8fbfd;border:1px solid #e3ebf1}
+    .report-item span{display:block;color:#7a8693;font-size:.75rem}
+    .report-item b{display:block;color:#35536e;margin-top:2px}
+    .report-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+    .report-photo{aspect-ratio:4/3;display:grid;place-items:center;background:linear-gradient(145deg,#dbe8ef,#f4f7f9);border:1px solid #d8e2e9;border-radius:10px;color:#70879a;font-size:.73rem}
+    .report-copy h3{margin:8px 0 12px;color:var(--navy);font-family:"Noto Serif JP",serif;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.45;text-wrap:balance}
+    .report-copy p{margin:0;color:var(--muted)}
+    .check-list{display:grid;gap:10px;margin:20px 0}
+    .check-list div{display:flex;gap:10px;color:#44596f}
+    .check-list i{font-style:normal;font-weight:900;color:#1d7ab0}
+
+    .options{padding:74px 0;background:#fff}
+    .option-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .option-card{border:1px solid var(--line);border-radius:18px;padding:21px;background:#fff}
+    .option-card h3{margin:0 0 7px;color:var(--navy);font-size:1rem}
+    .option-card p{margin:0;color:var(--muted);font-size:.85rem}
+
+    .flow{padding:74px 0;background:#f7fafc}
+    .flow-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{position:relative;padding:23px 19px;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .step .num{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#e4f0f7;color:var(--navy);font-weight:900;margin-bottom:11px}
+    .step h3{margin:0 0 6px;color:var(--navy);font-size:1rem}
+    .step p{margin:0;color:var(--muted);font-size:.84rem}
+
+    .info{padding:74px 0;background:#fff}
+    .info-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
+    .info .section-head{text-align:left;margin:0 0 22px}
+    .qa-list{display:grid;gap:10px}
+    details{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
+    summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:15px;padding:17px 18px;color:#31516e;font-weight:800}
+    summary::-webkit-details-marker{display:none}
+    summary:after{content:"＋";color:#6885a0;font-size:1.1rem}
+    details[open] summary:after{content:"−"}
+    details p{margin:0;padding:0 18px 18px;color:var(--muted);font-size:.9rem}
+    .area-card{height:max-content;padding:26px;border-radius:22px;background:linear-gradient(180deg,#f4f9fc,#fff);border:1px solid var(--line);position:sticky;top:108px}
+    .area-card h3{margin:6px 0 9px;color:var(--navy);font-family:"Noto Serif JP",serif;font-size:1.5rem}
+    .area-card p{color:var(--muted)}
+    .area-tags{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+    .area-tags span{padding:7px 12px;border-radius:999px;background:#fff;border:1px solid #cadbe7;color:#385975;font-size:.85rem;font-weight:800}
+
+    .contact{padding:76px 0;background:linear-gradient(135deg,#0b376b,#16598e);color:#fff}
+    .contact-grid{display:grid;grid-template-columns:1fr .85fr;gap:34px;align-items:center}
+    .contact .eyebrow{color:#a8d2ef}
+    .contact h2{margin:8px 0 12px;color:#fff;font-family:"Noto Serif JP",serif;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.4;text-wrap:balance}
+    .contact p{margin:0;color:#dbe8f3}
+    .contact-card{background:#fff;color:var(--ink);border-radius:24px;padding:26px;box-shadow:0 18px 48px rgba(0,0,0,.14)}
+    .contact-card .label{font-size:.78rem;color:#73808e;font-weight:700}
+    .bigphone{display:block;margin:5px 0 10px;color:var(--navy);font-size:clamp(2rem,4vw,2.8rem);font-weight:900;letter-spacing:.04em;line-height:1.15;white-space:nowrap}
+    .contact-card ul{margin:14px 0 20px;padding-left:1.15em;color:#536578;font-size:.88rem}
+    .contact-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .contact-actions .btn{flex:1}
+    .representative{margin-top:18px;padding-top:17px;border-top:1px solid #e5ebf0;display:flex;align-items:center;gap:12px}
+    .person-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#e9f3f8;color:var(--navy);font-family:"Noto Serif JP",serif;font-weight:800}
+    .representative b{display:block;color:var(--navy)}
+    .representative span{font-size:.8rem;color:#758291}
+
+    .company{padding:66px 0;background:#f7fafc}
+    .company-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .company-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:25px}
+    .company-card h3{margin:5px 0 16px;color:var(--navy);font-family:"Noto Serif JP",serif;font-size:1.35rem}
+    .company-card dl{margin:0}
+    .company-card dl div{display:grid;grid-template-columns:120px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid #edf2f5}
+    .company-card dl div:last-child{border-bottom:0}
+    dt{font-weight:800;color:#3b5672}
+    dd{margin:0;color:#647383}
+    .company-card p{margin:0;color:#647383;font-size:.9rem}
+
+    footer{background:#082e59;color:#fff;padding:27px 0}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .footer-brand{font-family:"Noto Serif JP",serif;font-weight:700}
+    .footer-sub{font-size:.75rem;color:#c9d9e6}
+    .copyright{font-size:.75rem;color:#c3d4e2;text-align:right}
+
+    .floating-contact{display:none}
+
+    @media(max-width:1180px){
+      .nav{display:none}
+      .header-contact .phone-box{display:none}
+      .menu-btn{display:grid;place-items:center}
+      .hero-grid{grid-template-columns:1fr .78fr}
+      .hero-copy{padding-left:36px}
+    }
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-copy{padding:54px 24px 36px}
+      .hero-visual{min-height:360px}
+      .plan-grid,.worry-grid,.service-grid{grid-template-columns:1fr}
+      .plan.take{transform:none}
+      .report-grid,.info-grid,.contact-grid,.company-grid{grid-template-columns:1fr}
+      .option-grid,.flow-row{grid-template-columns:repeat(2,1fr)}
+      .area-card{position:static}
+    }
+    @media(max-width:680px){
+      .container,.header-container{width:min(calc(100% - 24px),var(--max))}
+      .header-inner{min-height:70px;gap:10px}
+      .brand-mark{width:52px;height:40px}
+      .brand-copy strong{font-size:.96rem}
+      .brand-copy span{font-size:.66rem}
+      .header-contact>.btn{display:none}
+      .hero h1{font-size:clamp(2.1rem,10vw,3.05rem)}
+      .hero h1 .hero-line{display:inline}
+      .hero h1 .hero-line:first-child:after{content:" "}
+      .hero-price{align-items:stretch}
+      .price-badge{width:100%;justify-content:center}
+      .hero-actions,.hero-actions .btn{width:100%}
+      .hero-note{top:16px;right:16px;left:16px;max-width:none}
+      .hero-visual:after{font-size:1.05rem;left:18px;bottom:18px}
+      .plans,.worries,.service,.report,.options,.flow,.info,.contact,.company{padding:54px 0}
+      .option-grid,.flow-row{grid-template-columns:1fr}
+      .report-status{grid-template-columns:1fr}
+      .report-photos{grid-template-columns:repeat(3,1fr)}
+      .company-card dl div{grid-template-columns:1fr;gap:2px}
+      .footer-inner{flex-direction:column;align-items:flex-start}
+      .copyright{text-align:left}
+      .floating-contact{
+        position:fixed;z-index:110;left:12px;right:12px;bottom:12px;
+        display:flex;gap:8px;padding:8px;background:rgba(255,255,255,.96);
+        border:1px solid #d8e4ed;border-radius:18px;box-shadow:0 12px 30px rgba(11,58,111,.18);backdrop-filter:blur(10px)
+      }
+      .floating-contact .btn{flex:1;min-height:46px;padding:0 12px;font-size:.87rem}
+      body{padding-bottom:78px}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"中越空き家管理サービス",
+    "telephone":"070-3521-1092",
+    "areaServed":["長岡市","見附市","三条市","新潟県中越エリア"],
+    "description":"新潟県中越エリアの空き家管理。定期巡回、外観・室内確認、換気・通水、ポスト確認、写真付き報告など。"
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container header-inner">
+      <a class="brand" href="#top" aria-label="中越空き家管理サービス トップ">
+        <svg class="brand-mark" viewBox="0 0 120 84" role="img" aria-label="家のロゴ">
+          <path d="M8 55 48 18l17 15 11-10 36 32" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 50v26h72V50M43 76V54h22v22M79 50h12v13H79z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M4 78h108" stroke="#51a6d7" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-copy"><strong>中越</strong><span>空き家管理サービス</span></span>
+      </a>
+      <nav class="nav" aria-label="メインメニュー">
+        <a href="#plans">料金プラン</a>
+        <a href="#service">サービス内容</a>
+        <a href="#flow">ご利用の流れ</a>
+        <a href="#faq">よくあるご質問</a>
+        <a href="#area">対応エリア</a>
+        <a href="#company">会社案内</a>
+      </nav>
+      <div class="header-contact">
+        <div class="phone-box"><small>お気軽にご相談ください</small><strong>070-3521-1092</strong></div>
+        <a class="btn btn-primary" href="#contact">お問い合わせ</a>
+        <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false">☰</button>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="container">
+        <a href="#plans">料金プラン</a>
+        <a href="#service">サービス内容</a>
+        <a href="#flow">ご利用の流れ</a>
+        <a href="#faq">よくあるご質問</a>
+        <a href="#area">対応エリア</a>
+        <a href="#company">会社案内</a>
+        <a class="btn btn-primary" href="#contact">お問い合わせ</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-kicker">長岡市・見附市・三条市を中心に対応</div>
+          <h1><span class="hero-line">「見に行けない不安」を、</span><span class="hero-line"><em>「見える安心」</em>へ。</span></h1>
+          <p class="hero-sub">遠方のご実家や相続した空き家を定期巡回。建物の外観・室内・換気・通水・ポストなどを確認し、写真付きでご報告します。</p>
+          <div class="hero-price">
+            <div class="price-badge"><span>月額</span><strong>3,300円〜</strong><small>税込</small></div>
+            <span class="muted-note">まずは外回りだけの「梅プラン」から始められます。</span>
+          </div>
+          <div class="hero-tags">
+            <span>写真付き報告</span><span>遠方から依頼OK</span><span>月1回〜定期巡回</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#plans">料金プランを先に見る</a>
+            <a class="btn btn-outline" href="tel:07035211092">☎ 070-3521-1092</a>
+          </div>
+        </div>
+        <div class="hero-visual" role="img" aria-label="草木に囲まれた築年数の経った空き家のイメージ">
+          <div class="hero-note"><b>空き家は、築年数が経つほど「変化の早期発見」が大切です。</b>放置するのではなく、今の状態を定期的に確認します。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="plans" id="plans">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">PRICE PLAN</div>
+          <h2 class="section-title">料金を最初に、分かりやすく。</h2>
+          <p class="section-lead">必要な管理レベルに合わせて、3つのプランから選べます。迷う場合は物件の状態を伺ってご案内します。</p>
+        </div>
+        <div class="plan-grid">
+          <article class="plan ume">
+            <div class="plan-top">
+              <div class="plan-symbol">🌸</div><h3>梅プラン</h3><small>まずは外回りの見守りから</small>
+              <div class="plan-price">月額 <strong>3,000円〜</strong><br><span>税込3,300円〜</span></div>
+            </div>
+            <ul><li>建物の外観確認</li><li>敷地・庭まわりの確認</li><li>ポスト確認</li><li>写真付き報告（月1回）</li></ul>
+            <a class="btn btn-pink" href="#contact">梅プランを相談する</a>
+          </article>
+          <article class="plan take">
+            <div class="plan-top">
+              <div class="plan-symbol">🎋</div><h3>竹プラン</h3><small>室内までしっかり確認</small>
+              <div class="plan-price">月額 <strong>10,000円〜</strong><br><span>税込11,000円〜</span></div>
+            </div>
+            <ul><li>梅プランの内容</li><li>室内の確認・換気</li><li>通水</li><li>簡易清掃</li><li>写真付き報告（月1回）</li></ul>
+            <a class="btn btn-outline" href="#contact">竹プランを相談する</a>
+          </article>
+          <article class="plan matsu">
+            <div class="plan-top">
+              <div class="plan-symbol">🌲</div><h3>松プラン</h3><small>遠方の方へ、より手厚く</small>
+              <div class="plan-price">月額 <strong>15,000円〜</strong><br><span>税込16,500円〜</span></div>
+            </div>
+            <ul><li>月2回の定期巡回</li><li>外観・敷地・ポスト確認</li><li>室内確認・換気・通水</li><li>敷地の簡易除草</li><li>近隣トラブル対応サポート</li><li>写真付き報告（月2回）</li></ul>
+            <a class="btn btn-outline" href="#contact">松プランを相談する</a>
+          </article>
+        </div>
+        <p class="plan-note">※料金・対応内容は物件の所在地、状態、ご要望により異なる場合があります。正式なお見積り前に内容をご説明します。</p>
+        <div class="price-shortcut"><b>どれを選べばいいか分からなくても大丈夫です。</b><span>「住所・現在の状態・どこまで見てほしいか」をお聞きしてご案内します。</span></div>
+      </div>
+    </section>
+
+    <section class="worries">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">WHY MANAGEMENT</div>
+          <h2 class="section-title">空き家は「何もしない間」に変化します。</h2>
+          <p class="section-lead">大きな修繕になる前に、小さな異変に気づける状態をつくることが空き家管理の目的です。</p>
+        </div>
+        <div class="worry-grid">
+          <article class="worry-card"><div class="mark">01</div><h3>建物の傷みを見逃しやすい</h3><p>雨漏り、外壁・屋根・窓、水回りなどは、人が住んでいないと異変に気づくまで時間がかかります。</p></article>
+          <article class="worry-card"><div class="mark">02</div><h3>草木・郵便物・雪が目立つ</h3><p>「管理されていない家」に見えると、近隣への影響や防犯面の不安にもつながります。</p></article>
+          <article class="worry-card"><div class="mark">03</div><h3>遠方から通う負担が大きい</h3><p>移動時間や交通費、予定調整の負担を減らし、現地の状態を写真で確認できるようにします。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="service" id="service">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">SERVICE</div>
+          <h2 class="section-title">「見回る」だけではなく、確認内容を明確に。</h2>
+          <p class="section-lead">プランに応じて、外回りから室内まで定期的に確認します。</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card"><div class="service-no">CHECK 01</div><h3>建物外観</h3><p>屋根・外壁・窓・雨樋などを目視し、破損や異変の兆候を確認します。</p></article>
+          <article class="service-card"><div class="service-no">CHECK 02</div><h3>敷地・庭木・雑草</h3><p>越境、雑草、ゴミ、不法投棄、門扉や塀の状態などを確認します。</p></article>
+          <article class="service-card"><div class="service-no">CHECK 03</div><h3>ポスト</h3><p>郵便物やチラシの滞留状況を確認し、長期不在が目立たないよう見守ります。</p></article>
+          <article class="service-card"><div class="service-no">CHECK 04</div><h3>室内・換気</h3><p>室内の異変、天井や壁の染みなどを目視し、プランに応じて換気を行います。</p></article>
+          <article class="service-card"><div class="service-no">CHECK 05</div><h3>通水・水回り</h3><p>蛇口から通水し、水漏れや臭いなど水回りの状態変化を確認します。</p></article>
+          <article class="service-card"><div class="service-no">CHECK 06</div><h3>写真付き報告</h3><p>巡回後は確認内容を写真付きでご報告。遠方でも「今どうなっているか」を把握できます。</p></article>
+        </div>
+        <p class="service-note">※目視できる範囲での確認が基本です。実施項目・頻度は各プランや物件状況により異なります。</p>
+      </div>
+    </section>
+
+    <section class="report">
+      <div class="container report-grid">
+        <div class="report-sheet" aria-label="写真付き管理報告書のイメージ">
+          <div class="report-head"><div><small>中越空き家管理サービス</small><br><strong>月次巡回レポート</strong></div><div style="text-align:right"><small>巡回日</small><br><b>2026 / 09 / 10</b></div></div>
+          <div class="report-status">
+            <div class="report-item"><span>建物外観</span><b>確認済み</b></div>
+            <div class="report-item"><span>郵便ポスト</span><b>確認済み</b></div>
+            <div class="report-item"><span>室内換気</span><b>実施済み</b></div>
+            <div class="report-item"><span>通水</span><b>実施済み</b></div>
+          </div>
+          <div class="report-photos"><div class="report-photo">外観写真</div><div class="report-photo">室内写真</div><div class="report-photo">敷地写真</div></div>
+          <p class="muted-note" style="margin:12px 0 0">※報告内容はプラン・物件状況により異なります。</p>
+        </div>
+        <div class="report-copy">
+          <div class="eyebrow">VISIBLE PEACE OF MIND</div>
+          <h3>「ちゃんと見てくれた」が、写真で分かる。</h3>
+          <p>作業そのものだけでなく、離れていても現地の状態が分かることを大切にしています。</p>
+          <div class="check-list">
+            <div><i>✓</i><span>現地の変化を定期的に確認できる</span></div>
+            <div><i>✓</i><span>異変があった時に早めに検討しやすい</span></div>
+            <div><i>✓</i><span>ご家族にも状況を共有しやすい</span></div>
+          </div>
+          <a class="btn btn-primary" href="#contact">写真付き報告について相談する</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="options">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">OPTION / SUPPORT</div>
+          <h2 class="section-title">巡回以外の困りごともご相談ください。</h2>
+          <p class="section-lead">空き家の状態や季節に合わせて、必要な作業を個別にご相談いただけます。</p>
+        </div>
+        <div class="option-grid">
+          <article class="option-card"><h3>草刈り・庭木</h3><p>雑草、庭木の越境、敷地の状態に応じて対応をご相談いただけます。</p></article>
+          <article class="option-card"><h3>雪・冬季対応</h3><p>中越地域で気になる積雪時の状況確認や作業についてご相談ください。</p></article>
+          <article class="option-card"><h3>簡易清掃・片付け</h3><p>室内の簡易清掃、家財や残置物についても状況に応じてご相談いただけます。</p></article>
+          <article class="option-card"><h3>修繕・リフォーム</h3><p>巡回で傷みが見つかった場合、必要な修繕やリフォームについてご相談いただけます。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="flow" id="flow">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">FLOW</div>
+          <h2 class="section-title">ご利用開始まで、4ステップ。</h2>
+        </div>
+        <div class="flow-row">
+          <article class="step"><div class="num">1</div><h3>お問い合わせ</h3><p>お電話からお気軽にご相談ください。住所とお困りごとを伺います。</p></article>
+          <article class="step"><div class="num">2</div><h3>内容・料金のご案内</h3><p>物件の状態と希望内容に合わせて管理プランをご説明します。</p></article>
+          <article class="step"><div class="num">3</div><h3>ご契約・鍵の確認</h3><p>内容にご納得いただいてからご契約。必要に応じて鍵の預かり方法を決めます。</p></article>
+          <article class="step"><div class="num">4</div><h3>定期巡回・ご報告</h3><p>決めた頻度で巡回し、写真付きで状態をご報告します。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="info">
+      <div class="container info-grid">
+        <div id="faq">
+          <div class="section-head">
+            <div class="eyebrow">FAQ</div>
+            <h2 class="section-title">よくあるご質問</h2>
+          </div>
+          <div class="qa-list">
+            <details><summary>遠方に住んでいても契約できますか？</summary><p>はい。遠方にお住まいの所有者様からのご相談を想定しています。巡回後は写真付きで現地の状態をご報告します。</p></details>
+            <details><summary>どのプランを選べばいいか分かりません。</summary><p>問題ありません。外回りだけでよいか、室内まで確認したいか、巡回頻度をどの程度にしたいかを伺い、必要な内容をご案内します。</p></details>
+            <details><summary>鍵を預けることはできますか？</summary><p>室内確認を行うプランでは、鍵のお預かり方法を事前に相談して決めます。</p></details>
+            <details><summary>草刈りや修繕もお願いできますか？</summary><p>定期管理とは別に、必要に応じてご相談いただけます。内容を確認し、対応可否と費用をご案内します。</p></details>
+            <details><summary>相談したら必ず契約しないといけませんか？</summary><p>いいえ。まず状況と料金をご説明し、ご納得いただいたうえでご判断ください。</p></details>
+            <details><summary>管理すれば建物の価値が必ず維持されますか？</summary><p>価値の維持を保証するサービスではありません。定期巡回により異変を把握しやすくし、状態悪化への対応を早めに検討できるようにすることが目的です。</p></details>
+          </div>
+        </div>
+        <aside class="area-card" id="area">
+          <div class="eyebrow">AREA</div>
+          <h3>対応エリア</h3>
+          <p>新潟県中越エリアを中心に対応しています。</p>
+          <div class="area-tags"><span>長岡市</span><span>見附市</span><span>三条市</span></div>
+          <p>その他の地域も、場所によって対応できる場合があります。</p>
+          <a class="btn btn-outline" href="tel:07035211092">対応可能か電話で確認</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">CONTACT</div>
+          <h2>「うちの場合はいくら？」だけでも大丈夫です。</h2>
+          <p>まだ管理を頼むか決めていなくても構いません。物件の場所・状態・気になっていることからお聞きします。</p>
+        </div>
+        <div class="contact-card">
+          <div class="label">お電話でのご相談</div>
+          <a class="bigphone" href="tel:07035211092">070-3521-1092</a>
+          <div class="muted-note">受付時間 9:00〜18:00（水曜・祝日休み）</div>
+          <ul>
+            <li>空き家の所在地（市町村・町名まででOK）</li>
+            <li>現在の状態（空き家期間、室内に入れるか等）</li>
+            <li>外回りだけ／室内まで／月2回などご希望</li>
+          </ul>
+          <div class="contact-actions"><a class="btn btn-primary" href="tel:07035211092">☎ 今すぐ電話で相談</a></div>
+          <div class="representative">
+            <div class="person-mark">清水</div>
+            <div><b>代表　清水 広樹</b><span>中越エリアの空き家管理についてご相談ください。</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="company" id="company">
+      <div class="container company-grid">
+        <div class="company-card">
+          <div class="eyebrow">COMPANY</div>
+          <h3>サービス案内</h3>
+          <dl>
+            <div><dt>サービス名</dt><dd>中越空き家管理サービス</dd></div>
+            <div><dt>代表</dt><dd>清水 広樹</dd></div>
+            <div><dt>電話番号</dt><dd>070-3521-1092</dd></div>
+            <div><dt>受付時間</dt><dd>9:00〜18:00（水曜・祝日休み）</dd></div>
+            <div><dt>対応エリア</dt><dd>長岡市・見附市・三条市を中心とした中越エリア</dd></div>
+          </dl>
+        </div>
+        <div class="company-card">
+          <div class="eyebrow">NOTICE</div>
+          <h3>ご案内</h3>
+          <p>空き家管理、定期巡回、簡易清掃、草刈り、修繕等のご相談を承ります。物件の状態や作業内容により費用が異なる場合があります。</p>
+          <p style="margin-top:16px;font-size:.82rem;color:#7b8794">※宅地建物取引業者ではないため、不動産売買の仲介・斡旋は行いません。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><div class="footer-brand">中越空き家管理サービス</div><div class="footer-sub">長岡市・見附市・三条市を中心に対応</div></div>
+      <div class="copyright">© 2026 中越空き家管理サービス<br><span style="font-size:.68rem">Hero photo: Red Shuheart / Unsplash</span></div>
+    </div>
+  </footer>
+
+  <div class="floating-contact" aria-label="固定お問い合わせメニュー">
+    <a class="btn btn-outline" href="#plans">料金を見る</a>
+    <a class="btn btn-primary" href="tel:07035211092">☎ 電話相談</a>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.textContent = open ? '×' : '☰';
+    });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = '☰';
+    }));
+  </script>
+</body>
+</html>
