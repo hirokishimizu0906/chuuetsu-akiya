@@ -93,7 +93,7 @@
     .nav{margin-left:auto;display:flex;align-items:center;gap:22px;font-size:.9rem;font-weight:700;color:#324b64;white-space:nowrap}
     .nav a{padding:8px 0}
     .nav a:hover{color:var(--blue)}
-    .header-contact{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+    .header-contact{margin-left:auto;display:flex;align-items:center;gap:12px;flex:0 0 auto}
     .phone-box{text-align:right;line-height:1.18;white-space:nowrap}
     .phone-box small{display:block;color:#73808f;font-size:.66rem}
     .phone-box strong{display:block;color:var(--navy);font-size:1.18rem;letter-spacing:.04em}
@@ -230,9 +230,9 @@
     .service-note{margin-top:20px;text-align:center;color:#7a8794;font-size:.8rem}
 
     .report{padding:76px 0;background:#f7fafc}
-    .report-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+    .report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px;align-items:center}
     .report-sheet{border:1px solid #d8e3ec;border-radius:24px;background:#fff;padding:23px;box-shadow:0 18px 45px rgba(14,51,90,.12)}
-    .report-head{display:flex;justify-content:space-between;gap:18px;padding-bottom:13px;border-bottom:2px solid #edf2f5}
+    .report-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;padding-bottom:13px;border-bottom:2px solid #edf2f5}
     .report-head strong{color:var(--navy)}
     .report-status{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
     .report-item{padding:13px;border-radius:13px;background:#f8fbfd;border:1px solid #e3ebf1}
@@ -323,7 +323,7 @@
       .hero-visual{min-height:360px}
       .plan-grid,.worry-grid,.service-grid{grid-template-columns:1fr}
       .plan.take{transform:none}
-      .report-grid,.info-grid,.contact-grid,.company-grid{grid-template-columns:1fr}
+      .report-grid,.info-grid,.contact-grid,.company-grid{grid-template-columns:minmax(0,1fr)}
       .option-grid,.flow-row{grid-template-columns:repeat(2,1fr)}
       .area-card{position:static}
     }
@@ -344,7 +344,11 @@
       .hero-visual:after{font-size:1.05rem;left:18px;bottom:18px}
       .plans,.worries,.service,.report,.options,.flow,.info,.contact,.company{padding:54px 0}
       .option-grid,.flow-row{grid-template-columns:1fr}
-      .report-status{grid-template-columns:1fr}
+      .report-status{grid-template-columns:minmax(0,1fr)}
+      .report-sheet,.report-copy,.contact-card{min-width:0}
+      .btn{max-width:100%;min-width:0;white-space:normal;text-align:center;padding-block:10px}
+      .bigphone{font-size:clamp(1.35rem,6.3vw,2.8rem)}
+      .representative>div{min-width:0}
       .report-photos{grid-template-columns:repeat(3,1fr)}
       .company-card dl div{grid-template-columns:1fr;gap:2px}
       .footer-inner{flex-direction:column;align-items:flex-start}
