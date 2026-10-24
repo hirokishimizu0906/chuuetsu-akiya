@@ -4,529 +4,126 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="長岡市・見附市・三条市など新潟県中越エリアの空き家管理。月額3,300円（税込）から。定期巡回、外観・室内確認、換気・通水、ポスト確認、写真付き報告まで。">
-  <meta name="theme-color" content="#0b3a6f">
+  <meta name="theme-color" content="#12384d">
+  <link rel="canonical" href="https://hirokishimizu0906.github.io/chuuetsu-akiya/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="中越空き家管理サービス｜長岡・見附・三条">
+  <meta property="og:description" content="離れていても、大切なお家に、いつもの安心を。月額3,300円（税込）からの定期巡回と写真付き報告。">
+  <meta property="og:url" content="https://hirokishimizu0906.github.io/chuuetsu-akiya/">
+  <meta property="og:image" content="https://hirokishimizu0906.github.io/chuuetsu-akiya/assets/house-care-hero.webp">
   <title>中越空き家管理サービス｜長岡・見附・三条の空き家管理</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --navy:#0b3a6f;
-      --navy2:#164f86;
-      --blue:#2b78b8;
-      --sky:#eef7fc;
-      --ink:#24364b;
-      --muted:#687789;
-      --line:#dbe6ef;
-      --white:#fff;
-      --pink:#e75b78;
-      --green:#5f9f47;
-      --deepgreen:#1d7650;
-      --shadow:0 14px 40px rgba(15,53,91,.10);
-      --radius:22px;
-      --max:1180px;
-      --header-max:1400px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      color:var(--ink);
-      background:#fff;
-      font-family:"Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
-      line-height:1.8;
-      -webkit-font-smoothing:antialiased;
-      word-break:normal;
-      overflow-wrap:break-word;
-    }
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit}
-    section{scroll-margin-top:88px}
-    .container{width:min(calc(100% - 36px),var(--max));margin-inline:auto}
-    .header-container{width:min(calc(100% - 36px),var(--header-max));margin-inline:auto}
-    .eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.14em;color:var(--blue)}
-    .section-head{max-width:820px;margin:0 auto 32px;text-align:center}
-    .section-title{
-      margin:8px 0 12px;
-      color:var(--navy);
-      font-family:"Noto Serif JP",serif;
-      font-size:clamp(1.75rem,3vw,2.55rem);
-      line-height:1.4;
-      letter-spacing:.02em;
-      text-wrap:balance;
-    }
-    .section-lead{margin:0;color:var(--muted);font-size:1rem;text-wrap:pretty}
-    .btn{
-      min-height:52px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:0 24px;
-      border-radius:999px;
-      border:1px solid transparent;
-      font-weight:800;
-      white-space:nowrap;
-      transition:.2s ease;
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;box-shadow:0 9px 24px rgba(11,58,111,.20)}
-    .btn-pink{background:linear-gradient(135deg,#f06a87,#dc4768);color:#fff;box-shadow:0 9px 24px rgba(225,76,108,.18)}
-    .btn-outline{background:#fff;color:var(--navy);border-color:#9db8cf}
-    .btn-light{background:#fff;color:var(--navy)}
-    .muted-note{font-size:.8rem;color:#7b8793}
 
-    /* header */
-    .site-header{
-      position:sticky;top:0;z-index:100;
-      background:rgba(255,255,255,.96);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(11,58,111,.08);
-    }
-    .header-inner{min-height:82px;display:flex;align-items:center;gap:26px}
-    .brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
-    .brand-mark{width:64px;height:48px;color:var(--navy);flex:0 0 auto}
-    .brand-copy{line-height:1.25;white-space:nowrap}
-    .brand-copy strong{display:block;font-family:"Noto Serif JP",serif;color:var(--navy);font-size:1.15rem;letter-spacing:.04em}
-    .brand-copy span{font-size:.74rem;color:#476887}
-    .nav{margin-left:auto;display:flex;align-items:center;gap:22px;font-size:.9rem;font-weight:700;color:#324b64;white-space:nowrap}
-    .nav a{padding:8px 0}
-    .nav a:hover{color:var(--blue)}
-    .header-contact{margin-left:auto;display:flex;align-items:center;gap:12px;flex:0 0 auto}
-    .phone-box{text-align:right;line-height:1.18;white-space:nowrap}
-    .phone-box small{display:block;color:#73808f;font-size:.66rem}
-    .phone-box strong{display:block;color:var(--navy);font-size:1.18rem;letter-spacing:.04em}
-    .menu-btn{display:none;border:0;background:#edf5fa;color:var(--navy);width:46px;height:46px;border-radius:14px;font-size:1.3rem;cursor:pointer}
-    .mobile-nav{display:none;background:#fff;border-top:1px solid #e7eef4;box-shadow:0 14px 26px rgba(11,58,111,.08)}
-    .mobile-nav.open{display:block}
-    .mobile-nav .container{display:grid;padding:8px 0 16px}
-    .mobile-nav a:not(.btn){padding:12px 4px;border-bottom:1px solid #edf2f6;font-weight:700;color:#36536d}
-
-    /* hero */
-    .hero{background:#f4f8fb;border-bottom:1px solid #e7eef4}
-    .hero-grid{
-      width:min(100%,1600px);
-      margin:auto;
-      display:grid;
-      grid-template-columns:minmax(0,1.12fr) minmax(420px,.88fr);
-      min-height:610px;
-    }
-    .hero-copy{
-      padding:72px clamp(34px,5vw,84px) 62px max(36px,calc((100vw - 1400px)/2));
-      display:flex;flex-direction:column;justify-content:center;
-    }
-    .hero-kicker{font-weight:800;color:var(--blue);letter-spacing:.05em;font-size:.95rem}
-    .hero h1{
-      margin:12px 0 18px;
-      color:var(--navy);
-      font-family:"Noto Serif JP",serif;
-      font-size:clamp(2.5rem,4vw,4.25rem);
-      line-height:1.32;
-      letter-spacing:.015em;
-      text-wrap:balance;
-    }
-    .hero h1 .hero-line{display:block}
-    .hero h1 em{font-style:normal;color:#176596}
-    .hero-sub{max-width:720px;margin:0;color:#4c6075;font-size:1.06rem}
-    .hero-price{
-      margin:26px 0 18px;
-      display:flex;align-items:center;gap:18px;flex-wrap:wrap;
-    }
-    .price-badge{
-      display:flex;align-items:baseline;gap:7px;
-      padding:11px 18px;
-      background:#fff;
-      border:1px solid #c9dbe8;
-      border-radius:16px;
-      box-shadow:var(--shadow);
-      color:#40566f;
-      white-space:nowrap;
-    }
-    .price-badge span{font-size:.84rem;font-weight:700}
-    .price-badge strong{font-size:2rem;line-height:1;color:var(--navy)}
-    .price-badge small{font-size:.74rem}
-    .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
-    .hero-tags span{padding:7px 12px;border-radius:999px;background:#e7f2f8;color:#285978;font-size:.82rem;font-weight:700}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .hero-visual{
-      position:relative;
-      min-height:610px;
-      background:
-        linear-gradient(180deg,rgba(11,58,111,.04),rgba(11,58,111,.16)),
-        url("https://images.unsplash.com/photo-1782773560415-c0abbf287b04?auto=format&fit=crop&w=1800&q=82") center/cover no-repeat;
-    }
-    .hero-visual:after{
-      content:"空き家を、放置しない。";
-      position:absolute;left:26px;bottom:24px;
-      color:#fff;font-family:"Noto Serif JP",serif;font-size:1.25rem;font-weight:700;letter-spacing:.08em;
-      text-shadow:0 2px 14px rgba(0,0,0,.5);
-    }
-    .hero-note{
-      position:absolute;top:24px;right:24px;
-      max-width:220px;padding:15px 18px;border-radius:18px;
-      background:rgba(255,255,255,.93);backdrop-filter:blur(8px);
-      color:#36516c;font-size:.82rem;line-height:1.65;box-shadow:var(--shadow);
-    }
-    .hero-note b{display:block;color:var(--navy);font-size:.92rem;margin-bottom:3px}
-
-    /* plans */
-    .plans{padding:68px 0 76px;background:#fff}
-    .plans .section-head{margin-bottom:28px}
-    .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .plan{
-      position:relative;
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-      background:#fff;
-      box-shadow:var(--shadow);
-      display:flex;flex-direction:column;
-    }
-    .plan.take{border:2px solid #7eae61;transform:translateY(-4px)}
-    .plan.take:before{
-      content:"おすすめ";
-      position:absolute;top:14px;right:14px;
-      padding:5px 10px;border-radius:999px;
-      background:#5d9d42;color:#fff;font-size:.72rem;font-weight:800;
-    }
-    .plan-top{padding:26px 24px 18px;text-align:center}
-    .plan-symbol{font-size:2rem}
-    .plan h3{margin:8px 0 3px;font-family:"Noto Serif JP",serif;font-size:1.5rem}
-    .plan small{color:#6f7c8b}
-    .plan-price{margin:16px 0 0;padding:10px 8px;border:1px solid currentColor;border-radius:14px;font-size:.85rem}
-    .plan-price strong{font-size:1.95rem;margin:0 4px}
-    .plan ul{list-style:none;margin:0;padding:0 25px 20px;flex:1}
-    .plan li{padding:8px 0;border-bottom:1px dashed #e6edf2;font-size:.9rem;color:#4a5c6f}
-    .plan li:last-child{border-bottom:0}
-    .plan li:before{content:"✓";font-weight:900;margin-right:8px}
-    .plan .btn{margin:0 22px 22px}
-    .ume{color:#df5673;background:linear-gradient(180deg,#fff,#fff9fb)}
-    .take{color:#5d9943;background:linear-gradient(180deg,#fff,#fbfff8)}
-    .matsu{color:#1d7650;background:linear-gradient(180deg,#fff,#f8fffb)}
-    .plan-note{text-align:center;margin:16px 0 0;color:#768392;font-size:.8rem}
-    .price-shortcut{
-      margin:28px auto 0;
-      max-width:920px;
-      display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
-      padding:16px 20px;border-radius:18px;background:#f3f8fb;color:#4e6479;
-    }
-    .price-shortcut b{color:var(--navy)}
-
-    /* common cards */
-    .worries{padding:72px 0;background:#f7fafc}
-    .worry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .worry-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:23px;box-shadow:0 8px 28px rgba(10,50,88,.05)}
-    .worry-card .mark{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#eaf5fb;color:#1d72a7;font-weight:900;margin-bottom:13px}
-    .worry-card h3{margin:0 0 7px;color:var(--navy);font-size:1rem}
-    .worry-card p{margin:0;color:var(--muted);font-size:.88rem}
-
-    .service{padding:74px 0;background:#fff}
-    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .service-card{border:1px solid var(--line);border-radius:20px;padding:22px;background:#fff}
-    .service-no{font-size:.75rem;color:var(--blue);font-weight:800;letter-spacing:.08em}
-    .service-card h3{margin:5px 0 7px;color:var(--navy);font-size:1.05rem}
-    .service-card p{margin:0;color:var(--muted);font-size:.87rem}
-    .service-note{margin-top:20px;text-align:center;color:#7a8794;font-size:.8rem}
-
-    .report{padding:76px 0;background:#f7fafc}
-    .report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px;align-items:center}
-    .report-sheet{border:1px solid #d8e3ec;border-radius:24px;background:#fff;padding:23px;box-shadow:0 18px 45px rgba(14,51,90,.12)}
-    .report-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;padding-bottom:13px;border-bottom:2px solid #edf2f5}
-    .report-head strong{color:var(--navy)}
-    .report-status{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
-    .report-item{padding:13px;border-radius:13px;background:#f8fbfd;border:1px solid #e3ebf1}
-    .report-item span{display:block;color:#7a8693;font-size:.75rem}
-    .report-item b{display:block;color:#35536e;margin-top:2px}
-    .report-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
-    .report-photo{aspect-ratio:4/3;display:grid;place-items:center;background:linear-gradient(145deg,#dbe8ef,#f4f7f9);border:1px solid #d8e2e9;border-radius:10px;color:#70879a;font-size:.73rem}
-    .report-copy h3{margin:8px 0 12px;color:var(--navy);font-family:"Noto Serif JP",serif;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.45;text-wrap:balance}
-    .report-copy p{margin:0;color:var(--muted)}
-    .check-list{display:grid;gap:10px;margin:20px 0}
-    .check-list div{display:flex;gap:10px;color:#44596f}
-    .check-list i{font-style:normal;font-weight:900;color:#1d7ab0}
-
-    .options{padding:74px 0;background:#fff}
-    .option-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-    .option-card{border:1px solid var(--line);border-radius:18px;padding:21px;background:#fff}
-    .option-card h3{margin:0 0 7px;color:var(--navy);font-size:1rem}
-    .option-card p{margin:0;color:var(--muted);font-size:.85rem}
-
-    .flow{padding:74px 0;background:#f7fafc}
-    .flow-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .step{position:relative;padding:23px 19px;border:1px solid var(--line);border-radius:18px;background:#fff}
-    .step .num{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#e4f0f7;color:var(--navy);font-weight:900;margin-bottom:11px}
-    .step h3{margin:0 0 6px;color:var(--navy);font-size:1rem}
-    .step p{margin:0;color:var(--muted);font-size:.84rem}
-
-    .info{padding:74px 0;background:#fff}
-    .info-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
-    .info .section-head{text-align:left;margin:0 0 22px}
-    .qa-list{display:grid;gap:10px}
-    details{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
-    summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:15px;padding:17px 18px;color:#31516e;font-weight:800}
-    summary::-webkit-details-marker{display:none}
-    summary:after{content:"＋";color:#6885a0;font-size:1.1rem}
-    details[open] summary:after{content:"−"}
-    details p{margin:0;padding:0 18px 18px;color:var(--muted);font-size:.9rem}
-    .area-card{height:max-content;padding:26px;border-radius:22px;background:linear-gradient(180deg,#f4f9fc,#fff);border:1px solid var(--line);position:sticky;top:108px}
-    .area-card h3{margin:6px 0 9px;color:var(--navy);font-family:"Noto Serif JP",serif;font-size:1.5rem}
-    .area-card p{color:var(--muted)}
-    .area-tags{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
-    .area-tags span{padding:7px 12px;border-radius:999px;background:#fff;border:1px solid #cadbe7;color:#385975;font-size:.85rem;font-weight:800}
-
-    .contact{padding:76px 0;background:linear-gradient(135deg,#0b376b,#16598e);color:#fff}
-    .contact-grid{display:grid;grid-template-columns:1fr .85fr;gap:34px;align-items:center}
-    .contact .eyebrow{color:#a8d2ef}
-    .contact h2{margin:8px 0 12px;color:#fff;font-family:"Noto Serif JP",serif;font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.4;text-wrap:balance}
-    .contact p{margin:0;color:#dbe8f3}
-    .contact-card{background:#fff;color:var(--ink);border-radius:24px;padding:26px;box-shadow:0 18px 48px rgba(0,0,0,.14)}
-    .contact-card .label{font-size:.78rem;color:#73808e;font-weight:700}
-    .bigphone{display:block;margin:5px 0 10px;color:var(--navy);font-size:clamp(2rem,4vw,2.8rem);font-weight:900;letter-spacing:.04em;line-height:1.15;white-space:nowrap}
-    .contact-card ul{margin:14px 0 20px;padding-left:1.15em;color:#536578;font-size:.88rem}
-    .contact-actions{display:flex;gap:10px;flex-wrap:wrap}
-    .contact-actions .btn{flex:1}
-    .representative{margin-top:18px;padding-top:17px;border-top:1px solid #e5ebf0;display:flex;align-items:center;gap:14px}
-    .representative-photo{width:76px;height:92px;flex:0 0 auto;border-radius:18px;object-fit:cover;object-position:center 24%;border:1px solid #d7e3ec;box-shadow:0 8px 22px rgba(11,58,111,.12);background:#f7fafc}
-    .representative b{display:block;color:var(--navy);font-size:.98rem}
-    .representative span{display:block;margin-top:3px;font-size:.8rem;color:#758291;line-height:1.65}
-
-    .company{padding:66px 0;background:#f7fafc}
-    .company-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    .company-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:25px}
-    .company-card h3{margin:5px 0 16px;color:var(--navy);font-family:"Noto Serif JP",serif;font-size:1.35rem}
-    .company-card dl{margin:0}
-    .company-card dl div{display:grid;grid-template-columns:120px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid #edf2f5}
-    .company-card dl div:last-child{border-bottom:0}
-    dt{font-weight:800;color:#3b5672}
-    dd{margin:0;color:#647383}
-    .company-card p{margin:0;color:#647383;font-size:.9rem}
-
-    footer{background:#082e59;color:#fff;padding:27px 0}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
-    .footer-brand{font-family:"Noto Serif JP",serif;font-weight:700}
-    .footer-sub{font-size:.75rem;color:#c9d9e6}
-    .copyright{font-size:.75rem;color:#c3d4e2;text-align:right}
-
-    .floating-contact{display:none}
-
-    @media(max-width:1180px){
-      .nav{display:none}
-      .header-contact .phone-box{display:none}
-      .menu-btn{display:grid;place-items:center}
-      .hero-grid{grid-template-columns:1fr .78fr}
-      .hero-copy{padding-left:36px}
-    }
-    @media(max-width:900px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero-copy{padding:54px 24px 36px}
-      .hero-visual{min-height:360px}
-      .plan-grid,.worry-grid,.service-grid{grid-template-columns:1fr}
-      .plan.take{transform:none}
-      .report-grid,.info-grid,.contact-grid,.company-grid{grid-template-columns:minmax(0,1fr)}
-      .option-grid,.flow-row{grid-template-columns:repeat(2,1fr)}
-      .area-card{position:static}
-    }
-    @media(max-width:680px){
-      .container,.header-container{width:min(calc(100% - 24px),var(--max))}
-      .header-inner{min-height:70px;gap:10px}
-      .brand-mark{width:52px;height:40px}
-      .brand-copy strong{font-size:.96rem}
-      .brand-copy span{font-size:.66rem}
-      .header-contact>.btn{display:none}
-      .hero h1{font-size:clamp(2.1rem,10vw,3.05rem)}
-      .hero h1 .hero-line{display:inline}
-      .hero h1 .hero-line:first-child:after{content:" "}
-      .hero-price{align-items:stretch}
-      .price-badge{width:100%;justify-content:center}
-      .hero-actions,.hero-actions .btn{width:100%}
-      .hero-note{top:16px;right:16px;left:16px;max-width:none}
-      .hero-visual:after{font-size:1.05rem;left:18px;bottom:18px}
-      .plans,.worries,.service,.report,.options,.flow,.info,.contact,.company{padding:54px 0}
-      .option-grid,.flow-row{grid-template-columns:1fr}
-      .report-status{grid-template-columns:minmax(0,1fr)}
-      .report-sheet,.report-copy,.contact-card{min-width:0}
-      .btn{max-width:100%;min-width:0;white-space:normal;text-align:center;padding-block:10px}
-      .bigphone{font-size:clamp(1.35rem,6.3vw,2.8rem)}
-      .representative>div{min-width:0}
-      .report-photos{grid-template-columns:repeat(3,1fr)}
-      .company-card dl div{grid-template-columns:1fr;gap:2px}
-      .footer-inner{flex-direction:column;align-items:flex-start}
-      .copyright{text-align:left}
-      .floating-contact{
-        position:fixed;z-index:110;left:12px;right:12px;bottom:12px;
-        display:flex;gap:8px;padding:8px;background:rgba(255,255,255,.96);
-        border:1px solid #d8e4ed;border-radius:18px;box-shadow:0 12px 30px rgba(11,58,111,.18);backdrop-filter:blur(10px)
-      }
-      .floating-contact .btn{flex:1;min-height:46px;padding:0 12px;font-size:.87rem}
-      body{padding-bottom:78px}
-    }
-
-    /* Completed leaflet: navy, leaf green and warm campaign accents. */
-    :root{--navy:#082d62;--navy2:#14518b;--blue:#14518b;--green:#54861b;--deepgreen:#096240;--pink:#e93257;--ink:#20364c;--muted:#5b6c7a;--line:#dce7e1;--shadow:0 10px 30px rgba(20,61,60,.065)}
-    a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f1af25;outline-offset:5px}
-    .site-header{background:#fff;border-top:4px solid var(--deepgreen)}
-    .header-inner{min-height:82px;gap:18px}
-    .brand-copy strong{font-size:1rem}
-    .nav{gap:20px;font-size:.83rem}
-    .header-contact{gap:14px}
-    .phone-box strong{font-size:1.06rem}
-    .btn{border-radius:10px;white-space:normal;text-align:center;padding:12px 22px;line-height:1.5}
-    .btn-primary{background:var(--navy);box-shadow:none}
-    .btn-primary:hover{background:#15588d}
-    .btn-pink{background:var(--pink);box-shadow:none}
-    .eyebrow{letter-spacing:.12em;font-size:.78rem}
-    .section-title{font-family:"Noto Sans JP",sans-serif;font-weight:800;font-size:clamp(1.65rem,3vw,2.35rem)}
-    .hero{background:linear-gradient(120deg,#f4fbff 0%,#fff 65%);border:0}
-    .hero-grid{max-width:1280px;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);min-height:510px;align-items:center}
-    .hero-copy{padding:54px 0 48px 40px}
-    .hero-kicker{display:flex;align-items:center;gap:8px;font-size:.85rem;letter-spacing:.03em;color:var(--deepgreen)}
-    .leaf-dot{width:12px;height:18px;display:inline-block;background:#7ba62d;border-radius:100% 0 100% 0;transform:rotate(25deg)}
-    .hero h1{font-family:"Noto Sans JP",sans-serif;font-size:clamp(1.9rem,3.2vw,2.7rem);font-weight:900;letter-spacing:-.04em;margin:18px 0 16px;line-height:1.45}
-    .hero-small{display:block;font-size:1.15rem;font-weight:700;letter-spacing:.07em;margin-bottom:3px}
-    .hero-promise{font-family:"Noto Serif JP",serif;font-size:clamp(1.3rem,2.3vw,1.8rem);line-height:1.65;font-weight:700;color:var(--navy);margin:0 0 15px}
-    .hero-promise em{font-style:normal;background:linear-gradient(transparent 65%,#ffe57a 65%)}
-    .hero-sub{font-size:.92rem}
-    .hero-price{margin:18px 0 12px;gap:12px}
-    .price-badge{background:transparent;border:0;box-shadow:none;padding:0}
-    .price-badge strong{font-size:1.65rem}
-    .hero-tags{gap:7px;margin-bottom:20px}
-    .hero-tags span{padding:4px 10px;background:#e9f2ec;color:var(--deepgreen);font-size:.72rem}
-    .hero-actions{gap:10px}
-    .hero-actions .btn{font-size:.85rem}
-    .hero-actions .btn[href="#plans"]{color:var(--navy);background:#fff;border:1px solid #adc2d4}
-    .hero-actions .btn[href^="tel:"]{display:none}
-    .hero-visual{min-height:0;background:none;padding:25px 16px 25px 0}
-    .hero-visual img{width:100%;height:auto;border-radius:40% 40% 20px 20px}
-    .hero-visual:after{display:none}
-    .hero-note{position:relative;top:auto;right:auto;margin:-40px auto 0;text-align:center;background:#fff;max-width:290px;border:1px solid #dae6dc;border-radius:14px;box-shadow:0 8px 22px #173f6310;padding:14px 20px;color:var(--deepgreen);font-size:.85rem}
-    .hero-note b{font-size:1.05rem;color:var(--deepgreen)}
-    .opening{padding:0 0 20px;background:linear-gradient(#f9fcff,#fff)}
-    .campaign-shell{background:#fff8df;border:1px solid #f2dba2;border-radius:20px;padding:25px 30px;position:relative}
-    .campaign-heading{display:flex;justify-content:space-between;align-items:center;gap:16px}
-    .campaign-heading>div{display:flex;align-items:center;gap:14px}
-    .campaign-tag{font-size:.85rem;font-weight:800;border:1px solid #e93257;color:#d72749;border-radius:30px;padding:5px 15px;background:#fff;white-space:nowrap}
-    .campaign-heading h2{color:#c92547;font-size:1.5rem;margin:0;letter-spacing:.03em}
-    .campaign-deadline{font-size:.87rem;margin:0;color:#8e5829;font-weight:700}
-    .campaign-offers{display:grid;grid-template-columns:1fr 30px 1fr 1fr;gap:18px;align-items:center;margin-top:17px}
-    .campaign-offers[hidden]{display:none}
-    .campaign-offers>div{display:flex;align-items:center;justify-content:center;gap:15px;background:#fff;border-radius:12px;padding:12px 16px}
-    .campaign-offers>div>span{font-size:.9rem;color:var(--navy);font-weight:700}
-    .campaign-offers strong{font-size:2.1rem;line-height:1.3;color:#e92d39;white-space:nowrap}
-    .campaign-offers small{font-size:1.3rem}
-    .plus{text-align:center;font-size:1.5rem;color:var(--deepgreen)}
-    .campaign-terms{font-size:.74rem;line-height:1.7;color:#6c6255;margin:13px 0 0}
-    .campaign-offers .btn{font-size:.85rem}
-    .plans{padding-top:58px}
-    .plan-grid{gap:22px}
-    .plan{border-top:5px solid currentColor;border-radius:18px}
-    .plan.take{border:1px solid var(--line);border-top:5px solid currentColor;transform:none}
-    .plan.take:before{display:none}
-    .plan-top{padding:22px 20px 16px}
-    .plan-name{display:flex;align-items:baseline;justify-content:center;gap:6px}
-    .plan-name>span{font-size:3rem;font-family:"Noto Serif JP",serif;font-weight:800;line-height:1.2}
-    .plan-name h3{font-family:"Noto Sans JP",sans-serif;font-size:1.35rem}
-    .plan-scope{border:1px solid currentColor;border-radius:6px;font-size:.85rem;font-weight:700;margin:12px auto 10px;padding:3px 5px}
-    .plan-top>small{display:block;color:#43574c;font-size:.8rem;min-height:2.8em}
-    .plan-price{border:0;border-radius:0;padding:0;margin:14px 0 0}
-    .plan-price strong{font-size:2rem;letter-spacing:-.04em}
-    .plan-price strong small{font-size:1.05rem;color:inherit}
-    .plan-price>span{font-size:.72rem}
-    .plan ul{padding:0 22px 20px}
-    .plan li{font-size:.88rem;position:relative;padding:9px 0 9px 21px;line-height:1.5;color:#2d4438}
-    .plan li:before{position:absolute;left:0;color:var(--green)}
-    .plan li span{display:block;font-size:.72rem;color:#6f7b75;margin-top:2px}
-    .ume{color:#e93257;background:linear-gradient(#fff5f7,#fff)}
-    .take{color:#54861b;background:linear-gradient(#f7faed,#fff)}
-    .matsu{color:#096240;background:linear-gradient(#eef9f1,#fff)}
-    .price-shortcut{background:#f4f7ec}
-    .worries{background:#f5f8f1}
-    .worry-card{box-shadow:none;border:1px solid #d6e2d1}
-    .worry-card .mark{background:#e5eedf;color:var(--deepgreen)}
-    .worry-card h3{color:var(--deepgreen)}
-    .demolition{background:#f5f8f1;padding:0 0 60px}
-    .demolition-inner{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:36px;border-left:4px solid #df664e;background:#fff6ef;padding:24px 28px;border-radius:0 12px 12px 0;align-items:center}
-    .demolition h2{font-size:1.25rem;color:#a2402f;margin:5px 0 10px;line-height:1.6}
-    .demolition p{font-size:.88rem;margin:0;color:#765448}
-    .demolition strong{display:block;font-size:1.8rem;color:#c13a2c;line-height:1.6}
-    .demolition .demolition-note{font-size:.76rem}
-    .demolition .eyebrow{color:#a75b42}
-    .service-card{border:0;border-bottom:1px solid #dce7e1;border-radius:0;padding:24px 16px}
-    .service-no{color:var(--deepgreen)}
-    .report{background:#f0f6f8}
-    .report-copy .btn{margin-top:5px}
-    .referral{background:#fff;padding:70px 0}
-    .referral-panel{display:grid;grid-template-columns:1fr 1.5fr;gap:36px;align-items:center;background:#fff4f3;border:1px solid #f5d6d3;border-radius:20px;padding:36px}
-    .referral-intro .eyebrow{color:#b8404b}
-    .referral h2{margin:9px 0 12px;color:#be2d46;font-size:1.8rem;line-height:1.5}
-    .referral-intro p{font-size:.9rem;color:#86505a;margin:0}
-    .referral-rewards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .referral-rewards>div{text-align:center;background:#fff;padding:22px 12px;border-radius:14px}
-    .reward-label{display:inline-block;background:var(--navy);color:#fff;border-radius:30px;padding:3px 17px;font-size:.83rem;font-weight:700}
-    .referral-rewards p{font-size:.85rem;margin:10px 0 0}
-    .referral-rewards strong{color:#e52e43;font-size:2rem;letter-spacing:-.03em}
-    .referral-rewards small{font-size:1rem}
-    .about{background:#eef5fa;padding:70px 0}
-    .about-grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:65px;align-items:center;max-width:1000px}
-    .about-photo{position:relative}
-    .about-photo img{width:100%;height:340px;object-fit:cover;object-position:center 25%;border-radius:20px;background:white}
-    .about-photo>span{display:block;text-align:center;background:var(--navy);color:#fff;border-radius:0 0 14px 14px;padding:10px;font-size:.82rem;margin-top:-15px;position:relative}
-    .about h2{font-size:1.8rem;line-height:1.6;color:var(--navy);margin:10px 0 20px}
-    .representative-title{font-size:.85rem;color:#48627a;margin:0}
-    .representative-name{font-size:2rem;letter-spacing:.1em;font-weight:800;color:var(--navy);margin:2px 0 14px}
-    .representative-name span{display:inline-block;font-size:.65rem;letter-spacing:.08em;color:#738ba0}
-    .about ul{padding-left:1.2em;font-size:.85rem;color:#48627a;margin-bottom:20px}
-    .about li{padding:3px 0}
-    .about-area{display:inline-block;padding:7px 16px;border-radius:6px;color:var(--navy);background:#fff;font-weight:700;font-size:.82rem}
-    .contact-actions .btn{flex:1 1 190px}
-    .contact-email{display:block;color:var(--navy);font-size:.84rem;overflow-wrap:anywhere;margin-top:14px;text-decoration:underline;text-underline-offset:4px}
-    .contact-card .representative{display:none}
-    .contact-card .bigphone{font-size:clamp(1.5rem,3vw,2.4rem);letter-spacing:0}
-    dd{overflow-wrap:anywhere}
-    .company-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
-    .floating-contact .btn{border-radius:8px}
-    .company-card h3{font-family:"Noto Sans JP",sans-serif}
-    @media(max-width:1100px){
-      .hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
-      .hero-copy{padding-left:24px}.hero h1{font-size:2rem}.hero-promise{font-size:1.4rem}
-      .campaign-offers{grid-template-columns:1fr 25px 1fr}.campaign-offers .btn{grid-column:1/-1;max-width:380px;width:100%;margin:auto}
-      .campaign-heading>div{flex-wrap:wrap;gap:8px}.plan-grid{gap:14px}.plan-top{padding-inline:15px}.plan-price strong{font-size:1.75rem}
-    }
-    @media(max-width:900px){
-      .hero-grid{grid-template-columns:1fr 1fr}.hero-visual{padding-right:15px}
-      .plan-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.plan li{font-size:.8rem}.plan ul{padding-inline:14px}.plan .btn{margin-inline:14px;padding-inline:10px}
-      .plan-scope{font-size:.72rem}.plan-top>small{min-height:4.3em}.plan-price strong{font-size:1.6rem}.plan-price>span{display:block}
-      .company-grid{grid-template-columns:1fr}.referral-panel{gap:22px;padding:28px}.about-grid{gap:35px;grid-template-columns:250px minmax(0,1fr)}
-    }
-    @media(max-width:680px){
-      .header-inner{min-height:64px}.brand-copy strong{font-size:.85rem}.brand-mark{width:42px}
-      .hero-grid{grid-template-columns:1fr}.hero-copy{padding:32px 22px 0}.hero-kicker{font-size:.75rem}.hero h1{font-size:clamp(1.65rem,6.8vw,2.5rem);margin-top:15px}.hero-small{font-size:1rem}
-      .hero-promise{font-size:1.35rem}.hero-sub{font-size:.85rem}.hero-sub br{display:none}
-      .hero-price{align-items:center;margin-top:16px}.price-badge{width:auto;justify-content:flex-start}.hero-price>.muted-note{display:none}
-      .hero-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}.hero-actions .btn{width:auto;font-size:.76rem;padding:12px 8px}
-      .hero-visual{padding:0 18px 24px;max-width:460px;width:100%;margin:auto}
-      .hero-visual img{max-height:265px;object-fit:contain;border-radius:0}
-      .hero-note{margin:-20px auto 0;left:auto;padding:9px 20px;max-width:270px;font-size:.75rem}
-      .hero-note b{font-size:.95rem}
-      .campaign-shell{padding:20px 16px;border-radius:16px}
-      .campaign-heading{display:block;text-align:center}.campaign-heading>div{display:block}
-      .campaign-tag{font-size:.78rem;display:inline-block;margin-bottom:8px}.campaign-heading h2{font-size:1.25rem}.campaign-deadline{font-size:.8rem;margin-top:6px}
-      .campaign-offers{gap:7px;grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr);margin-top:14px}
-      .campaign-offers>div{display:block;padding:13px 5px;text-align:center}.campaign-offers>div>span{font-size:.72rem;display:block}.campaign-offers strong{font-size:1.9rem}.campaign-offers small{font-size:1.1rem}
-      .campaign-offers .btn{margin-top:8px;max-width:none;font-size:.8rem}.campaign-terms{font-size:.68rem}
-      .plan-grid{grid-template-columns:1fr;gap:20px}.plan-top{padding:22px}.plan-top>small{min-height:0;font-size:.86rem}.plan-price>span{display:inline}.plan-price strong{font-size:2.1rem}
-      .plan-scope{font-size:.85rem;max-width:300px}.plan ul{padding-inline:25px}.plan li{font-size:.9rem}.plan li span{font-size:.77rem}.plan .btn{margin-inline:24px}
-      .worry-grid{grid-template-columns:1fr 1fr;gap:12px}.worry-card{padding:17px 13px}.worry-card h3{font-size:.92rem}.worry-card p{font-size:.8rem}
-      .demolition{padding-bottom:40px}.demolition-inner{grid-template-columns:1fr;gap:14px;padding:20px}.demolition h2{font-size:1.1rem}.demolition strong{font-size:1.5rem}
-      .section-title{font-size:1.5rem}.section-lead{font-size:.88rem}
-      .referral{padding:45px 0}.referral-panel{grid-template-columns:1fr;gap:20px;padding:24px 16px}.referral-intro{text-align:center}.referral h2{font-size:1.6rem}.referral h2 br{display:none}.referral-intro p br{display:none}
-      .referral-rewards{gap:10px}.referral-rewards>div{padding:18px 5px}.reward-label{font-size:.75rem;padding-inline:12px}.referral-rewards strong{font-size:1.7rem}.referral-rewards small{font-size:.8rem}
-      .about{padding:45px 0}.about-grid{grid-template-columns:1fr;gap:28px}.about-photo{max-width:240px;margin:auto}.about-photo img{height:270px}.about-copy{padding:0 10px}.about h2{font-size:1.5rem}.about ul{font-size:.83rem}
-      .about-area{font-size:.75rem}.contact h2{font-size:1.65rem}.contact-card{padding:22px}
-      .floating-contact{padding-bottom:calc(8px + env(safe-area-inset-bottom))}.floating-contact .btn{font-size:.8rem}
-      body{padding-bottom:calc(82px + env(safe-area-inset-bottom))}
-    }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+:root{--navy:#12384d;--green:#38664d;--ink:#263e49;--muted:#617177;--line:#dce4df;--paper:#f7f8f3;--max:1160px}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:100px}
+body{margin:0;color:var(--ink);font-family:"Noto Sans JP","Yu Gothic",sans-serif;line-height:1.85;background:#fff;font-size:15px;overflow-wrap:anywhere;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button,input{font:inherit}button,a,input,summary{-webkit-tap-highlight-color:transparent}a,button,summary{touch-action:manipulation}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #d79520;outline-offset:5px}
+[id]{scroll-margin-top:105px}h1,h2,h3,p{margin-top:0}h2,h3{color:var(--navy)}.container{width:min(calc(100% - 48px),var(--max));margin-inline:auto}
+.section-head{margin:0 0 40px;max-width:820px}.eyebrow{font-size:11px;letter-spacing:.17em;font-weight:800;color:var(--green);display:block;margin-bottom:9px}
+.section-title{font-size:clamp(25px,3vw,35px);line-height:1.6;letter-spacing:.02em;margin:0 0 14px;font-family:"Noto Serif JP",serif;text-wrap:pretty}
+.section-lead{font-size:14px;color:var(--muted);margin:0;line-height:2}.muted-note{font-size:12px;color:var(--muted)}
+.btn{min-height:50px;padding:12px 22px;display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid transparent;border-radius:6px;font-size:14px;font-weight:700;line-height:1.65;text-align:center;transition:background .18s,box-shadow .18s;cursor:pointer}
+.btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:#22536a;box-shadow:0 5px 15px #12384d20}
+.btn-outline,.btn-light{color:var(--navy);background:#fff;border-color:#becdc8}.btn-outline:hover,.btn-light:hover{background:#f1f5f1}.btn-pink{background:#ae3455;color:white}.btn-pink:hover{background:#92213f}
+.skip-link{position:fixed;top:-80px;left:16px;z-index:1000;background:#fff;padding:12px 20px;color:var(--navy);border:2px solid var(--navy)}.skip-link:focus{top:8px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.site-header{position:sticky;top:0;z-index:100;background:#fffffff5;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header-container{width:min(calc(100% - 40px),1380px);margin:auto}.header-inner{min-height:85px;display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}.brand-mark{width:50px;height:45px;color:var(--navy)}.brand-copy{line-height:1.45;white-space:nowrap}.brand-copy strong{font-family:"Noto Serif JP",serif;font-size:18px;color:var(--navy)}.brand-copy>span{display:block;font-size:11px;color:#526970}
+.nav{display:flex;gap:21px;margin-left:auto;font-size:12px;font-weight:700;white-space:nowrap}.nav a{padding:14px 0}.nav a:hover{color:var(--green);text-decoration:underline;text-underline-offset:7px}
+.header-contact{display:flex;align-items:center;gap:18px;margin-left:auto}.phone-box{white-space:nowrap;line-height:1.5;text-align:right}.phone-box small{font-size:9px;color:var(--muted);display:block}.phone-box strong{font-size:18px;letter-spacing:.025em}.header-contact>.btn{font-size:12px;padding-inline:18px}
+.menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:5px;cursor:pointer;font-size:24px}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:#fff}.mobile-nav.open{display:block}.mobile-nav .container{display:grid;padding:12px 0 20px;max-height:calc(100dvh - 90px);overflow:auto}.mobile-nav a{padding:10px;border-bottom:1px solid var(--line);font-size:14px}.mobile-nav .btn{margin-top:10px}
+.hero{background:linear-gradient(115deg,#f3f6ed,#f8fbf7 50%,#fff);overflow:hidden}
+.hero-grid{width:min(calc(100% - 48px),1260px);margin:auto;display:grid;grid-template-columns:1fr 1.1fr;align-items:center;min-height:650px;gap:20px;padding:54px 0 50px}
+.hero-copy{padding-left:30px;position:relative;z-index:1}.hero-kicker{font-size:12px;color:var(--green);font-weight:700;display:flex;align-items:center;gap:8px}.leaf-dot{display:inline-block;width:12px;height:8px;background:#6e8a47;border-radius:12px 0 12px 0;transform:rotate(-25deg)}
+.hero h1{font-size:18px;letter-spacing:.07em;line-height:1.6;margin:18px 0 20px;font-weight:600}.hero-small{font-size:12px;letter-spacing:.12em;margin-right:8px}
+.hero-promise{font-family:"Noto Serif JP",serif;font-size:clamp(34px,3.5vw,48px);font-weight:700;line-height:1.55;letter-spacing:.045em;color:var(--navy);margin:0 0 24px}
+.hero-promise em{font-style:normal;color:var(--green);background:linear-gradient(transparent 80%,#e5e9b9 80%)}
+.hero-sub{font-size:14px;color:var(--muted);line-height:2.05;max-width:460px}.hero-price{display:flex;align-items:center;gap:16px;margin:22px 0 10px}
+.price-badge{display:flex;align-items:baseline;gap:7px;font-size:12px;color:var(--navy)}.price-badge strong{font-size:30px;letter-spacing:-.02em;line-height:1.5}.price-badge small{font-size:12px}.hero-price>.muted-note{display:none}
+.hero-tags{display:flex;flex-wrap:wrap;gap:15px;font-size:11px;color:var(--green);margin-bottom:24px}.hero-tags span:before{content:"✓";margin-right:5px;font-weight:900}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.hero-actions .btn{padding-inline:19px;font-size:13px}.hero-actions .btn[href^="tel:"]{display:none}
+.hero-visual{position:relative;align-self:center;padding-bottom:30px}.hero-visual img{width:100%;border-radius:48% 48% 8px 8px;mix-blend-mode:multiply}
+.hero-note{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);box-shadow:0 14px 35px #18392b0c;border-radius:7px;padding:18px 24px;width:max-content;max-width:95%;position:relative;margin:-22px auto 0;font-size:11px;color:var(--muted)}
+.hero-note b{display:block;font-size:14px;color:var(--navy)}.note-dot{height:13px;width:13px;flex-shrink:0;background:#6c8b58;border:3px solid #edf2e7;border-radius:50%}
+.assurance-bar{background:var(--navy);color:#fff}.assurance-bar .container{display:flex;justify-content:space-between;gap:20px;padding-block:21px}.assurance-bar span{font-size:13px}.assurance-bar b{font-size:11px;font-weight:500;color:#aac4bc;letter-spacing:.1em;margin-right:14px}
+.opening{padding:38px 0 0}.campaign-shell{background:#faf4e7;border:1px solid #e5dcc5;border-radius:8px;padding:24px 28px}
+.campaign-heading{display:flex;justify-content:space-between;align-items:center;gap:16px}.campaign-heading>div{display:flex;gap:14px;align-items:center}.campaign-tag{font-size:11px;color:#a13746;border:1px solid #b64e5b;padding:3px 10px;border-radius:3px;white-space:nowrap}.campaign-heading h2{font-size:18px;margin:0;letter-spacing:.04em;color:#963e48}
+.campaign-deadline{font-size:12px;color:#695c45;margin:0}.campaign-offers{display:grid;grid-template-columns:1fr 20px 1fr 1fr;align-items:center;gap:18px;margin-top:18px}.campaign-offers[hidden]{display:none}.campaign-offers>div{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px;background:#ffffffb0;border-radius:4px}.campaign-offers span{font-size:12px;font-weight:600}.campaign-offers strong{font-size:30px;color:#b2384c;white-space:nowrap;line-height:1.4}.campaign-offers small{font-size:18px}.campaign-offers .btn{font-size:12px}.plus{font-size:21px;color:var(--green);text-align:center}.campaign-terms{font-size:11px;color:#716b5d;margin:13px 0 0;line-height:1.8}
+.plans,.service,.info,.options,.company,.preparation{padding:90px 0}
+.plan-guide{display:grid;grid-template-columns:.8fr 1.5fr;gap:30px;padding:26px 30px;background:var(--paper);border:1px solid var(--line);margin:0 0 32px;border-radius:8px}
+.guide-heading h3{font-size:17px;margin-bottom:6px}.guide-heading p{font-size:12px;color:var(--muted);margin:0}.guide-controls fieldset{border:0;padding:0;margin:0;display:flex;gap:8px;flex-wrap:wrap}.guide-controls label{position:relative;flex:1;min-width:130px}
+.guide-controls label input{position:absolute;left:12px;top:17px;accent-color:var(--green);width:15px;height:15px;margin:0}
+.guide-controls label span{display:flex;min-height:50px;align-items:center;padding:10px 10px 10px 34px;line-height:1.6;font-size:12px;border:1px solid #b8c8be;border-radius:5px;background:#fff;cursor:pointer}
+.guide-controls input:checked+span{background:#e7eee4;border-color:var(--green);color:#214a30;font-weight:700}
+.guide-result{display:flex;gap:16px;align-items:baseline;justify-content:space-between;margin-top:14px;font-size:12px}.guide-result p{margin:0;flex:1}.guide-result b{color:var(--green)}.guide-result a{white-space:nowrap;color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.plan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.plan{border:1px solid var(--line);border-top:4px solid var(--tone);display:flex;flex-direction:column;border-radius:8px;background:#fff;overflow:hidden}
+.ume{--tone:#b43e60;--tint:#fcf3f5}.take{--tone:#627e3b;--tint:#f5f7ed}.matsu{--tone:#216345;--tint:#eef6f0}
+.plan-top{background:var(--tint);padding:24px 22px 22px;min-height:245px}.plan-name{display:flex;align-items:baseline;gap:8px;color:var(--tone)}.plan-name>span{font-family:"Noto Serif JP",serif;font-size:37px;font-weight:700}.plan-name h3{color:var(--tone);font-size:17px;margin:0}.plan-scope{font-size:12px;font-weight:700;color:var(--tone);margin:6px 0}
+.plan-top>small{display:block;min-height:40px;font-size:12px;color:#59665c}.plan-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;margin-top:13px;color:var(--tone);font-size:11px}.plan-price strong{font-size:35px;letter-spacing:-.035em;line-height:1.4}.plan-price small{font-size:15px;letter-spacing:0}
+.plan ul{list-style:none;padding:14px 22px 20px;margin:0;flex:1}.plan li{position:relative;padding:10px 0 10px 22px;border-bottom:1px solid #edf0e9;font-size:13px;font-weight:500;line-height:1.7}.plan li:last-child{border:0}.plan li:before{content:"✓";position:absolute;left:0;color:var(--tone);font-weight:800}.plan li span{display:block;color:var(--muted);font-size:11px;font-weight:400}
+.plan .btn{margin:0 22px 24px;font-size:13px;background:#fff;border-color:var(--tone);color:var(--tone)}.plan .btn:hover{background:var(--tint)}
+.plan-note{font-size:11px;color:var(--muted);margin:18px 0 0}.price-shortcut{display:flex;flex-wrap:wrap;gap:6px 20px;padding:18px 0;border-bottom:1px solid var(--line);margin-top:18px;font-size:12px;color:var(--muted)}.price-shortcut b{color:var(--navy);font-size:14px}
+.service{background:var(--paper)}.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 38px}
+.service-card{padding:24px 0;border-top:1px solid #cfdacf}.service-icon{display:flex;align-items:center;justify-content:space-between;color:var(--green);margin-bottom:17px}.service-icon svg{width:34px;height:34px}.service-icon span{font-family:Georgia,serif;font-size:15px;color:#81987c}
+.service-card h3{font-size:17px;margin:0 0 8px}.service-card p{font-size:13px;color:var(--muted);margin:0}.service-note{font-size:11px;margin:25px 0 0;color:var(--muted)}
+.report{padding:90px 0;background:#fff}.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.report-sheet{border:1px solid #d7e1d9;border-top:4px solid var(--green);background:#fff;padding:26px;box-shadow:12px 14px 0 #f1f4ed;border-radius:5px}.sample-label{font-size:10px;color:var(--green);letter-spacing:.06em;border-bottom:1px solid var(--line);padding-bottom:13px;margin-bottom:16px}
+.report-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px;font-size:14px}.report-head small{font-size:10px;color:var(--muted)}.report-head strong{color:var(--navy)}
+.report-status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.report-item{background:#f3f6f1;padding:12px;border-radius:4px}.report-item span{display:block;color:var(--muted);font-size:11px}.report-item b{font-size:14px;color:var(--green)}.report-caption{border:1px dashed #b8c9b8;padding:16px;margin-top:16px}.report-caption b{display:block;font-size:12px}.report-caption span{font-size:11px;color:var(--muted)}
+.report-copy h2,.about-copy h2,.preparation h2{font-family:"Noto Serif JP",serif;font-size:clamp(26px,2.7vw,34px);line-height:1.65;margin:0 0 18px;letter-spacing:.015em}.report-copy p{font-size:14px;color:var(--muted)}.check-list{display:grid;gap:11px;margin:24px 0 28px;font-size:13px}.check-list div{display:flex;gap:12px}.check-list i{font-style:normal;color:var(--green);font-weight:800}
+.about{background:#f3f5ef;padding:80px 0}.about-grid{display:grid;grid-template-columns:.7fr 1fr;gap:80px;align-items:center;max-width:960px}
+.about-photo{position:relative;padding:0 0 20px}.about-photo img{width:100%;max-height:390px;object-fit:cover;object-position:center 25%;border-radius:110px 110px 5px 5px}.about-photo>span{display:block;background:var(--green);color:#fff;font-size:12px;text-align:center;padding:10px;width:90%;margin:-15px auto 0;position:relative;letter-spacing:.07em}
+.representative-title{font-size:12px;color:var(--muted);margin:20px 0 0}.representative-name{font-size:29px;font-weight:700;color:var(--navy);letter-spacing:.12em;margin:5px 0 20px}.representative-name span{font-size:10px;letter-spacing:.06em;font-weight:400;display:inline-block;color:var(--muted)}
+.about-copy ul{padding-left:1.1em;font-size:13px;line-height:2.2;color:#516559}.about-area{font-size:12px;color:var(--green);border-top:1px solid #cbd8c8;padding-top:16px;margin-top:20px}
+.flow{padding:90px 0 0}.flow-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}.step{border-top:1px solid var(--line);padding-top:20px}.step .num{font-family:Georgia,serif;font-size:34px;color:#7f9875;margin-bottom:15px;line-height:1}.step h3{font-size:15px;margin-bottom:10px}.step p{font-size:12px;color:var(--muted);margin:0}
+.options{padding:65px 0 80px}.options .section-head{margin-bottom:25px}.options .section-title{font-size:23px}.option-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}.option-card{border-left:2px solid #afc2a2;padding-left:18px}.option-card h3{font-size:14px;margin-bottom:7px}.option-card p{font-size:12px;color:var(--muted);margin:0}
+.worries{background:#f7f7f2;padding:60px 0}.worries .section-title{font-size:26px}.worries .section-head{margin-bottom:25px}.worry-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 35px}.worry-card{position:relative;padding-left:37px}.worry-card .mark{position:absolute;left:0;top:0;font-size:11px;color:#87927f;border-bottom:1px solid #b7c3ab;padding-bottom:3px}.worry-card h3{font-size:14px;margin-bottom:6px}.worry-card p{font-size:12px;line-height:1.85;color:var(--muted);margin:0}
+.info-grid{display:grid;grid-template-columns:1.5fr .8fr;gap:70px;align-items:start}.info .section-head{margin-bottom:25px}
+.qa-list details{border-bottom:1px solid var(--line)}.qa-list details:first-child{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:14px;padding:20px 0;font-size:14px;font-weight:500;color:var(--navy)}summary::-webkit-details-marker{display:none}summary:before{content:"Q";font-family:Georgia,serif;color:var(--green);font-size:17px}summary:after{content:"＋";margin-left:auto;flex-shrink:0;color:var(--green)}details[open] summary:after{content:"−"}.qa-list details p{padding:0 0 20px 28px;margin:0;font-size:13px;color:var(--muted)}
+.area-card{background:var(--paper);padding:28px;border-top:3px solid var(--green);border-radius:5px}.area-card h3{font-family:"Noto Serif JP",serif;font-size:24px;margin:0 0 15px}.area-card p{font-size:13px;color:var(--muted)}.area-tags{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.area-tags span{font-size:14px;font-weight:700;color:var(--green);background:white;padding:7px 14px;border:1px solid var(--line)}.area-card .btn{font-size:12px;width:100%}
+.referral{padding:0 0 75px}.referral-panel{display:grid;grid-template-columns:1fr 1.4fr;border:1px solid #ebd5d4;border-radius:8px;overflow:hidden}.referral-intro{background:#fbf0ee;padding:30px 36px}.referral-intro .eyebrow{color:#9a4a51;font-size:10px}.referral-intro h2{font-family:"Noto Serif JP",serif;font-size:24px;color:#8d3f4d;line-height:1.6;margin:5px 0 10px}.referral-intro p{font-size:12px;color:#816368;margin:0}
+.referral-details{padding:28px 35px}.referral-rewards{display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:center}.referral-rewards>div+div{border-left:1px solid #ebd5d4}.reward-label{font-size:11px;color:#8d3f4d;background:#fbf0ee;padding:4px 12px;display:inline-block;border-radius:3px}.referral-rewards p{font-size:12px;margin:8px 0 0}.referral-rewards strong{font-size:33px;color:#aa3f56;letter-spacing:-.04em}.referral-rewards small{font-size:16px}.referral .campaign-terms{font-size:10px;margin-top:18px}
+.preparation{padding:55px 0;background:var(--paper);border-top:1px solid var(--line)}.preparation-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}.preparation h2{font-size:28px}.preparation p{font-size:13px;color:var(--muted);margin:0}.preparation ol{list-style:none;margin:0;padding:0}.preparation li{display:flex;align-items:baseline;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}.preparation li:last-child{border:0}.preparation li>span{font-family:Georgia,serif;color:var(--green);font-size:15px}.preparation b{font-size:14px}
+.contact{background:var(--navy);color:white;padding:80px 0}.contact-grid{display:grid;grid-template-columns:.9fr 1fr;align-items:center;gap:65px}.contact .eyebrow{color:#adccc1}.contact h2{font-family:"Noto Serif JP",serif;font-size:clamp(28px,3vw,36px);line-height:1.7;color:#fff;margin:10px 0 20px}.contact p{font-size:14px;color:#c6d9df}.contact-card{background:#fff;color:var(--ink);padding:32px;border-radius:8px}.contact-card .label{font-size:12px;color:var(--muted)}.bigphone{display:block;color:var(--navy);font-size:clamp(23px,3vw,35px);font-weight:700;letter-spacing:.02em;line-height:1.5;margin:3px 0 4px;white-space:nowrap}.contact-card ul{padding-left:18px;font-size:12px;color:var(--muted);margin:22px 0}
+.contact-actions{display:grid;grid-template-columns:1fr;gap:10px}.contact-actions .btn{font-size:13px}.contact-actions .btn[href^="tel:"]{background:#fff;color:var(--navy);border-color:var(--line)}.contact-email{display:block;font-size:12px;text-decoration:underline;text-underline-offset:4px;margin-top:15px;color:var(--navy)}.contact-card .representative{display:none}.contact .form-note{font-size:11px!important;line-height:1.9}
+.company{padding:55px 0}.company-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:65px}.company-card h3{font-size:18px;margin:0 0 18px}.company-card dl{margin:0}.company-card dl>div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:14px;padding:9px 0;border-bottom:1px solid #edf0ed;font-size:12px}.company-card dt{font-weight:500}.company-card dd{margin:0;color:var(--muted)}.company-card p{font-size:12px;color:var(--muted)}.company-card a:hover{text-decoration:underline}
+footer{padding:30px 0;background:#f0f4ef;border-top:1px solid var(--line)}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}.footer-brand{font-family:"Noto Serif JP",serif;font-weight:700;font-size:16px;color:var(--navy)}.footer-sub{font-size:10px;color:var(--muted);margin-top:4px}.footer-links{display:flex;gap:10px 22px;flex-wrap:wrap;justify-content:flex-end;font-size:11px;max-width:520px}.footer-links a:hover{text-decoration:underline}.copyright{width:100%;text-align:right;color:var(--muted);font-size:10px}
+.floating-contact{display:none}
+@media(min-width:1500px){.hero-grid{min-height:700px}.hero-promise{font-size:50px}}
+@media(max-width:1190px){.nav{display:none}.menu-btn{display:grid;place-items:center}.header-inner{min-height:76px}.header-contact{gap:15px}.hero-copy{padding-left:0}.hero-grid{min-height:600px;gap:15px}.hero-promise{font-size:39px}.campaign-offers{grid-template-columns:1fr 20px 1fr}.campaign-offers .btn{grid-column:1/-1}.plan-guide{grid-template-columns:1fr;gap:18px}.guide-heading p{display:none}.guide-heading h3{margin:0}.guide-heading .eyebrow{margin-bottom:4px}.report-grid,.about-grid{gap:48px}.contact-grid,.info-grid{gap:35px}}
+@media(max-width:850px){.hero-grid{grid-template-columns:1.1fr 1fr;min-height:570px}.hero-promise{font-size:34px}.hero h1{font-size:15px}.hero-small{display:block;font-size:11px}.hero-sub{font-size:12px}.hero-note{padding:13px;font-size:10px}.hero-note b{font-size:11px}.hero-actions .btn{font-size:12px;padding:10px 14px}.assurance-bar span{font-size:11px}.assurance-bar b{margin-right:5px}.plan-grid{gap:12px}.plan-top{padding:20px 15px;min-height:260px}.plan-price strong{font-size:28px}.plan ul{padding-inline:15px}.plan .btn{margin-inline:15px;font-size:11px;padding:12px 6px}.plan li{font-size:12px}.plan-scope{font-size:11px}.service-grid{gap:0 25px}.report-grid{gap:35px}.report-sheet{padding:18px}.report-copy h2{font-size:26px}.about-grid{grid-template-columns:.75fr 1fr;gap:35px}.about-copy h2{font-size:27px}.info-grid{grid-template-columns:1.3fr .8fr;gap:25px}.area-card{padding:20px}.contact-grid{gap:30px}.contact-card{padding:24px}.company-grid{gap:30px}}
+@media(max-width:680px){
+html{scroll-padding-top:82px}body{font-size:14px;padding-bottom:78px}[id]{scroll-margin-top:82px}.container,.hero-grid{width:calc(100% - 36px)}
+.header-container{width:calc(100% - 28px)}.header-inner{min-height:65px;gap:12px}.brand-mark{width:40px;height:36px}.brand-copy strong{font-size:15px}.brand-copy>span{font-size:10px}.header-contact>.btn,.phone-box{display:none}.menu-btn{width:40px;height:40px;font-size:22px}
+.hero-grid{grid-template-columns:1fr;padding:32px 0 28px;gap:20px;min-height:0}.hero-copy{padding:0 6px}.hero-kicker{font-size:11px}.hero h1{font-size:16px;margin:13px 0 18px}.hero-small{display:inline;font-size:11px;margin-right:6px}.hero-promise{font-size:clamp(31px,8.8vw,42px);line-height:1.55;margin-bottom:17px}.hero-promise br:nth-of-type(2){display:none}.hero-sub{font-size:13px;line-height:1.95}.hero-sub br{display:none}
+.hero-price{margin:16px 0 7px}.price-badge strong{font-size:28px}.hero-tags{font-size:10px;gap:12px;margin-bottom:20px}.hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.hero-actions .btn{font-size:11px;padding:13px 5px;min-height:49px}.hero-visual{max-width:420px;width:100%;margin:auto;padding:0 4px}.hero-visual img{max-height:280px;object-fit:contain;border-radius:0}.hero-note{margin:-12px auto 0;padding:12px 15px;gap:10px;max-width:100%;font-size:10px}.hero-note b{font-size:12px}
+.assurance-bar .container{padding:16px 0;display:grid;grid-template-columns:1fr;gap:7px}.assurance-bar span{font-size:12px}.assurance-bar b{margin-right:14px;font-size:10px}
+.opening{padding-top:25px}.campaign-shell{padding:20px 16px}.campaign-heading{display:block}.campaign-heading>div{gap:9px;flex-wrap:wrap}.campaign-heading h2{font-size:16px}.campaign-tag{font-size:10px}.campaign-deadline{font-size:11px;margin-top:9px}.campaign-offers{gap:8px;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);margin-top:15px}.campaign-offers>div{display:block;text-align:center;padding:10px 5px}.campaign-offers span{display:block;font-size:10px}.campaign-offers strong{font-size:28px}.campaign-offers small{font-size:17px}.campaign-offers .btn{font-size:12px;margin-top:4px}.campaign-terms{font-size:10px}.plus{font-size:18px}
+.plans,.service,.report,.info{padding:55px 0}.section-head{margin-bottom:28px}.section-title{font-size:26px;line-height:1.6}.section-lead{font-size:13px}.eyebrow{font-size:10px}
+.plan-guide{padding:20px 16px;gap:17px;margin-bottom:25px}.guide-heading h3{font-size:16px}.guide-controls fieldset{display:grid;grid-template-columns:1fr;gap:7px}.guide-controls label{min-width:0}.guide-controls label span{font-size:12px;min-height:45px;padding-block:10px}.guide-controls label input{top:15px}.guide-result{display:block}.guide-result a{display:inline-block;margin-top:9px;padding:3px 0}
+.plan-grid{grid-template-columns:1fr;gap:22px}.plan-top{padding:21px 23px;min-height:0}.plan-name>span{font-size:34px}.plan-scope{font-size:12px}.plan-top>small{min-height:0;font-size:12px}.plan-price{margin-top:13px}.plan-price strong{font-size:34px}.plan ul{padding:9px 23px 16px}.plan li{font-size:13px;padding-block:9px}.plan .btn{margin:0 23px 23px;font-size:13px}.plan-note{font-size:10px}.price-shortcut{font-size:12px;gap:7px}.price-shortcut b{font-size:13px}
+.service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px}.service-card{padding:21px 0}.service-icon{margin-bottom:12px}.service-icon svg{width:29px;height:29px}.service-card h3{font-size:15px;line-height:1.6}.service-card p{font-size:12px}.service-note{font-size:10px}
+.report-grid{grid-template-columns:1fr;gap:36px}.report-copy{grid-row:1}.report-copy h2{font-size:27px}.report-copy p{font-size:13px}.report-sheet{padding:20px;margin-right:10px}.report-head{font-size:13px;gap:10px}.report-head small{font-size:9px}.report-caption{padding:14px}
+.about{padding:55px 0}.about-grid{grid-template-columns:1fr;gap:30px}.about-photo{max-width:240px;margin:auto;order:2;padding:0}.about-photo img{max-height:280px;border-radius:80px 80px 5px 5px}.about-photo>span{font-size:10px}.about-copy h2{font-size:28px}.representative-name{font-size:28px}.about-copy ul{font-size:12px}.about-area{font-size:11px}
+.flow{padding:55px 0 0}.flow-row{grid-template-columns:1fr;gap:22px}.step{padding:17px 0 0 46px;position:relative}.step .num{position:absolute;left:0;top:21px;font-size:27px}.step h3{font-size:15px;margin-bottom:6px}.step p{font-size:12px}.options{padding:45px 0 55px}.options .section-title{font-size:22px}.option-grid{grid-template-columns:1fr 1fr;gap:23px 20px}.option-card{padding-left:12px}.option-card h3{font-size:13px}.option-card p{font-size:11px}
+.worries{padding:45px 0}.worries .section-title{font-size:24px}.worry-grid{grid-template-columns:1fr;gap:20px}.worry-card h3{font-size:14px}.worry-card p{font-size:12px}
+.info-grid{grid-template-columns:1fr;gap:40px}summary{font-size:13px;padding:17px 0;gap:12px}.qa-list details p{font-size:12px}.area-card{padding:25px}.area-card .btn{width:auto}
+.referral{padding-bottom:50px}.referral-panel{grid-template-columns:1fr}.referral-intro{padding:24px}.referral-intro h2{font-size:23px}.referral-intro h2 br{display:none}.referral-intro p br{display:none}.referral-details{padding:23px 18px}.referral-rewards{gap:12px}.referral-rewards strong{font-size:29px}.referral-rewards small{font-size:14px}.referral-rewards p{font-size:11px}
+.preparation{padding:45px 0}.preparation-inner{grid-template-columns:1fr;gap:22px}.preparation h2{font-size:26px}.preparation p{font-size:12px}.preparation li{gap:15px}.preparation li b{font-size:13px}
+.contact{padding:50px 0}.contact-grid{grid-template-columns:1fr;gap:24px}.contact h2{font-size:27px;margin-bottom:15px}.contact p{font-size:13px}.contact-card{padding:22px 18px}.bigphone{font-size:clamp(23px,7.5vw,32px)}.contact-card ul{font-size:11px;padding-left:15px}.contact-email{font-size:11px}.contact .muted-note{font-size:10px}
+.company{padding:45px 0}.company-grid{grid-template-columns:1fr;gap:30px}.company-card dl>div{grid-template-columns:66px minmax(0,1fr);gap:12px;font-size:11px}.company-card h3{font-size:17px}.company-card p{font-size:12px}
+footer{padding:25px 0}.footer-inner{display:block}.footer-links{justify-content:flex-start;margin-top:20px;gap:12px 18px}.copyright{text-align:left;margin-top:5px}.floating-contact{display:grid;grid-template-columns:1fr 1fr;gap:9px;position:fixed;bottom:0;left:0;right:0;z-index:90;background:#fffffff5;border-top:1px solid var(--line);padding:10px 15px max(10px,env(safe-area-inset-bottom));backdrop-filter:blur(10px)}.floating-contact .btn{font-size:12px;min-height:46px;padding:10px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
 
   </style>
   <script type="application/ld+json">
@@ -541,6 +138,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#top">本文へ移動</a>
   <header class="site-header">
     <div class="header-container header-inner">
       <a class="brand" href="#top" aria-label="中越空き家管理サービス トップ">
@@ -560,9 +158,9 @@
         <a href="#about">代表紹介</a>
       </nav>
       <div class="header-contact">
-        <div class="phone-box"><small>お気軽にご相談ください</small><strong>070-7570-7058</strong></div>
+        <a class="phone-box" href="tel:07075707058"><small>9:00–18:00 ／ 水曜・祝日休み</small><strong>070-7570-7058</strong></a>
         <a class="btn btn-primary" href="#contact">お問い合わせ</a>
-        <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false">☰</button>
+        <button class="menu-btn" id="menuBtn" aria-controls="mobileNav" aria-label="メニューを開く" aria-expanded="false">☰</button>
       </div>
     </div>
     <div class="mobile-nav" id="mobileNav">
@@ -572,18 +170,18 @@
         <a href="#flow">ご利用の流れ</a>
         <a href="#faq">よくあるご質問</a>
         <a href="#area">対応エリア</a>
-        <a href="#company">会社案内</a>
+        <a href="#about">代表紹介</a>
         <a class="btn btn-primary" href="#contact">お問い合わせ</a>
       </div>
     </div>
   </header>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
     <section class="hero">
       <div class="hero-grid">
         <div class="hero-copy">
           <div class="hero-kicker"><span class="leaf-dot" aria-hidden="true"></span>長岡市・見附市・三条市を中心に対応</div>
-          <h1><span class="hero-small">中越地域の</span>空き家管理サービス</h1><p class="hero-promise">大切な空き家を、<br><em>私たちがしっかり見守ります。</em></p>
+          <h1><span class="hero-small">中越地域の</span>空き家管理サービス</h1><p class="hero-promise">離れていても、<br>大切なお家に、<br><em>いつもの安心を。</em></p>
           <p class="hero-sub">遠方にお住まいの方、忙しくて管理が難しい方へ。<br>お家の外回りから室内まで、定期的に確認。<br>地域に寄り添い、大切なお家を見守ります。</p>
           <div class="hero-price">
             <div class="price-badge"><span>月額</span><strong>3,300円〜</strong><small>税込</small></div>
@@ -600,11 +198,11 @@
         </div>
         <div class="hero-visual">
           <img src="assets/house-care-hero.webp" width="1536" height="1024" alt="緑に囲まれたお家を巡回するスタッフのイメージ" fetchpriority="high">
-          <div class="hero-note"><b>大切なお家、見守ります。</b>定期巡回 × 写真付き報告</div>
+          <div class="hero-note"><span class="note-dot" aria-hidden="true"></span><div><b>お家の「今」を、写真でお届け。</b>地域に寄り添う、定期巡回サービス</div></div>
         </div>
       </div>
     </section>
-
+    <div class="assurance-bar"><div class="container"><span><b>01</b> 長岡・見附・三条の地域密着</span><span><b>02</b> 月1回〜の定期巡回</span><span><b>03</b> 写真付きで丁寧に報告</span></div></div>
 
     <section class="opening" id="campaign" aria-labelledby="campaign-title">
       <div class="container">
@@ -623,26 +221,34 @@
           <h2 class="section-title">お家に合わせて選べる、3つのプラン。</h2>
           <p class="section-lead">屋外の見守りから、室内の管理まで。<br>必要なサポートに合わせてお選びいただけます。</p>
         </div>
+        <div class="plan-guide" aria-labelledby="guide-title">
+          <div class="guide-heading"><span class="eyebrow">PLAN GUIDE</span><h3 id="guide-title">どこまで管理してほしいですか？</h3><p>ご希望を選ぶと、プランの目安が分かります。</p></div>
+          <div class="guide-controls"><fieldset><legend class="sr-only">ご希望の管理範囲</legend>
+            <label><input type="radio" name="care" value="ume" checked><span>屋外を見守ってほしい</span></label>
+            <label><input type="radio" name="care" value="take"><span>室内も管理してほしい</span></label>
+            <label><input type="radio" name="care" value="matsu"><span>月2回、手厚く見てほしい</span></label>
+          </fieldset><div class="guide-result" aria-live="polite" aria-atomic="true"><p id="guide-result"><b>梅プラン</b>が目安です。屋外の確認と写真付き報告を、月額3,300円〜（税込）で。</p><a href="#plan-ume" id="guide-link">プランの詳細へ <span aria-hidden="true">↓</span></a></div></div>
+        </div>
         <div class="plan-grid">
-          <article class="plan ume">
+          <article class="plan ume" id="plan-ume">
             <div class="plan-top">
-              <div class="plan-name"><span>梅</span><h3>プラン</h3></div><div class="plan-scope">屋外のみ</div><small>まずは最低限の管理をお願いしたい方に</small>
+              <div class="plan-name"><span>梅</span><h3 aria-label="梅プラン">プラン</h3></div><div class="plan-scope">屋外のみ</div><small>まずは最低限の管理をお願いしたい方に</small>
               <div class="plan-price"><span>月額</span> <strong>3,300<small>円〜</small></strong><span>（税込）</span></div>
             </div>
             <ul><li>建物の外観確認<span>屋根・外壁・塀・雨樋など</span></li><li>敷地の確認<span>庭木・雑草・塀・門扉など</span></li><li>ポスト確認<span>郵便物の確認・転送</span></li><li>写真付き報告（月1回）</li></ul>
             <a class="btn btn-pink" href="#contact">梅プランを相談する</a>
           </article>
-          <article class="plan take">
+          <article class="plan take" id="plan-take">
             <div class="plan-top">
-              <div class="plan-name"><span>竹</span><h3>プラン</h3></div><div class="plan-scope">屋外・室内</div><small>室内の管理もお任せしたい方に</small>
+              <div class="plan-name"><span>竹</span><h3 aria-label="竹プラン">プラン</h3></div><div class="plan-scope">屋外・室内</div><small>室内の管理もお任せしたい方に</small>
               <div class="plan-price"><span>月額</span> <strong>11,000<small>円〜</small></strong><span>（税込）</span></div>
             </div>
             <ul><li>建物の外観確認<span>屋根・外壁・塀・雨樋など</span></li><li>敷地の確認<span>庭木・雑草・塀・門扉など</span></li><li>ポスト確認<span>郵便物の確認・転送</span></li><li>室内の確認・換気<span>全室換気・雨漏り確認など</span></li><li>通水<span>蛇口を開けて通水</span></li><li>簡易清掃<span>室内の簡易清掃</span></li><li>写真付き報告（月1回）</li></ul>
             <a class="btn btn-outline" href="#contact">竹プランを相談する</a>
           </article>
-          <article class="plan matsu">
+          <article class="plan matsu" id="plan-matsu">
             <div class="plan-top">
-              <div class="plan-name"><span>松</span><h3>プラン</h3></div><div class="plan-scope">屋外・室内（月2回定期巡回）</div><small>しっかり管理と充実のサポートで安心したい方に</small>
+              <div class="plan-name"><span>松</span><h3 aria-label="松プラン">プラン</h3></div><div class="plan-scope">屋外・室内（月2回定期巡回）</div><small>しっかり管理と充実のサポートで安心したい方に</small>
               <div class="plan-price"><span>月額</span> <strong>16,500<small>円〜</small></strong><span>（税込）</span></div>
             </div>
             <ul><li>月2回の定期巡回・確認<span>屋外・室内</span></li><li>建物の外観確認<span>屋根・外壁・塀・雨樋など</span></li><li>敷地の確認・簡易除草<span>庭木・雑草・塀・門扉など</span></li><li>ポスト確認<span>郵便物の確認・転送</span></li><li>室内の確認・換気・通水<span>全室換気・雨漏り確認など</span></li><li>簡易清掃・写真付き報告</li><li>近隣トラブル対応サポート<span>ご相談・状況確認</span></li><li>各種ご相談サポート<span>リフォーム・解体・売却相談・相続等のご相談</span></li></ul>
@@ -654,25 +260,6 @@
       </div>
     </section>
 
-    <section class="worries">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">WHY MANAGEMENT</div>
-          <h2 class="section-title">空き家を所有する際の、6つの注意点。</h2>
-          <p class="section-lead">放置すると、思わぬ負担やトラブルにつながることがあります。</p>
-        </div>
-        <div class="worry-grid">
-          <article class="worry-card"><div class="mark">01</div><h3>固定資産税・維持費</h3><p>使っていなくても、固定資産税や維持費がかかります。</p></article>
-          <article class="worry-card"><div class="mark">02</div><h3>建物の老朽化</h3><p>人が住まないと、建物は劣化が進みやすくなります。</p></article>
-          <article class="worry-card"><div class="mark">03</div><h3>雨漏り・カビ</h3><p>雨漏りやカビが発生すると、修繕費がかさむことがあります。</p></article>
-          <article class="worry-card"><div class="mark">04</div><h3>雑草・庭木の繁茂</h3><p>雑草や庭木が伸びると、害虫の発生や見通しの悪化につながります。</p></article>
-          <article class="worry-card"><div class="mark">05</div><h3>防犯・不法投棄</h3><p>空き家は、侵入や不法投棄の対象になりやすくなります。</p></article>
-          <article class="worry-card"><div class="mark">06</div><h3>近隣トラブル</h3><p>枝の越境や異臭、景観、郵便物の放置などが、近隣とのトラブルにつながることがあります。</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="demolition"><div class="container demolition-inner"><div><span class="eyebrow">将来の負担を考える</span><h2>解体費用も、大きな負担になることがあります。</h2><p>木造住宅の場合、解体費用の目安は<strong>300万円〜500万円以上</strong>になることがあります。</p></div><p class="demolition-note">※建物の大きさや構造、敷地の条件、残置物の有無、庭木・付帯工事などで変動します。個別の費用はお見積りでご確認ください。</p></div></section>
     <section class="service" id="service">
       <div class="container">
         <div class="section-head">
@@ -681,12 +268,12 @@
           <p class="section-lead">プランに応じて、外回りから室内まで定期的に確認します。</p>
         </div>
         <div class="service-grid">
-          <article class="service-card"><div class="service-no">CHECK 01</div><h3>建物外観</h3><p>屋根・外壁・窓・雨樋などを目視し、破損や異変の兆候を確認します。</p></article>
-          <article class="service-card"><div class="service-no">CHECK 02</div><h3>敷地・庭木・雑草</h3><p>越境、雑草、ゴミ、不法投棄、門扉や塀の状態などを確認します。</p></article>
-          <article class="service-card"><div class="service-no">CHECK 03</div><h3>ポスト</h3><p>郵便物を確認し、必要に応じて転送します。長期不在が目立たないよう見守ります。</p></article>
-          <article class="service-card"><div class="service-no">CHECK 04</div><h3>室内・換気</h3><p>室内の異変、天井や壁の染みなどを目視し、プランに応じて換気を行います。</p></article>
-          <article class="service-card"><div class="service-no">CHECK 05</div><h3>通水・水回り</h3><p>蛇口から通水し、水漏れや臭いなど水回りの状態変化を確認します。</p></article>
-          <article class="service-card"><div class="service-no">CHECK 06</div><h3>写真付き報告</h3><p>巡回後は確認内容を写真付きでご報告。遠方でも「今どうなっているか」を把握できます。</p></article>
+          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 10v11h14V10M9 21v-7h6v7"/></svg><span>01</span></div><h3>建物外観</h3><p>屋根・外壁・窓・雨樋などを目視し、破損や異変の兆候を確認します。</p></article>
+          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V9m0 5C4 15 2 10 3 4c6 0 9 3 9 10Zm0 4c0-7 4-10 9-10 0 6-2 10-9 10Z"/></svg><span>02</span></div><h3>敷地・庭木・雑草</h3><p>越境、雑草、ゴミ、不法投棄、門扉や塀の状態などを確認します。</p></article>
+          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>03</span></div><h3>ポスト</h3><p>郵便物を確認し、必要に応じて転送します。長期不在が目立たないよう見守ります。</p></article>
+          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16m-7-8 5 3v11l-5 2"/></svg><span>04</span></div><h3>室内・換気</h3><p>室内の異変、天井や壁の染みなどを目視し、プランに応じて換気を行います。</p></article>
+          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h12v6h4V9a3 3 0 0 0-3-3h-5V3M9 3h8M8 11V7H5v4M5 15c-3 4-3 6 0 6s3-2 0-6Z"/></svg><span>05</span></div><h3>通水・水回り</h3><p>蛇口から通水し、水漏れや臭いなど水回りの状態変化を確認します。</p></article>
+          <article class="service-card"><div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="m8 6 2-3h4l2 3"/><circle cx="12" cy="13" r="4"/></svg><span>06</span></div><h3>写真付き報告</h3><p>巡回後は確認内容を写真付きでご報告。遠方でも「今どうなっているか」を把握できます。</p></article>
         </div>
         <p class="service-note">※目視できる範囲での確認が基本です。実施項目・頻度は各プランや物件状況により異なります。</p>
       </div>
@@ -695,19 +282,19 @@
     <section class="report">
       <div class="container report-grid">
         <div class="report-sheet" aria-label="写真付き管理報告書のイメージ">
-          <div class="report-head"><div><small>中越空き家管理サービス</small><br><strong>月次巡回レポート</strong></div><div style="text-align:right"><small>巡回日</small><br><b>2026 / 09 / 10</b></div></div>
+          <div class="sample-label">ご報告内容のイメージ ／ サンプル</div><div class="report-head"><div><small>中越空き家管理サービス</small><br><strong>月次巡回レポート</strong></div><div style="text-align:right"><small>定期巡回</small><br><b>月次レポート</b></div></div>
           <div class="report-status">
             <div class="report-item"><span>建物外観</span><b>確認済み</b></div>
             <div class="report-item"><span>郵便ポスト</span><b>確認済み</b></div>
             <div class="report-item"><span>室内換気</span><b>実施済み</b></div>
             <div class="report-item"><span>通水</span><b>実施済み</b></div>
           </div>
-          <div class="report-photos"><div class="report-photo">外観写真</div><div class="report-photo">室内写真</div><div class="report-photo">敷地写真</div></div>
+          <div class="report-caption"><b>写真と確認内容をセットでご報告</b><span>外観・室内・敷地など、プランに応じた確認箇所をお伝えします。</span></div>
           <p class="muted-note" style="margin:12px 0 0">※報告内容はプラン・物件状況により異なります。</p>
         </div>
         <div class="report-copy">
           <div class="eyebrow">VISIBLE PEACE OF MIND</div>
-          <h3>「ちゃんと見てくれた」が、写真で分かる。</h3>
+          <h2>お家の様子が分かると、<br>離れていても安心できる。</h2>
           <p>作業そのものだけでなく、離れていても現地の状態が分かることを大切にしています。</p>
           <div class="check-list">
             <div><i>✓</i><span>現地の変化を定期的に確認できる</span></div>
@@ -715,6 +302,28 @@
             <div><i>✓</i><span>ご家族にも状況を共有しやすい</span></div>
           </div>
           <a class="btn btn-primary" href="#contact">写真付き報告について相談する</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about"><div class="container about-grid">
+      <div class="about-photo"><img src="assets/representative-shimizu.jpg" alt="中越空き家管理サービス代表 清水広樹" loading="lazy" width="480" height="580"><span>地元のお家を、丁寧に見守る。</span></div>
+      <div class="about-copy"><span class="eyebrow">代表紹介</span><h2>大切なお家のこと、<br>私にご相談ください。</h2><p class="representative-title">中越空き家管理サービス 代表</p><p class="representative-name">清水 広樹 <span>HIROKI SHIMIZU</span></p>
+      <ul><li>1995年生まれ</li><li>東京都で約3年間、不動産業を経験</li><li>新潟県内でリフォーム・大工・不動産業を経験</li><li>定期巡回の様子を写真付きで丁寧にご報告します</li></ul>
+      <div class="about-area">長岡市・見附市・三条市を中心に対応</div></div>
+    </div></section>
+
+    <section class="flow" id="flow">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">FLOW</div>
+          <h2 class="section-title">ご利用開始まで、4ステップ。</h2>
+        </div>
+        <div class="flow-row">
+          <article class="step"><div class="num">1</div><h3>お問い合わせ</h3><p>お電話またはフォームからご相談ください。フォーム送信後、内容を確認してご連絡します。</p></article>
+          <article class="step"><div class="num">2</div><h3>内容・料金のご案内</h3><p>物件の状態と希望内容に合わせて管理プランをご説明します。</p></article>
+          <article class="step"><div class="num">3</div><h3>ご契約・鍵の確認</h3><p>内容にご納得いただいてからご契約。必要に応じて鍵の預かり方法を決めます。</p></article>
+          <article class="step"><div class="num">4</div><h3>定期巡回・ご報告</h3><p>決めた頻度で巡回し、写真付きで状態をご報告します。</p></article>
         </div>
       </div>
     </section>
@@ -735,17 +344,20 @@
       </div>
     </section>
 
-    <section class="flow" id="flow">
+    <section class="worries" aria-labelledby="worries-title">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">FLOW</div>
-          <h2 class="section-title">ご利用開始まで、4ステップ。</h2>
+          <div class="eyebrow">WHY MANAGEMENT</div>
+          <h2 class="section-title" id="worries-title">定期的な見守りが、大切な理由。</h2>
+          <p class="section-lead">空き家で気をつけたい6つのこと。小さな変化に気づくことから始めます。</p>
         </div>
-        <div class="flow-row">
-          <article class="step"><div class="num">1</div><h3>お問い合わせ</h3><p>お電話またはフォームからご相談ください。フォーム送信後、内容を確認してご連絡します。</p></article>
-          <article class="step"><div class="num">2</div><h3>内容・料金のご案内</h3><p>物件の状態と希望内容に合わせて管理プランをご説明します。</p></article>
-          <article class="step"><div class="num">3</div><h3>ご契約・鍵の確認</h3><p>内容にご納得いただいてからご契約。必要に応じて鍵の預かり方法を決めます。</p></article>
-          <article class="step"><div class="num">4</div><h3>定期巡回・ご報告</h3><p>決めた頻度で巡回し、写真付きで状態をご報告します。</p></article>
+        <div class="worry-grid">
+          <article class="worry-card"><div class="mark">01</div><h3>固定資産税・維持費</h3><p>使っていなくても、固定資産税や維持費がかかります。</p></article>
+          <article class="worry-card"><div class="mark">02</div><h3>建物の老朽化</h3><p>人が住まないと、建物は劣化が進みやすくなります。</p></article>
+          <article class="worry-card"><div class="mark">03</div><h3>雨漏り・カビ</h3><p>雨漏りやカビが発生すると、修繕費がかさむことがあります。</p></article>
+          <article class="worry-card"><div class="mark">04</div><h3>雑草・庭木の繁茂</h3><p>雑草や庭木が伸びると、害虫の発生や見通しの悪化につながります。</p></article>
+          <article class="worry-card"><div class="mark">05</div><h3>防犯・不法投棄</h3><p>空き家は、侵入や不法投棄の対象になりやすくなります。</p></article>
+          <article class="worry-card"><div class="mark">06</div><h3>近隣トラブル</h3><p>枝の越境や異臭、景観、郵便物の放置などが、近隣とのトラブルにつながることがあります。</p></article>
         </div>
       </div>
     </section>
@@ -757,7 +369,7 @@
             <div class="eyebrow">FAQ</div>
             <h2 class="section-title">よくあるご質問</h2>
           </div>
-          <div class="qa-list">
+          <div class="qa-list"><details><summary>フォームを送ると契約が確定しますか？</summary><p>フォームの送信だけでは契約は確定しません。内容を確認し、料金や開始日をご案内したうえで、ご納得いただいてからご契約となります。</p></details><details><summary>キャンペーンは併用できますか？</summary><p>開業記念キャンペーンと紹介キャンペーンは併用できません。どちらかお得な方を適用します。適用条件や受付状況はご相談時にご確認ください。</p></details>
             <details><summary>遠方に住んでいても契約できますか？</summary><p>はい。遠方にお住まいの所有者様からのご相談を想定しています。巡回後は写真付きで現地の状態をご報告します。</p></details>
             <details><summary>どのプランを選べばいいか分かりません。</summary><p>問題ありません。外回りだけでよいか、室内まで確認したいか、巡回頻度をどの程度にしたいかを伺い、必要な内容をご案内します。</p></details>
             <details><summary>鍵を預けることはできますか？</summary><p>室内確認を行うプランでは、鍵のお預かり方法を事前に相談して決めます。</p></details>
@@ -777,7 +389,6 @@
       </div>
     </section>
 
-
     <section class="referral" id="referral"><div class="container">
       <div class="referral-panel">
         <div class="referral-intro"><span class="eyebrow">ご家族・ご友人・ご近所の方へ</span><h2>ご紹介ありがとう<br>キャンペーン</h2><p>空き家の管理でお困りの方は<br>いませんか？ ぜひご紹介ください。</p></div>
@@ -785,11 +396,10 @@
         <p class="campaign-terms">※ご紹介先の新規契約・初回入金確認後に適用されます。<br>※開業記念キャンペーンとの併用はできません。どちらかお得な方を適用します。</p></div>
       </div>
     </div></section>
-    <section class="about" id="about"><div class="container about-grid">
-      <div class="about-photo"><img src="assets/representative-shimizu.jpg" alt="中越空き家管理サービス代表 清水広樹" loading="lazy" width="480" height="580"><span>地元のお家を、丁寧に見守る。</span></div>
-      <div class="about-copy"><span class="eyebrow">代表紹介</span><h2>大切なお家のこと、<br>私にご相談ください。</h2><p class="representative-title">中越空き家管理サービス 代表</p><p class="representative-name">清水 広樹 <span>HIROKI SHIMIZU</span></p>
-      <ul><li>1995年生まれ</li><li>東京都で約3年間、不動産業を経験</li><li>新潟県内でリフォーム・大工・不動産業を経験</li><li>定期巡回の様子を写真付きで丁寧にご報告します</li></ul>
-      <div class="about-area">長岡市・見附市・三条市を中心に対応</div></div>
+
+    <section class="preparation" id="prepare"><div class="container preparation-inner">
+      <div><span class="eyebrow">ご相談の前に</span><h2>分かることから、<br>お聞かせください。</h2><p>プランが決まっていなくても大丈夫です。<br>まずは、お家の現状を一緒に整理しましょう。</p></div>
+      <ol><li><span>01</span><div><b>お家の場所</b><p>市町村・町名など、分かる範囲で。</p></div></li><li><span>02</span><div><b>今のお家の状態</b><p>空き家になってからの期間や、室内に入れるかどうか。</p></div></li><li><span>03</span><div><b>気になっていること</b><p>庭木、郵便物、換気など、困っていることを教えてください。</p></div></li></ol>
     </div></section>
 
     <section class="contact" id="contact">
@@ -847,7 +457,7 @@
   <footer>
     <div class="container footer-inner">
       <div><div class="footer-brand">中越空き家管理サービス</div><div class="footer-sub">長岡市・見附市・三条市を中心に対応</div></div>
-      <div class="copyright">© 2026 中越空き家管理サービス</div>
+      <div class="footer-links"><a href="#plans">料金プラン</a><a href="#about">代表紹介</a><a href="#contact">お問い合わせ</a><a href="#top">ページ上部へ ↑</a><span class="copyright">© 2026 中越空き家管理サービス</span></div>
     </div>
   </footer>
 
@@ -872,11 +482,37 @@
       const open = mobileNav.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
       menuBtn.textContent = open ? '×' : '☰';
+      menuBtn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
     });
     mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       mobileNav.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
       menuBtn.textContent = '☰';
+      menuBtn.setAttribute('aria-label', 'メニューを開く');
+    }));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && mobileNav.classList.contains('open')) {
+        mobileNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.setAttribute('aria-label', 'メニューを開く');
+        menuBtn.textContent = '☰';
+        menuBtn.focus();
+      }
+    });
+
+    const choices = {
+      ume: ['梅プラン', '屋外の確認と写真付き報告を、月額3,300円〜（税込）で。'],
+      take: ['竹プラン', '屋外に加えて室内の確認・換気・通水などを、月額11,000円〜（税込）で。'],
+      matsu: ['松プラン', '月2回の巡回と室内管理・相談サポートを、月額16,500円〜（税込）で。']
+    };
+    document.querySelectorAll('input[name="care"]').forEach(input => input.addEventListener('change', () => {
+      if (!input.checked || !choices[input.value]) return;
+      const [title, description] = choices[input.value];
+      const result = document.getElementById('guide-result');
+      const name = document.createElement('b');
+      name.textContent = title;
+      result.replaceChildren(name, document.createTextNode('が目安です。' + description));
+      document.getElementById('guide-link').href = '#plan-' + input.value;
     }));
   </script>
 </body>
