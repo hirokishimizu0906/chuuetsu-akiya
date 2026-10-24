@@ -125,6 +125,35 @@ footer{padding:25px 0}.footer-inner{display:block}.footer-links{justify-content:
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
 
+
+/* Monthly report: based on the actual inspection report */
+.report-grid{gap:56px}
+.report-head strong{font-size:23px;line-height:1.6}
+.report-format{align-self:center;padding:4px 10px;border:1px solid var(--line);border-radius:4px;font-size:11px;color:var(--green);white-space:nowrap}
+.report-summary{display:flex;justify-content:space-between;gap:16px;padding:15px;background:var(--paper);border-block:1px solid var(--line)}
+.report-summary small{display:block;font-size:10px;color:var(--muted)}
+.report-summary span{font-size:11px}.report-summary b{font-size:14px}
+.report-section-label{font-family:inherit;font-size:12px;margin:17px 0 9px;padding-left:9px;border-left:3px solid var(--green);letter-spacing:.06em}
+.report-status{gap:7px}
+.report-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 10px}
+.report-item span{font-size:11px}.report-item b{font-size:11px;white-space:nowrap}
+.report-sheet .status-attention{color:#8b5315;background:#fff0cd;border-radius:3px;padding:1px 6px}
+.report-notes p{font-size:11px;color:var(--muted);margin:0 0 8px;line-height:1.8}
+.report-notes p b{display:block;color:var(--navy);margin-bottom:2px}
+.report-photo-record{border-top:1px solid var(--line);margin-top:16px}
+.report-photo-record p{font-size:11px;color:var(--muted);margin-bottom:8px}
+.report-photo-tags{display:flex;flex-wrap:wrap;gap:5px}
+.report-photo-tags span{padding:3px 8px;border:1px solid var(--line);border-radius:3px;font-size:10px;color:var(--green);background:#f7f9f5}
+.report-sample-note{margin:16px 0 0;font-size:10px}
+.report-features{list-style:none;padding:0;margin:26px 0}
+.report-features li{display:flex;gap:15px;padding:15px 0;border-bottom:1px solid var(--line)}
+.report-features li>span{color:var(--green);font-size:12px;font-weight:800;padding-top:3px}
+.report-features h3{font-size:16px;margin:0 0 5px}
+.report-features p{font-size:13px;margin:0;line-height:1.9}
+.report-copy .report-scope{font-size:11px;line-height:1.8;margin-bottom:22px}
+@media(max-width:850px){.report-grid{gap:30px}.report-item{display:block}.report-item span{margin-bottom:3px}.report-head strong{font-size:21px}}
+@media(max-width:680px){.report-grid{gap:32px}.report-copy h2{font-size:25px}.report-sheet{padding:18px}.report-summary{padding:11px;gap:10px}.report-item{display:flex;flex-wrap:wrap;gap:3px}.report-item span{margin:0}.report-features h3{font-size:15px}}
+
   </style>
   <script type="application/ld+json">
   {
@@ -279,29 +308,39 @@ footer{padding:25px 0}.footer-inner{display:block}.footer-links{justify-content:
       </div>
     </section>
 
-    <section class="report">
+    <section class="report" id="report" aria-labelledby="report-title">
       <div class="container report-grid">
-        <div class="report-sheet" aria-label="写真付き管理報告書のイメージ">
-          <div class="sample-label">ご報告内容のイメージ ／ サンプル</div><div class="report-head"><div><small>中越空き家管理サービス</small><br><strong>月次巡回レポート</strong></div><div style="text-align:right"><small>定期巡回</small><br><b>月次レポート</b></div></div>
+        <div class="report-sheet" aria-label="月次巡回レポートの掲載用見本">
+          <div class="sample-label">実際の報告項目に沿った見本 ／ 点検結果・文章は一例です</div>
+          <div class="report-head"><div><small>中越空き家管理サービス</small><br><strong>月次巡回レポート</strong></div><span class="report-format">写真付きPDF</span></div>
+          <div class="report-summary"><div><small>今回の巡回</small><span>巡回日・天候・担当者を記録</span></div><div><small>総合状況（例）</small><b class="status-attention">要注意</b></div></div>
+          <h3 class="report-section-label">点検結果</h3>
           <div class="report-status">
-            <div class="report-item"><span>建物外観</span><b>確認済み</b></div>
-            <div class="report-item"><span>郵便ポスト</span><b>確認済み</b></div>
-            <div class="report-item"><span>室内換気</span><b>実施済み</b></div>
-            <div class="report-item"><span>通水</span><b>実施済み</b></div>
+            <div class="report-item"><span>建物外観</span><b class="status-attention">要注意</b></div>
+            <div class="report-item"><span>敷地・庭木</span><b class="status-attention">要注意</b></div>
+            <div class="report-item"><span>郵便ポスト</span><b>異常なし</b></div>
+            <div class="report-item"><span>玄関・窓</span><b>異常なし</b></div>
+            <div class="report-item"><span>室内</span><b class="status-attention">要注意</b></div>
+            <div class="report-item"><span>換気</span><b>異常なし</b></div>
+            <div class="report-item"><span>通水</span><b class="status-attention">要注意</b></div>
+            <div class="report-item"><span>簡易清掃</span><b>異常なし</b></div>
           </div>
-          <div class="report-caption"><b>写真と確認内容をセットでご報告</b><span>外観・室内・敷地など、プランに応じた確認箇所をお伝えします。</span></div>
-          <p class="muted-note" style="margin:12px 0 0">※報告内容はプラン・物件状況により異なります。</p>
+          <div class="report-notes"><h3 class="report-section-label">特記事項（記載例）</h3><p><b>屋外の状況</b>敷地内の草木が伸びている状況を確認しました。</p><p><b>屋内の状況</b>キッチンの蛇口から水が出にくい状態を確認しました。</p></div>
+          <div class="report-photo-record"><h3 class="report-section-label">写真記録（詳細）</h3><p>確認箇所ごとに写真をまとめます。</p><div class="report-photo-tags"><span>建物正面・側面・裏側</span><span>敷地・庭木</span><span>駐車場・進入路</span><span>郵便ポスト</span><span>玄関・窓・施錠</span><span>玄関・廊下・居室</span><span>キッチン</span></div></div>
+          <p class="muted-note report-sample-note">※室内確認を含むプランの見本です。点検・撮影箇所はご契約プランや物件状況により異なります。</p>
         </div>
         <div class="report-copy">
-          <div class="eyebrow">VISIBLE PEACE OF MIND</div>
-          <h2>お家の様子が分かると、<br>離れていても安心できる。</h2>
-          <p>作業そのものだけでなく、離れていても現地の状態が分かることを大切にしています。</p>
-          <div class="check-list">
-            <div><i>✓</i><span>現地の変化を定期的に確認できる</span></div>
-            <div><i>✓</i><span>異変があった時に早めに検討しやすい</span></div>
-            <div><i>✓</i><span>ご家族にも状況を共有しやすい</span></div>
-          </div>
-          <a class="btn btn-primary" href="#contact">写真付き報告について相談する</a>
+          <div class="eyebrow">写真付きの月次巡回レポート</div>
+          <h2 id="report-title">「確認しました」の先まで。<br>お家の状態を、写真と記録で。</h2>
+          <p>巡回で確認したことを、月次巡回レポートにまとめてご報告します。全体の状況から、気になる箇所の詳しい記録まで、離れた場所からもご確認いただけます。</p>
+          <ol class="report-features">
+            <li><span>01</span><div><h3>いつ・誰が確認したか</h3><p>巡回日、天候、担当者と総合状況を記録。管理プランなどの基本情報もまとめます。</p></div></li>
+            <li><span>02</span><div><h3>点検結果を項目ごとに</h3><p>建物外観、敷地・庭木、郵便ポスト、玄関・窓などを「異常なし」「要注意」で分かりやすくお伝えします。</p></div></li>
+            <li><span>03</span><div><h3>気になる点を具体的に</h3><p>草木の伸び、水の出にくさ、ガラスの破損など、確認した状況を屋外・屋内に分けて文章で残します。</p></div></li>
+            <li><span>04</span><div><h3>場所ごとの写真で確認</h3><p>建物の正面・側面、敷地、ポスト、室内など、確認箇所ごとの写真をPDFにまとめます。</p></div></li>
+          </ol>
+          <p class="report-scope">※巡回時点で目視確認できた範囲の記録です。詳細調査・専門診断を目的とするものではありません。</p>
+          <a class="btn btn-primary" href="#contact">月次レポートについて相談する</a>
         </div>
       </div>
     </section>
@@ -371,6 +410,7 @@ footer{padding:25px 0}.footer-inner{display:block}.footer-links{justify-content:
           </div>
           <div class="qa-list"><details><summary>フォームを送ると契約が確定しますか？</summary><p>フォームの送信だけでは契約は確定しません。内容を確認し、料金や開始日をご案内したうえで、ご納得いただいてからご契約となります。</p></details><details><summary>キャンペーンは併用できますか？</summary><p>開業記念キャンペーンと紹介キャンペーンは併用できません。どちらかお得な方を適用します。適用条件や受付状況はご相談時にご確認ください。</p></details>
             <details><summary>遠方に住んでいても契約できますか？</summary><p>はい。遠方にお住まいの所有者様からのご相談を想定しています。巡回後は写真付きで現地の状態をご報告します。</p></details>
+            <details><summary>月次レポートでは何が分かりますか？</summary><p>巡回日・天候・担当者、総合状況、項目ごとの点検結果、屋外・屋内の特記事項、確認箇所ごとの写真をPDFにまとめてご報告します。点検・撮影箇所はプランや物件状況により異なります。<a href="#report">月次レポートの見本を見る</a></p></details>
             <details><summary>どのプランを選べばいいか分かりません。</summary><p>問題ありません。外回りだけでよいか、室内まで確認したいか、巡回頻度をどの程度にしたいかを伺い、必要な内容をご案内します。</p></details>
             <details><summary>鍵を預けることはできますか？</summary><p>室内確認を行うプランでは、鍵のお預かり方法を事前に相談して決めます。</p></details>
             <details><summary>草刈りや修繕もお願いできますか？</summary><p>定期管理とは別に、必要に応じてご相談いただけます。内容を確認し、対応可否と費用をご案内します。</p></details>
