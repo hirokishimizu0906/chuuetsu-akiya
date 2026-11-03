@@ -123,14 +123,18 @@
   .mobile-ready #houseSettingsBtn{font-size:11px}
 }
 
+</style><style>
+.editor-toolbar .toolbar-group{flex-wrap:wrap}
+.smart-guide{pointer-events:none}
+@media(max-width:650px){.mobile-ready .editor-toolbar .toolbar-group:last-child{gap:4px 9px;justify-content:flex-start;flex-wrap:wrap}.mobile-ready .toolbar-check{min-height:44px}.mobile-ready .editor-toolbar .toolbar-group:last-child .btn{min-height:44px}}
 </style></head>
 <body>
 <header class="app-header"><a class="brand" href="#" aria-label="まどりスタジオ ホーム"><span class="brand-mark"><svg viewBox="0 0 28 28"><path d="M5 23V10l9-6 9 6v13H5zM5 15h10v8m0-19v11h8"/></svg></span><span>まどり<span class="brand-light">スタジオ</span><small>FLOOR PLAN, MADE SIMPLE.</small></span></a><div class="header-right"><span class="local-badge"><i></i>このブラウザに自動保存</span><button class="btn ghost" id="helpBtn" data-icon="help">使い方</button><span class="avatar">H</span></div></header>
 <section class="project-header"><div class="project-heading"><div class="eyebrow">MY WORKSPACE <span>/</span> 間取りエディター</div><div class="title-row"><input id="projectTitle" aria-label="図面のタイトル" value="はじめての間取り"><span class="tag">編集中</span></div></div><div class="project-actions"><button class="btn" id="newBtn" data-icon="plus">新規作成</button><button class="btn" id="saveBtn" data-icon="save">データ保存</button><button class="btn primary" id="exportBtn" data-icon="download">書き出し <span class="export-types">PNG / PDF</span></button></div></section>
 <main class="workspace">
 <aside class="palette panel" id="mobilePartsPanel"><div class="panel-title"><h2>パーツを追加</h2><span class="mini-label">クリックで配置</span></div><div class="palette-tabs" role="tablist" aria-label="パーツの種類"><button role="tab" aria-selected="true" data-category="rooms">部屋</button><button role="tab" aria-selected="false" data-category="openings">建具</button><button role="tab" aria-selected="false" data-category="fixtures">設備・家具</button></div><div class="palette-scroll"><div class="section-caption" id="catalogCaption">作りたい部屋を選びましょう</div><button class="wide-action photo-launch" id="photoImportBtn"><span><strong>写真から取り込む</strong><small>区画を抽出・AI解析データを編集</small></span><span>↗</span></button><div id="catalog" class="catalog"></div><div class="palette-divider"></div><button class="wide-action" id="textBtn" data-icon="text">文字を追加<span>＋</span></button><button class="wide-action" id="wallBtn" data-icon="wall">壁を描く<span>＋</span></button><div class="palette-divider"></div><button class="template-card" id="templatesBtn"><span class="template-card-icon" data-icon="layout"></span><strong>テンプレートから作る</strong><small>2階建て・平屋・和室のある家</small><span class="template-arrow">↗</span></button><button class="wide-action subdued" id="underlayBtn" data-icon="image">下絵を読み込む<span>＋</span></button><button class="wide-action subdued" id="loadBtn" data-icon="folder">保存データを開く<span>↗</span></button><div id="underlayControls" hidden><label class="field">下絵の濃さ<input type="range" id="underlayOpacity" min="0.1" max="0.8" step="0.05" value="0.3"></label><button class="btn small" id="removeUnderlay">下絵を削除</button></div></div><div class="palette-foot"><span class="sparkle">✧</span><div><strong>ひらめきを、間取りに。</strong><small>パーツは何度でも編集できます。</small></div></div></aside>
-<section class="editor" id="mobileCanvasPanel"><div class="editor-toolbar"><div class="toolbar-group"><button class="icon-btn active" id="selectTool" aria-label="選択・移動" title="選択・移動" data-icon="cursor"></button><span class="separator"></span><button class="icon-btn" id="undoBtn" aria-label="元に戻す" title="元に戻す Ctrl+Z" data-icon="undo"></button><button class="icon-btn" id="redoBtn" aria-label="やり直す" title="やり直す Ctrl+Shift+Z" data-icon="redo"></button><span class="separator"></span><button class="icon-btn" id="flipBtn" aria-label="図面を左右反転" title="図面を左右反転" data-icon="flip"></button></div><div class="toolbar-group"><button class="btn small" id="houseSettingsBtn">戸建て設定</button><label class="toolbar-check"><input id="lowerFloorCheck" type="checkbox">下階</label><label class="toolbar-check"><input id="snapCheck" type="checkbox" checked>吸着</label><label class="toolbar-check"><input id="dimensionCheck" type="checkbox">寸法</label><button class="icon-btn active" id="gridBtn" aria-label="グリッドを切り替え" title="グリッドを切り替え" data-icon="grid"></button></div></div>
-<div class="canvas-wrap" id="canvasWrap"><div class="canvas-meta"><span><i></i> <span id="floorCanvasLabel">1階</span> の間取り</span><span><span id="gridLabel">1マス = 910mm / 補助線455mm</span></span></div><div class="paper" id="paper"><svg id="planCanvas" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800" role="img" aria-label="編集できる間取り図"><defs id="gridDefs"><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e9eeec" stroke-width="1"/><circle cx="0" cy="0" r="1" fill="#d5ddd9"/></pattern></defs><rect id="paperBg" width="1000" height="800" fill="white"/><rect id="gridLayer" width="1000" height="800" fill="url(#grid)"/><g id="underlayLayer"></g><g id="elementsLayer"></g><g id="lowerFloorLayer" pointer-events="none"></g><g id="dimensionsLayer"></g><g id="selectionLayer"></g></svg><div id="emptyState" hidden><div class="empty-icon" data-icon="layout"></div><h3>ここから、間取りをつくろう。</h3><p>左のパーツをクリックして、<br>好きな場所に並べてください。</p><button class="btn" id="emptyTemplateBtn">テンプレートを選ぶ</button></div></div><div class="canvas-bottom"><span class="canvas-hint" id="canvasHint">パーツをドラッグして移動 · 四隅でサイズ変更</span><div class="zoom-control"><button id="zoomOut" aria-label="縮小">−</button><button id="zoomReset" title="画面に合わせる">100%</button><button id="zoomIn" aria-label="拡大">＋</button><span></span><button id="fitBtn" aria-label="画面に合わせる" data-icon="fit"></button></div></div></div>
+<section class="editor" id="mobileCanvasPanel"><div class="editor-toolbar"><div class="toolbar-group"><button class="icon-btn active" id="selectTool" aria-label="選択・移動" title="選択・移動" data-icon="cursor"></button><span class="separator"></span><button class="icon-btn" id="undoBtn" aria-label="元に戻す" title="元に戻す Ctrl+Z" data-icon="undo"></button><button class="icon-btn" id="redoBtn" aria-label="やり直す" title="やり直す Ctrl+Shift+Z" data-icon="redo"></button><span class="separator"></span><button class="icon-btn" id="flipBtn" aria-label="図面を左右反転" title="図面を左右反転" data-icon="flip"></button></div><div class="toolbar-group"><button class="btn small" id="houseSettingsBtn">戸建て設定</button><label class="toolbar-check"><input id="lowerFloorCheck" type="checkbox">下階</label><label class="toolbar-check" title="近くのマスにぴったり合わせる"><input id="snapCheck" type="checkbox" checked>マス吸着</label><label class="toolbar-check" title="パーツの端・中央を補助線で合わせる"><input id="alignCheck" type="checkbox" checked>補助線</label><label class="toolbar-check"><input id="dimensionCheck" type="checkbox">寸法</label><button class="icon-btn active" id="gridBtn" aria-label="グリッドを切り替え" title="グリッドを切り替え" data-icon="grid"></button></div></div>
+<div class="canvas-wrap" id="canvasWrap"><div class="canvas-meta"><span><i></i> <span id="floorCanvasLabel">1階</span> の間取り</span><span><span id="gridLabel">1マス = 910mm / 補助線455mm</span></span></div><div class="paper" id="paper"><svg id="planCanvas" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800" role="img" aria-label="編集できる間取り図"><defs id="gridDefs"><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e9eeec" stroke-width="1"/><circle cx="0" cy="0" r="1" fill="#d5ddd9"/></pattern></defs><rect id="paperBg" width="1000" height="800" fill="white"/><rect id="gridLayer" width="1000" height="800" fill="url(#grid)"/><g id="underlayLayer"></g><g id="elementsLayer"></g><g id="lowerFloorLayer" pointer-events="none"></g><g id="dimensionsLayer"></g><g id="guidesLayer" pointer-events="none" aria-hidden="true"></g><g id="selectionLayer"></g></svg><div id="emptyState" hidden><div class="empty-icon" data-icon="layout"></div><h3>ここから、間取りをつくろう。</h3><p>左のパーツをクリックして、<br>好きな場所に並べてください。</p><button class="btn" id="emptyTemplateBtn">テンプレートを選ぶ</button></div></div><div class="canvas-bottom"><span class="canvas-hint" id="canvasHint">近づけるとマス・端・中央に吸着 · 四隅でサイズ変更</span><div class="zoom-control"><button id="zoomOut" aria-label="縮小">−</button><button id="zoomReset" title="画面に合わせる">100%</button><button id="zoomIn" aria-label="拡大">＋</button><span></span><button id="fitBtn" aria-label="画面に合わせる" data-icon="fit"></button></div></div></div>
 <footer class="editor-footer"><div class="floor-tabs" id="floorTabs"></div><div class="plan-stats"><span id="roomStats">0部屋</span><span id="saveStatus"><i></i>保存済み</span></div></footer></section>
 <aside class="inspector panel" id="mobileEditPanel"><div class="panel-title"><h2 id="inspectorTitle">図面の設定</h2><span id="selectionTag" class="mini-label">PLAN</span></div><div class="inspector-content" id="inspectorContent"></div><div class="inspector-note"><span data-icon="info"></span><p>簡易的な間取り図の作成ツールです。<br>寸法・面積は入力値に基づく目安です。</p></div></aside>
 </main><nav class="mobile-nav" id="mobileNav" aria-label="編集画面の切り替え"><button type="button" data-mobile-panel="canvas" aria-controls="mobileCanvasPanel" aria-pressed="true" data-icon="layout">図面</button><button type="button" data-mobile-panel="parts" aria-controls="mobilePartsPanel" aria-pressed="false" data-icon="plus">パーツ</button><button type="button" data-mobile-panel="edit" aria-controls="mobileEditPanel" aria-pressed="false" data-icon="cursor">編集</button></nav>
@@ -412,9 +416,14 @@
     {id:'hall',type:'room',kind:'hall',label:'廊下',w:80,h:240,fill:COLORS.hall,category:'rooms'},
     {id:'closet',type:'room',kind:'closet',label:'収納',w:160,h:80,fill:COLORS.closet,category:'rooms'},
     {id:'balcony',type:'room',kind:'balcony',label:'バルコニー',w:320,h:80,fill:COLORS.balcony,category:'rooms'},
-    {id:'door',type:'door',kind:'door',label:'開き戸',w:64,h:64,fill:'#ffffff',category:'openings'},
-    {id:'sliding-door',type:'door',kind:'sliding',label:'引き戸',w:120,h:16,fill:'#ffffff',category:'openings'},
+    {id:'door',type:'door',kind:'door',label:'片開き戸',w:64,h:64,fill:'#ffffff',category:'openings'},
     {id:'double-door',type:'door',kind:'double',label:'両開き戸',w:120,h:60,fill:'#ffffff',category:'openings'},
+    {id:'parent-child-door',type:'door',kind:'parent-child',label:'親子開き戸',w:96,h:64,fill:'#ffffff',category:'openings'},
+    {id:'single-sliding-door',type:'door',kind:'sliding-single',label:'片引き戸',w:72,h:20,fill:'#ffffff',category:'openings'},
+    {id:'sliding-door',type:'door',kind:'sliding',label:'引違い戸（2枚）',w:120,h:16,fill:'#ffffff',category:'openings'},
+    {id:'triple-sliding-door',type:'door',kind:'sliding-three',label:'引違い戸（3枚）',w:180,h:20,fill:'#ffffff',category:'openings'},
+    {id:'pocket-door',type:'door',kind:'sliding-pocket',label:'引込み戸（戸袋付）',w:144,h:20,fill:'#ffffff',category:'openings'},
+    {id:'folding-door',type:'door',kind:'folding',label:'折れ戸',w:64,h:40,fill:'#ffffff',category:'openings'},
     {id:'window',type:'window',kind:'window',label:'窓',w:120,h:16,fill:'#ffffff',category:'openings'},
     {id:'wall',type:'wall',kind:'wall',label:'壁',w:160,h:8,fill:INK,category:'openings'},
     {id:'toilet',type:'fixture',kind:'toilet',label:'便器',w:38,h:60,fill:'#ffffff',category:'fixtures'},
@@ -496,6 +505,47 @@
 
   function drawOpening(e, w, h) {
     var vertical = e.type === 'window' && h > w;
+    if (e.kind === 'parent-child') {
+      var main = w * 2 / 3, child = w - main, childDepth = h / 2;
+      return line(0,0,w,0,'stroke="white" stroke-width="11"') +
+        '<g fill="none" stroke="'+INK+'" stroke-width="1.5">' +
+        line(0,0,0,h) + line(w,0,w,childDepth) +
+        path('M0 '+h+' A'+main+' '+h+' 0 0 0 '+main+' 0') +
+        path('M'+w+' '+childDepth+' A'+child+' '+childDepth+' 0 0 1 '+main+' 0') + '</g>';
+    }
+    if (e.kind === 'sliding-single' || e.kind === 'sliding-three' || e.kind === 'sliding-pocket') {
+      var midY = h / 2, unit = Math.min(h / 10, 2), rail = Math.min(h * .32, 6);
+      var tracks = '<g fill="none" stroke="'+INK+'" stroke-width="1.4" stroke-linejoin="round">';
+      var clear = line(0,midY,w,midY,'stroke="white" stroke-width="12"');
+      if (e.kind === 'sliding-pocket') {
+        clear = line(w*.49,midY,w,midY,'stroke="white" stroke-width="12"');
+        tracks += rect(1,midY-rail,w*.48,rail*2,'stroke-dasharray="3 2" fill="#f8f9f6"') +
+          line(w*.49,midY-rail,w,midY-rail) + line(w,midY-rail,w,midY+rail) +
+          rect(w*.53,midY-unit,w*.45,unit*2,'fill="#fff"') +
+          line(w*.64,midY+rail,w*.83,midY+rail) +
+          path('M'+(w*.69)+' '+(midY+rail-unit*1.4)+' L'+(w*.64)+' '+(midY+rail)+' L'+(w*.69)+' '+(midY+rail+unit*1.4));
+      } else if (e.kind === 'sliding-three') {
+        tracks += line(0,midY-rail,w,midY-rail) + line(0,midY+rail,w,midY+rail);
+        for (var leaf=0;leaf<3;leaf++) {
+          var lx=w*.27*leaf, ly=midY+(leaf-1)*unit*2;
+          tracks += rect(lx,ly-unit*.55,w*.46,unit*1.1,'fill="#fff"');
+        }
+        tracks += line(0,midY-rail,0,midY+rail) + line(w,midY-rail,w,midY+rail);
+      } else {
+        tracks += line(0,midY-rail,w,midY-rail) + line(0,midY-rail,0,midY+rail) +
+          line(w,midY-rail,w,midY+rail) + rect(w*.02,midY-unit,w*.96,unit*2,'fill="#fff"') +
+          line(w*.3,midY+rail,w*.67,midY+rail) +
+          path('M'+(w*.61)+' '+(midY+rail-unit*1.4)+' L'+(w*.67)+' '+(midY+rail)+' L'+(w*.61)+' '+(midY+rail+unit*1.4));
+      }
+      return clear + tracks + '</g>';
+    }
+    if (e.kind === 'folding') {
+      return line(0,0,w,0,'stroke="white" stroke-width="11"') +
+        '<g fill="none" stroke="'+INK+'" stroke-width="1.5" stroke-linejoin="round">' +
+        line(0,0,w,0,'stroke="#8e9a91" stroke-dasharray="4 3"') +
+        path('M0 0 L'+(w*.5)+' '+(h*.85)+' L'+w+' 0') +
+        '<circle cx="'+(w*.5)+'" cy="'+(h*.85)+'" r="'+Math.min(1.8,w*.03,h*.04)+'" fill="#fff"/>' + '</g>';
+    }
     if (e.kind === 'opening') return line(0,h/2,w,h/2,'stroke="white" stroke-width="12"') + line(0,h/2-4,0,h/2+4,'stroke="'+INK+'" stroke-width="1.5"') + line(w,h/2-4,w,h/2+4,'stroke="'+INK+'" stroke-width="1.5"');
     if (e.type === 'window' || e.kind === 'sliding') {
       var length = vertical ? h : w, depth = vertical ? w : h, mid = depth / 2;
@@ -1401,7 +1451,64 @@ fillは#から始まる6桁の色。L字などのroomにはpoints:[[0,0],[1,0],[
   function open(){if(!dialog)setup();$('photoWidth').max=String(canvasSettings().canvasWidth/80);$('photoPrompt').value=buildPrompt();const full=root.Madori.getProject().floors.length>=5;$('photoDestination').options[0].disabled=full;if(full){$('photoDestination').value='replace';$('photoReplaceLabel').hidden=false;message('階は最大5つです。現在の階を置き換える場合はチェックを入れてください。');}$('photoReplaceConfirm').checked=false;dialog.showModal();}
   root.PhotoImport={open,buildPrompt,extractJSON,materialize};
 })(typeof window!=='undefined'?window:globalThis);
-</script><script>(() => {
+</script><script>(function(root){
+'use strict';
+const EPS=1e-7;
+const number=(n,f)=>typeof n==='number'&&Number.isFinite(n)?n:f;
+const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+const clean=n=>Math.abs(n)<1e-10?0:Math.round(n*1e9)/1e9;
+function valid(e){return e&&['x','y','w','h'].every(k=>Number.isFinite(e[k]))&&e.w>0&&e.h>0;}
+function bounds(e){const a=number(e.rotation,0)*Math.PI/180,c=Math.abs(Math.cos(a)),s=Math.abs(Math.sin(a));const w=e.w*c+e.h*s,h=e.w*s+e.h*c;return {x:e.x+(e.w-w)/2,y:e.y+(e.h-h)/2,w:w,h:h};}
+function options(o){o=o||{};return {enabled:o.enabled!==false,align:o.align!==false,gridStep:Math.max(0,number(o.gridStep,36.4)),threshold:Math.max(0,number(o.threshold,8)),canvasWidth:Math.max(1,number(o.canvasWidth,1600)),canvasHeight:Math.max(1,number(o.canvasHeight,1280)),minSize:Math.max(.001,number(o.minSize,8))};}
+function input(e){if(!valid(e))throw new TypeError('SmartSnap requires finite x/y and positive w/h.');return Object.assign({},e);}
+function peers(e,others){return (Array.isArray(others)?others:[]).filter(p=>valid(p)&&p!==e&&(!e.id||p.id!==e.id)).map(p=>({id:p.id,bounds:bounds(p)}));}
+function anchors(b,axis){const start=axis==='x'?b.x:b.y,size=axis==='x'?b.w:b.h;return [start,start+size/2,start+size];}
+function within(delta,min,max){return delta>=min-EPS&&delta<=max+EPS;}
+function choose(candidates,limit){let best=null;for(const c of candidates){if(!Number.isFinite(c.delta)||Math.abs(c.delta)>limit+EPS)continue;if(c.kind==='grid'&&Math.abs(c.delta)>c.limit+EPS)continue;const score=Math.abs(c.delta)+(c.kind==='grid'?Math.min(1.5,limit*.15):0);if(!best||score<best.score-EPS)best=Object.assign({score:score},c);}return best;}
+function label(axis,index,kind){return kind==='grid'?'マスに吸着':index===1?'中央をそろえる':axis==='x'?'縦をそろえる':'横をそろえる';}
+function guide(c,b,axis){const orth=axis==='x'?'y':'x',size=axis==='x'?'h':'w',target=c.target;const lo=target?Math.min(b[orth],target[orth]):b[orth],hi=target?Math.max(b[orth]+b[size],target[orth]+target[size]):b[orth]+b[size];return {axis:axis,value:clean(c.value),from:clean(lo-12),to:clean(hi+12),kind:c.kind,label:label(axis,c.targetIndex,c.kind)};}
+function clampPosition(e,o){const b=bounds(e),x=clamp(b.x,0,Math.max(0,o.canvasWidth-b.w)),y=clamp(b.y,0,Math.max(0,o.canvasHeight-b.h));e.x=clean(e.x+x-b.x);e.y=clean(e.y+y-b.y);return e;}
+function move(element,others,rawOptions){
+ const o=options(rawOptions),e=clampPosition(input(element),o),guides=[];
+ if(!o.enabled)return {element:e,guides:guides};
+ const b=bounds(e),targets=peers(element,others),selected={};
+ for(const axis of ['x','y']){
+  const a=anchors(b,axis),size=axis==='x'?b.w:b.h,canvas=axis==='x'?o.canvasWidth:o.canvasHeight,start=a[0],candidates=[];
+  if(size>canvas+EPS)continue;
+  const add=c=>{if(within(c.delta,-start,canvas-start-size))candidates.push(c);};
+  if(o.align)for(const p of targets){const ta=anchors(p.bounds,axis);for(let i=0;i<3;i++)for(let j=0;j<3;j++){if((i===1)!==(j===1))continue;add({delta:ta[j]-a[i],value:ta[j],movingIndex:i,targetIndex:j,target:p.bounds,kind:'align'});}}
+  if(o.gridStep>0)for(const i of [0,2]){const v=Math.round(a[i]/o.gridStep)*o.gridStep;add({delta:v-a[i],value:v,movingIndex:i,targetIndex:i,kind:'grid',limit:Math.min(o.threshold,o.gridStep*.28)});}
+  selected[axis]=choose(candidates,o.threshold);if(selected[axis])e[axis]=clean(e[axis]+selected[axis].delta);
+ }
+ const finalBounds=bounds(e);
+ for(const axis of ['x','y']){const c=selected[axis];if(c&&Math.abs(anchors(finalBounds,axis)[c.movingIndex]-c.value)<EPS)guides.push(guide(c,finalBounds,axis));}
+ return {element:e,guides:guides};
+}
+function resize(element,handle,others,rawOptions){
+ const o=options(rawOptions),e=input(element),guides=[];
+ if(!/^(nw|ne|sw|se|n|s|e|w)$/.test(handle)||Math.abs(number(e.rotation,0)%360)>EPS)return {element:e,guides:guides};
+ const original=bounds(e),targets=peers(element,others),selected={};
+ for(const axis of ['x','y']){
+  const low=axis==='x'?'w':'n',high=axis==='x'?'e':'s',sizeKey=axis==='x'?'w':'h',canvas=axis==='x'?o.canvasWidth:o.canvasHeight;
+  const leading=handle.includes(low),trailing=handle.includes(high);if(!leading&&!trailing)continue;
+  const fixed=leading?original[axis]+original[sizeKey]:original[axis];if(fixed<0||fixed>canvas)continue;
+  const minimum=Math.min(o.minSize,leading?fixed:canvas-fixed);if(minimum<=0)continue;
+  const min=leading?0:fixed+minimum,max=leading?fixed-minimum:canvas;
+  let edge=clamp(leading?original[axis]:original[axis]+original[sizeKey],min,max);
+  const candidates=[],add=c=>{if(c.value>=min-EPS&&c.value<=max+EPS)candidates.push(c);};
+  if(o.enabled){
+   if(o.align)for(const p of targets)anchors(p.bounds,axis).forEach((v,j)=>add({delta:v-edge,value:v,targetIndex:j,target:p.bounds,kind:'align'}));
+   if(o.gridStep>0){const v=Math.round(edge/o.gridStep)*o.gridStep;add({delta:v-edge,value:v,targetIndex:leading?0:2,kind:'grid',limit:Math.min(o.threshold,o.gridStep*.28)});}
+   selected[axis]=choose(candidates,o.threshold);if(selected[axis])edge=selected[axis].value;
+  }
+  if(leading){e[axis]=clean(edge);e[sizeKey]=clean(fixed-edge);}else e[sizeKey]=clean(edge-fixed);
+ }
+ const finalBounds=bounds(e);for(const axis of ['x','y'])if(selected[axis])guides.push(guide(selected[axis],finalBounds,axis));
+ return {element:e,guides:guides};
+}
+root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
+})(typeof window!=='undefined'?window:globalThis);</script>
+<script>(() => {
   'use strict';
   const $ = id => document.getElementById(id);
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1423,7 +1530,7 @@ fillは#から始まる6桁の色。L字などのroomにはpoints:[[0,0],[1,0],[
   function icon(name){let p=paths[name]||paths.layout;return `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">${p.includes('|circle')?'<circle cx="12" cy="12" r="9"/>':''}<path d="${p.replace('|circle','')}"/></svg>`;}
   function icons(root=document){root.querySelectorAll('[data-icon]').forEach(e=>{const name=e.dataset.icon;e.removeAttribute('data-icon');e.insertAdjacentHTML('afterbegin',icon(name));});}
   icons();
-  let project, selected=null, floorIndex=0, category='rooms', history=[], future=[], mode='select', zoom=1, showGrid=true, dragging=null, toastTimer, saveTimer,vertexId=null;
+  let project, selected=null, floorIndex=0, category='rooms', history=[], future=[], mode='select', zoom=1, showGrid=true, dragging=null, toastTimer, saveTimer,vertexId=null,snapGuides=[];
   let storageError=false;
   function makeProject(t){return {version:1,title:t?.name||'新しい戸建ての間取り',note:'',settings:HouseSettings.defaults(),floors:(t?.floors||[{name:'1階',elements:t?.elements||[]}]).map(f=>({id:uid(),name:f.name,note:f.note||'',elements:clone(f.elements).map(e=>({...e,id:uid()})),underlay:null}))};}
   try{const saved=localStorage.getItem(STORAGE);project=saved?validateProject(JSON.parse(saved)):makeProject(PlanKit.templates[0]);}catch{project=makeProject(PlanKit.templates[0]);}
@@ -1456,6 +1563,16 @@ fillは#から始まる6桁の色。L字などのroomにはpoints:[[0,0],[1,0],[
     const x=Math.min(...xs),y=Math.min(...ys);return{x,y,w:Math.max(...xs)-x,h:Math.max(...ys)-y};
   }
   function dimensionSvg(elements){if(!elements.length)return '';const b=getBounds(elements.filter(e=>e.type==='room').length?elements.filter(e=>e.type==='room'):elements),x=b.x,y=b.y,w=b.w,h=b.h;return `<g fill="none" stroke="#829184" stroke-width="1"><path d="M${x} ${y-12}v-27m${w} 27v-27M${x} ${y-29}h${w}M${x-12} ${y}h-27m27 ${h}h-27M${x-29} ${y}v${h}"/><path d="m${x-3} ${y-32} 6 6m${w-6} -6 6 6M${x-32} ${y-3}l6 6m-6 ${h-6} 6 6"/></g><g fill="#7a887e" font-family="Yu Gothic UI,Meiryo,sans-serif" font-size="12" text-anchor="middle"><text x="${x+w/2}" y="${y-35}">${HouseSettings.dimension(w,settings())}</text><text transform="translate(${x-35} ${y+h/2}) rotate(-90)">${HouseSettings.dimension(h,settings())}</text></g>`;}
+  function renderSnapGuides(){
+    const gs=dragging?snapGuides:[];
+    $('guidesLayer').innerHTML=gs.filter(g=>[g.value,g.from,g.to].every(Number.isFinite)).map(g=>{
+      const vertical=g.axis==='x',limit=vertical?H():W(),from=clamp(g.from,0,limit),to=clamp(g.to,0,limit);
+      const x1=vertical?g.value:from,y1=vertical?from:g.value,x2=vertical?g.value:to,y2=vertical?to:g.value,color=g.kind==='align'?'#d54d95':'#158b8b';
+      return '<g class="smart-guide" data-guide="'+g.kind+'" fill="white" stroke="'+color+'" stroke-width="1.25"><line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke-dasharray="'+(g.kind==='align'?'5 3':'2 3')+'" vector-effect="non-scaling-stroke"/><circle cx="'+x1+'" cy="'+y1+'" r="'+(2.6/zoom)+'" vector-effect="non-scaling-stroke"/><circle cx="'+x2+'" cy="'+y2+'" r="'+(2.6/zoom)+'" vector-effect="non-scaling-stroke"/></g>';
+    }).join('');
+    $('canvasHint').textContent=gs.length?[...new Set(gs.map(g=>g.label))].join(' · '):mode==='wall'?'始点から終点へドラッグして壁を描く':'近づけるとマス・端・中央に吸着 · 四隅でサイズ変更';
+  }
+  function smartOptions(ev){const grid=$('snapCheck').checked,align=$('alignCheck').checked;return {enabled:(grid||align)&&!ev.altKey,align,gridStep:grid?HouseSettings.step(settings()):0,threshold:(dragging?.pointerType==='touch'?10:7)/zoom,canvasWidth:W(),canvasHeight:H(),minSize:16};}
   function renderCanvas(){
     $('planCanvas').setAttribute('viewBox',`0 0 ${W()} ${H()}`);$('planCanvas').setAttribute('width',W());$('planCanvas').setAttribute('height',H());$('gridDefs').innerHTML=HouseSettings.gridSvg(settings());for(const id of ['paperBg','gridLayer']){$(id).setAttribute('width',W());$(id).setAttribute('height',H());}$('gridLabel').textContent=HouseSettings.gridLabel(settings());renderLowerFloor();
     const els=floor().elements;
@@ -1465,6 +1582,7 @@ fillは#から始まる6桁の色。L字などのroomにはpoints:[[0,0],[1,0],[
     const u=floor().underlay;$('underlayLayer').innerHTML=u?`<image href="${esc(u.src)}" x="${u.x}" y="${u.y}" width="${u.w}" height="${u.h}" opacity="${u.opacity}" preserveAspectRatio="xMidYMid meet"/>`:'';
     $('gridLayer').style.display=showGrid?'':'none';
     $('dimensionsLayer').innerHTML=$('dimensionCheck').checked?dimensionSvg(els):'';
+    renderSnapGuides();
     const e=element();
     $('selectionLayer').innerHTML=e?`<g transform="translate(${e.x} ${e.y}) rotate(${e.rotation||0} ${e.w/2} ${e.h/2})"><rect x="-5" y="-5" width="${e.w+10}" height="${e.h+10}" fill="none" stroke="#178678" stroke-width="1.6" stroke-dasharray="5 3" pointer-events="none"/>${!e.rotation?[[0,0,'nw'],[e.w,0,'ne'],[0,e.h,'sw'],[e.w,e.h,'se']].map(([x,y,h])=>`<rect data-handle="${h}" class="selection-handle" x="${x-5}" y="${y-5}" width="10" height="10" rx="1"/>`).join(''):''}</g>`:'';
     if(e&&e.id===vertexId&&e.points&&!e.rotation)$('selectionLayer').insertAdjacentHTML('beforeend',`<g transform="translate(${e.x} ${e.y})">${e.points.map((p,i)=>`<circle data-vertex="${i}" class="poly-handle" cx="${p[0]*e.w}" cy="${p[1]*e.h}" r="6"/>`).join('')}</g>`);
@@ -1491,7 +1609,18 @@ fillは#から始まる6桁の色。L字などのroomにはpoints:[[0,0],[1,0],[
     if(!e){HousePanel.render({s:settings(),floor:floor(),project,area:floorArea,field,icon,esc,$,updateSettings,change,copyFloor,removeFloor});return;}
     const isRoom=e.type==='room',isMm=settings().dimensionUnit==='mm',factor=isMm?12.5:1/80,unit=isMm?'mm':'m',value=n=>Number((n*factor).toFixed(isMm?1:3));
     const colors=['#f3dfb2','#f7eac9','#dce6be','#d7e9ed','#eadfd5','#e9e9e4'];
-    $('inspectorContent').innerHTML=`${field(isRoom?'部屋の名前':'表示名','elementLabel',e.label,'text','maxlength="40"')}<div class="inspector-subheading">サイズ<span>${unit}</span></div><div class="field-row">${field('横幅（'+unit+'）','elementW',value(e.w),'number','min="0" step="any"')}${field('奥行（'+unit+'）','elementH',value(e.h),'number','min="0" step="any"')}</div>${isRoom?`${field('広さの表示','elementArea',e.area||'','text','maxlength="24" placeholder="自動計算（例：6.0帖）"')}<div class="inspector-subheading">部屋の色<span>COLOR</span></div><div class="color-row">${colors.map(c=>`<button class="color-swatch ${c===e.fill?'selected':''}" data-color="${c}" style="background:${c}" aria-label="部屋の色 ${c}"></button>`).join('')}</div>${field('好きな色を指定','elementColor',/^#[0-9a-f]{6}$/i.test(e.fill)?e.fill:'#f3dfb2','color')}`:''}<div class="inspector-subheading">位置<span>左上を基準・メートル</span></div><div class="field-row">${field('横位置','elementX',value(e.x),'number','min="0" step="any"')}${field('縦位置','elementY',value(e.y),'number','min="0" step="any"')}</div><div class="action-row"><button class="btn small" id="rotateElement">${icon('rotate')}90°回転</button><button class="btn small" id="mirrorElement">${icon('flip')}左右反転</button></div><div class="action-row"><button class="btn small" id="duplicateElement">${icon('copy')}複製</button><button class="btn small danger" id="deleteElement">${icon('trash')}削除</button></div><p class="note" style="margin-top:22px">ドラッグで位置を動かせます。<br>${e.rotation?'サイズは数値で変更できます。':'四隅のハンドルでサイズを変更できます。'}<br>吸着をオンにすると${HouseSettings.dimension(HouseSettings.step(settings()),settings())}単位で揃います。</p>`;
+    $('inspectorContent').innerHTML=`${field(isRoom?'部屋の名前':'表示名','elementLabel',e.label,'text','maxlength="40"')}<div class="inspector-subheading">サイズ<span>${unit}</span></div><div class="field-row">${field('横幅（'+unit+'）','elementW',value(e.w),'number','min="0" step="any"')}${field('奥行（'+unit+'）','elementH',value(e.h),'number','min="0" step="any"')}</div>${isRoom?`${field('広さの表示','elementArea',e.area||'','text','maxlength="24" placeholder="自動計算（例：6.0帖）"')}<div class="inspector-subheading">部屋の色<span>COLOR</span></div><div class="color-row">${colors.map(c=>`<button class="color-swatch ${c===e.fill?'selected':''}" data-color="${c}" style="background:${c}" aria-label="部屋の色 ${c}"></button>`).join('')}</div>${field('好きな色を指定','elementColor',/^#[0-9a-f]{6}$/i.test(e.fill)?e.fill:'#f3dfb2','color')}`:''}<div class="inspector-subheading">位置<span>左上を基準・メートル</span></div><div class="field-row">${field('横位置','elementX',value(e.x),'number','min="0" step="any"')}${field('縦位置','elementY',value(e.y),'number','min="0" step="any"')}</div><div class="action-row"><button class="btn small" id="rotateElement">${icon('rotate')}90°回転</button><button class="btn small" id="mirrorElement">${icon('flip')}左右反転</button></div><div class="action-row"><button class="btn small" id="duplicateElement">${icon('copy')}複製</button><button class="btn small danger" id="deleteElement">${icon('trash')}削除</button></div><p class="note" style="margin-top:22px">ドラッグで位置を動かせます。<br>${e.rotation?'サイズは数値で変更できます。':'四隅のハンドルでサイズを変更できます。'}<br>「マス吸着」で${HouseSettings.dimension(HouseSettings.step(settings()),settings())}間隔のマスに、「補助線」で他のパーツの端・中央に近づくと揃います。<br>PCではAltキーを押しながら動かすと一時解除できます。</p>`;
+    if(e.type==='door'){
+      const choices=PlanKit.catalog.filter(c=>c.type==='door');
+      $('inspectorContent').insertAdjacentHTML('afterbegin','<label class="field">戸の種類<select id="doorKind">'+choices.map(c=>'<option value="'+esc(c.kind)+'"'+(c.kind===e.kind?' selected':'')+'>'+esc(c.label)+'</option>').join('')+'</select></label>');
+      $('doorKind').onchange=ev=>{
+        const next=choices.find(c=>c.kind===ev.target.value),previous=choices.find(c=>c.kind===e.kind);if(!next)return;
+        const candidate={...e,kind:next.kind,h:e.w*next.h/next.w};
+        if(!e.label||e.label===previous?.label||(e.kind==='door'&&e.label==='開き戸')||(e.kind==='sliding'&&e.label==='引き戸'))candidate.label=next.label;
+        if(!fitsCanvas(candidate)){toast('変更後の戸が作図範囲に収まりません。');renderInspector();return;}
+        change(()=>{Object.assign(e,candidate);keepInCanvas(e);});
+      };
+    }
     $('elementLabel').onchange=ev=>change(()=>e.label=ev.target.value.slice(0,40));
     for(const [id,key,limit,min]of [['elementW','w',W(),1],['elementH','h',H(),1],['elementX','x',W(),0],['elementY','y',H(),0]])$(id).onchange=ev=>{const n=Number(ev.target.value);if(!Number.isFinite(n))return;change(()=>{const c={...e,[key]:clamp(n/factor,min,limit)};if(!fitsCanvas(c)){toast('作図範囲に収まる寸法を指定してください。');return;}Object.assign(e,c);keepInCanvas(e);});};
     if(isRoom){$('elementArea').onchange=ev=>change(()=>e.area=ev.target.value.slice(0,24));$('elementColor').onchange=ev=>change(()=>e.fill=ev.target.value);document.querySelectorAll('[data-color]').forEach(b=>b.onclick=()=>change(()=>e.fill=b.dataset.color));}
@@ -1507,35 +1636,38 @@ fillは#から始まる6桁の色。L字などのroomにはpoints:[[0,0],[1,0],[
   function addPart(id){const c=PlanKit.catalog.find(x=>x.id===id);if(!c)return;const sz=c.moduleUnits?{w:c.moduleUnits[0]*HouseSettings.mm(settings())*.08,h:c.moduleUnits[1]*HouseSettings.mm(settings())*.08}:{w:c.w,h:c.h};if(sz.w>W()||sz.h>H()){toast('パーツが収まるよう作図範囲を広げてください。');return;}change(()=>{const e={...clone(c),...sz,id:uid(),x:snap(W()/2-sz.w/2),y:snap(H()/2-sz.h/2),rotation:0};delete e.category;keepInCanvas(e);floor().elements.push(e);selected=e.id;});setMode('select');toast(`${c.label}を追加しました。ドラッグで移動できます。`);}
   function duplicate(){const e=element();if(!e)return;change(()=>{const n={...clone(e),id:uid(),x:clamp(e.x+24,0,W()-e.w),y:clamp(e.y+24,0,H()-e.h)};keepInCanvas(n);floor().elements.push(n);selected=n.id;});}
   function removeSelected(){if(!element())return;change(()=>{floor().elements=floor().elements.filter(e=>e.id!==selected);selected=null;});}
-  function setMode(next){mode=next;$('selectTool').classList.toggle('active',mode==='select');$('wallBtn').classList.toggle('active',mode==='wall');$('planCanvas').style.cursor=mode==='wall'?'crosshair':'';$('canvasHint').textContent=mode==='wall'?'始点から終点へドラッグして壁を描く':'パーツをドラッグして移動 · 四隅でサイズ変更';}
+  function setMode(next){mode=next;$('selectTool').classList.toggle('active',mode==='select');$('wallBtn').classList.toggle('active',mode==='wall');$('planCanvas').style.cursor=mode==='wall'?'crosshair':'';$('canvasHint').textContent=mode==='wall'?'始点から終点へドラッグして壁を描く':'近づけるとマス・端・中央に吸着 · 四隅でサイズ変更';}
   function point(ev){const p=$('planCanvas').createSVGPoint();p.x=ev.clientX;p.y=ev.clientY;return p.matrixTransform($('planCanvas').getScreenCTM().inverse());}
   $('planCanvas').addEventListener('pointerdown',ev=>{
-    if(ev.button!==0)return;const p=point(ev);const v=ev.target.closest('[data-vertex]'),h=ev.target.closest('[data-handle]'),target=ev.target.closest('[data-el]');
+    if(ev.button!==0||dragging)return;const p=point(ev);const v=ev.target.closest('[data-vertex]'),h=ev.target.closest('[data-handle]'),target=ev.target.closest('[data-el]');snapGuides=[];
     if(mode==='wall'){const before=JSON.stringify(project);const e={id:uid(),type:'wall',kind:'wall',label:'壁',x:clamp(snap(p.x),0,W()-8),y:clamp(snap(p.y),0,H()-8),w:8,h:8,rotation:0,fill:'#38483d'};floor().elements.push(e);selected=e.id;dragging={kind:'wall',start:p,initial:clone(e),before};}
     else if(v&&element()){dragging={kind:'vertex',vertex:Number(v.dataset.vertex),start:p,initial:clone(element()),before:JSON.stringify(project)};}
     else if(h&&element()){dragging={kind:'resize',handle:h.dataset.handle,start:p,initial:clone(element()),before:JSON.stringify(project)};}
     else if(target){selected=target.dataset.el;dragging={kind:'move',start:p,initial:clone(element()),before:JSON.stringify(project)};renderInspector();}
     else{selected=null;render();return;}
-    ev.preventDefault();$('planCanvas').setPointerCapture(ev.pointerId);renderCanvas();
+    dragging.pointerId=ev.pointerId;dragging.pointerType=ev.pointerType;ev.preventDefault();$('planCanvas').setPointerCapture(ev.pointerId);renderCanvas();
   });
   $('planCanvas').addEventListener('pointermove',ev=>{
-    if(!dragging)return;const p=point(ev),d=dragging,e=element(),i=d.initial;if(!e)return;
-    const dx=p.x-d.start.x,dy=p.y-d.start.y;
+    if(!dragging||ev.pointerId!==dragging.pointerId)return;const p=point(ev),d=dragging,e=element(),i=d.initial;if(!e)return;
+    const dx=p.x-d.start.x,dy=p.y-d.start.y;snapGuides=[];
     if(d.kind==='vertex'){const candidate=clone(e.points);candidate[d.vertex]=[clamp((snap(p.x)-e.x)/e.w,0,1),clamp((snap(p.y)-e.y)/e.h,0,1)];try{validPoints(candidate);e.points=candidate;}catch{}}
-    else if(d.kind==='move'){e.x=clamp(snap(i.x+dx),0,W()-i.w);e.y=clamp(snap(i.y+dy),0,H()-i.h);keepInCanvas(e);}
-    else if(d.kind==='wall'){
+    else if(d.kind==='move'){
+      const result=SmartSnap.move({...i,x:i.x+dx,y:i.y+dy},floor().elements,smartOptions(ev));Object.assign(e,result.element);snapGuides=result.guides;
+    }else if(d.kind==='wall'){
       if(Math.abs(dx)>=Math.abs(dy)){e.x=clamp(snap(Math.min(d.start.x,p.x)),0,W()-8);e.y=i.y;e.w=clamp(snap(Math.abs(dx)),8,W()-e.x);e.h=8;}
       else{e.y=clamp(snap(Math.min(d.start.y,p.y)),0,H()-8);e.x=i.x;e.h=clamp(snap(Math.abs(dy)),8,H()-e.y);e.w=8;}
     }else{
-      if(d.handle.includes('e'))e.w=clamp(snap(i.w+dx),16,W()-e.x);
-      if(d.handle.includes('s'))e.h=clamp(snap(i.h+dy),16,H()-e.y);
-      if(d.handle.includes('w')){e.x=clamp(snap(i.x+dx),0,i.x+i.w-16);e.w=i.x+i.w-e.x;}
-      if(d.handle.includes('n')){e.y=clamp(snap(i.y+dy),0,i.y+i.h-16);e.h=i.y+i.h-e.y;}
+      const candidate=clone(i),minW=Math.min(16,i.w),minH=Math.min(16,i.h);
+      if(d.handle.includes('e'))candidate.w=Math.max(minW,i.w+dx);
+      if(d.handle.includes('s'))candidate.h=Math.max(minH,i.h+dy);
+      if(d.handle.includes('w')){candidate.x=Math.min(i.x+dx,i.x+i.w-minW);candidate.w=i.x+i.w-candidate.x;}
+      if(d.handle.includes('n')){candidate.y=Math.min(i.y+dy,i.y+i.h-minH);candidate.h=i.y+i.h-candidate.y;}
+      const result=SmartSnap.resize(candidate,d.handle,floor().elements,smartOptions(ev));Object.assign(e,result.element);snapGuides=result.guides;
     }
     renderCanvas();
   });
-  function finishDrag(){if(!dragging)return;if(JSON.stringify(project)!==dragging.before){remember(dragging.before);save();}if(dragging.kind==='wall')setMode('select');dragging=null;render();}
-  $('planCanvas').addEventListener('pointerup',finishDrag);$('planCanvas').addEventListener('pointercancel',finishDrag);
+  function finishDrag(ev){if(!dragging||(ev&&ev.pointerId!==dragging.pointerId))return;if(JSON.stringify(project)!==dragging.before){remember(dragging.before);save();}if(dragging.kind==='wall')setMode('select');dragging=null;snapGuides=[];render();}
+  $('planCanvas').addEventListener('pointerup',finishDrag);$('planCanvas').addEventListener('pointercancel',finishDrag);$('planCanvas').addEventListener('lostpointercapture',finishDrag);
   function fit(){const wrap=$('canvasWrap');zoom=clamp(Math.min((wrap.clientWidth-70)/W(),(wrap.clientHeight-110)/H()),.08,1);applyZoom();}
   function applyZoom(){$('paper').style.width=`${W()*zoom}px`;$('paper').style.height=`${H()*zoom}px`;$('zoomReset').textContent=Math.round(zoom*100)+'%';}
   $('zoomIn').onclick=()=>{zoom=clamp(zoom+.1,.08,2);applyZoom();};$('zoomOut').onclick=()=>{zoom=clamp(zoom-.1,.08,2);applyZoom();};$('zoomReset').onclick=fit;$('fitBtn').onclick=fit;
@@ -1556,7 +1688,7 @@ fillは#から始まる6桁の色。L字などのroomにはpoints:[[0,0],[1,0],[
   $('newBtn').onclick=()=>confirmAction('新しい間取りを作りますか？','現在の図面を残す場合は、先に「データ保存」をしてください。作成後も「元に戻す」で戻せます。',startBlank);
   function templateModal(){showModal('まずは、近い間取りから。',`<p class="modal-desc">配置や広さは、あとから自由に変えられます。<br>選ぶと図面全体をひな形の全階で置き換えます（元に戻せます）。</p><div class="template-grid">${PlanKit.templates.map(t=>{const b=getBounds(t.elements);return `<button class="template-choice" data-template="${esc(t.id)}"><svg viewBox="${b.x-15} ${b.y-15} ${b.w+30} ${b.h+30}" xmlns="http://www.w3.org/2000/svg">${t.elements.map(shape).join('')}</svg><strong>${esc(t.name)}</strong><small>${esc(t.description)}</small></button>`;}).join('')}</div>`,'START WITH A TEMPLATE');document.querySelectorAll('[data-template]').forEach(b=>b.onclick=()=>{const t=PlanKit.templates.find(x=>x.id===b.dataset.template);change(()=>{project=makeProject(t);floorIndex=0;selected=null;});closeModal();fit();toast(`${t.name}のテンプレートを読み込みました。`);});}
   $('templatesBtn').onclick=templateModal;$('emptyTemplateBtn').onclick=templateModal;
-  $('helpBtn').onclick=()=>showModal('3ステップで、間取りが完成。',`<div class="help-steps"><div class="help-step"><span>01</span><div><strong>部屋を置く</strong><p>左の部屋をクリックして追加。図面の上をドラッグして配置します。テンプレートから始めることもできます。</p></div></div><div class="help-step"><span>02</span><div><strong>かたちを整える</strong><p>パーツをクリックして、名前・広さ・寸法・色を編集。四隅のハンドルでサイズを変更できます。ドアや窓は壁の上に重ねて配置します。</p></div></div><div class="help-step"><span>03</span><div><strong>保存して、使う</strong><p>「書き出し」でPNGまたはPDFを保存。「データ保存」のJSONファイルは、あとから読み込んで全パーツを編集できます。</p></div></div></div><p class="modal-desc">自動保存はこの端末・ブラウザのみです。大切な図面はJSONファイルでも保存してください。PNG・PDFから編集状態を復元することはできません。</p>`,'QUICK GUIDE');
+  $('helpBtn').onclick=()=>showModal('3ステップで、間取りが完成。',`<div class="help-steps"><div class="help-step"><span>01</span><div><strong>部屋を置く</strong><p>左の部屋をクリックして追加。図面の上をドラッグして配置します。テンプレートから始めることもできます。</p></div></div><div class="help-step"><span>02</span><div><strong>かたちを整える</strong><p>パーツをクリックして、名前・広さ・寸法・色を編集。四隅でサイズを変更。近づけるとマスや他のパーツの端・中央に吸着し、補助線が表示されます。「マス吸着」「補助線」で切り替え、PCではAltキーで一時解除できます。戸は「建具」から追加し、「戸の種類」で変更できます。</p></div></div><div class="help-step"><span>03</span><div><strong>保存して、使う</strong><p>「書き出し」でPNGまたはPDFを保存。「データ保存」のJSONファイルは、あとから読み込んで全パーツを編集できます。</p></div></div></div><p class="modal-desc">自動保存はこの端末・ブラウザのみです。大切な図面はJSONファイルでも保存してください。PNG・PDFから編集状態を復元することはできません。</p>`,'QUICK GUIDE');
   function downloadJSON(){const blob=new Blob([JSON.stringify(project,null,2)],{type:'application/json'});const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=(project.title||'間取り').replace(/[<>:"/\\|?*\x00-\x1f]/g,'_')+'.madori.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);toast('編集用データを保存しました。');}
   $('saveBtn').onclick=downloadJSON;$('loadBtn').onclick=()=>$('jsonInput').click();
   function validPoints(points){
