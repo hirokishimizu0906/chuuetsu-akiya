@@ -127,10 +127,23 @@
 .editor-toolbar .toolbar-group{flex-wrap:wrap}
 .smart-guide{pointer-events:none}
 @media(max-width:650px){.mobile-ready .editor-toolbar .toolbar-group:last-child{gap:4px 9px;justify-content:flex-start;flex-wrap:wrap}.mobile-ready .toolbar-check{min-height:44px}.mobile-ready .editor-toolbar .toolbar-group:last-child .btn{min-height:44px}}
+</style><style>
+.project-actions{flex-wrap:wrap}
+.history-tools{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:16px 0}
+.history-tools .field{flex:1;min-width:150px;margin:0}
+.history-tools input{font-size:16px!important}
+.archive-list{display:grid;gap:12px;margin-top:18px}
+.archive-card{display:flex;gap:14px;padding:12px;border:1px solid #dfe7df;border-radius:10px;background:#f9fbf8;min-width:0}
+.archive-preview{width:125px;flex-shrink:0;display:flex;align-items:center;background:white;border:1px solid #e5ebe3;border-radius:6px;overflow:hidden;pointer-events:none}
+.archive-preview svg{width:100%;height:110px}
+.archive-details{display:flex;flex-direction:column;align-items:flex-start;gap:7px;min-width:0}
+.archive-details strong{overflow-wrap:anywhere;font-size:14px}.archive-details time{font-size:12px;color:#718170}
+.archive-details .btn,.history-tools .btn{min-height:44px}
+@media(max-width:650px){.mobile-ready .project-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%}.mobile-ready .project-actions .btn{padding:0 3px;font-size:11px;gap:3px}.mobile-ready .project-actions .btn svg{display:none}.archive-preview{width:82px}.archive-preview svg{height:90px}.archive-card{gap:10px;padding:10px}}
 </style></head>
 <body>
 <header class="app-header"><a class="brand" href="#" aria-label="まどりスタジオ ホーム"><span class="brand-mark"><svg viewBox="0 0 28 28"><path d="M5 23V10l9-6 9 6v13H5zM5 15h10v8m0-19v11h8"/></svg></span><span>まどり<span class="brand-light">スタジオ</span><small>FLOOR PLAN, MADE SIMPLE.</small></span></a><div class="header-right"><span class="local-badge"><i></i>このブラウザに自動保存</span><button class="btn ghost" id="helpBtn" data-icon="help">使い方</button><span class="avatar">H</span></div></header>
-<section class="project-header"><div class="project-heading"><div class="eyebrow">MY WORKSPACE <span>/</span> 間取りエディター</div><div class="title-row"><input id="projectTitle" aria-label="図面のタイトル" value="はじめての間取り"><span class="tag">編集中</span></div></div><div class="project-actions"><button class="btn" id="newBtn" data-icon="plus">新規作成</button><button class="btn" id="saveBtn" data-icon="save">データ保存</button><button class="btn primary" id="exportBtn" data-icon="download">書き出し <span class="export-types">PNG / PDF</span></button></div></section>
+<section class="project-header"><div class="project-heading"><div class="eyebrow">MY WORKSPACE <span>/</span> 間取りエディター</div><div class="title-row"><input id="projectTitle" aria-label="図面のタイトル" value="はじめての間取り"><span class="tag">編集中</span></div></div><div class="project-actions"><button class="btn" id="newBtn" data-icon="plus">新規作成</button><button class="btn" id="historyBtn" data-icon="folder">保存履歴</button><button class="btn" id="saveBtn" data-icon="save">データ保存</button><button class="btn primary" id="exportBtn" data-icon="download">書き出し <span class="export-types">PNG / PDF</span></button></div></section>
 <main class="workspace">
 <aside class="palette panel" id="mobilePartsPanel"><div class="panel-title"><h2>パーツを追加</h2><span class="mini-label">クリックで配置</span></div><div class="palette-tabs" role="tablist" aria-label="パーツの種類"><button role="tab" aria-selected="true" data-category="rooms">部屋</button><button role="tab" aria-selected="false" data-category="openings">建具</button><button role="tab" aria-selected="false" data-category="fixtures">設備・家具</button></div><div class="palette-scroll"><div class="section-caption" id="catalogCaption">作りたい部屋を選びましょう</div><button class="wide-action photo-launch" id="photoImportBtn"><span><strong>写真から取り込む</strong><small>区画を抽出・AI解析データを編集</small></span><span>↗</span></button><div id="catalog" class="catalog"></div><div class="palette-divider"></div><button class="wide-action" id="textBtn" data-icon="text">文字を追加<span>＋</span></button><button class="wide-action" id="wallBtn" data-icon="wall">壁を描く<span>＋</span></button><div class="palette-divider"></div><button class="template-card" id="templatesBtn"><span class="template-card-icon" data-icon="layout"></span><strong>テンプレートから作る</strong><small>2階建て・平屋・和室のある家</small><span class="template-arrow">↗</span></button><button class="wide-action subdued" id="underlayBtn" data-icon="image">下絵を読み込む<span>＋</span></button><button class="wide-action subdued" id="loadBtn" data-icon="folder">保存データを開く<span>↗</span></button><div id="underlayControls" hidden><label class="field">下絵の濃さ<input type="range" id="underlayOpacity" min="0.1" max="0.8" step="0.05" value="0.3"></label><button class="btn small" id="removeUnderlay">下絵を削除</button></div></div><div class="palette-foot"><span class="sparkle">✧</span><div><strong>ひらめきを、間取りに。</strong><small>パーツは何度でも編集できます。</small></div></div></aside>
 <section class="editor" id="mobileCanvasPanel"><div class="editor-toolbar"><div class="toolbar-group"><button class="icon-btn active" id="selectTool" aria-label="選択・移動" title="選択・移動" data-icon="cursor"></button><span class="separator"></span><button class="icon-btn" id="undoBtn" aria-label="元に戻す" title="元に戻す Ctrl+Z" data-icon="undo"></button><button class="icon-btn" id="redoBtn" aria-label="やり直す" title="やり直す Ctrl+Shift+Z" data-icon="redo"></button><span class="separator"></span><button class="icon-btn" id="flipBtn" aria-label="図面を左右反転" title="図面を左右反転" data-icon="flip"></button></div><div class="toolbar-group"><button class="btn small" id="houseSettingsBtn">戸建て設定</button><label class="toolbar-check"><input id="lowerFloorCheck" type="checkbox">下階</label><label class="toolbar-check" title="近くのマスにぴったり合わせる"><input id="snapCheck" type="checkbox" checked>マス吸着</label><label class="toolbar-check" title="パーツの端・中央を補助線で合わせる"><input id="alignCheck" type="checkbox" checked>補助線</label><label class="toolbar-check"><input id="dimensionCheck" type="checkbox">寸法</label><button class="icon-btn active" id="gridBtn" aria-label="グリッドを切り替え" title="グリッドを切り替え" data-icon="grid"></button></div></div>
@@ -1508,6 +1521,49 @@ function resize(element,handle,others,rawOptions){
 }
 root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
 })(typeof window!=='undefined'?window:globalThis);</script>
+<script>(function(root){
+  'use strict';
+  const LIMIT=50;
+  let connection=null,queue=Promise.resolve();
+  function open(){
+    if(connection)return connection;
+    connection=new Promise((resolve,reject)=>{
+      if(!root.indexedDB){reject(new Error('このブラウザでは履歴を保存できません。'));return;}
+      const request=root.indexedDB.open('madori-studio-history',1);
+      request.onupgradeneeded=()=>{if(!request.result.objectStoreNames.contains('snapshots'))request.result.createObjectStore('snapshots',{keyPath:'id'});};
+      request.onsuccess=()=>{const db=request.result;db.onversionchange=()=>{db.close();connection=null;};resolve(db);};
+      request.onerror=()=>reject(request.error);
+      request.onblocked=()=>reject(new Error('他のタブを閉じてから、もう一度お試しください。'));
+    }).catch(error=>{connection=null;throw error;});
+    return connection;
+  }
+  function serial(task){const result=queue.then(task);queue=result.catch(()=>{});return result;}
+  function ordered(rows){return rows.sort((a,b)=>b.savedAt-a.savedAt||b.id.localeCompare(a.id));}
+  function save(project,reason='自動保存'){
+    // Capture at call time, before subsequent editing can mutate the project.
+    const data=JSON.stringify(project),title=String(project.title||'名前のない図面');
+    return serial(async()=>{
+      const db=await open();
+      return new Promise((resolve,reject)=>{
+        const tx=db.transaction('snapshots','readwrite'),store=tx.objectStore('snapshots');let saved;
+        const request=store.getAll();
+        request.onsuccess=()=>{
+          const rows=ordered(request.result);
+          const comparable=value=>JSON.stringify(JSON.parse(value),(key,item)=>key==='id'?undefined:item);
+          if(rows[0]&&comparable(rows[0].data)===comparable(data)){saved=rows[0];return;}
+          const savedAt=Math.max(Date.now(),(rows[0]?.savedAt||0)+1);
+          saved={id:'snapshot_'+savedAt+'_'+Math.random().toString(36).slice(2),savedAt,title,reason,data};
+          store.put(saved);
+          rows.slice(LIMIT-1).forEach(row=>store.delete(row.id));
+        };
+        tx.oncomplete=()=>resolve(saved);tx.onerror=()=>reject(tx.error||new Error('履歴を保存できませんでした。'));tx.onabort=()=>reject(tx.error||new Error('履歴を保存できませんでした。'));
+      });
+    });
+  }
+  function list(){return serial(async()=>{const db=await open();return new Promise((resolve,reject)=>{const tx=db.transaction('snapshots','readonly'),r=tx.objectStore('snapshots').getAll();tx.oncomplete=()=>resolve(ordered(r.result));tx.onerror=tx.onabort=()=>reject(tx.error||new Error('履歴を読み込めませんでした。'));});});}
+  root.PlanHistory=Object.freeze({save,list,limit:LIMIT});
+})(window);
+</script>
 <script>(() => {
   'use strict';
   const $ = id => document.getElementById(id);
@@ -1550,9 +1606,9 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
   function renderLowerFloor(){const show=$('lowerFloorCheck').checked&&floorIndex>0;$('lowerFloorCheck').disabled=floorIndex===0;$('lowerFloorLayer').innerHTML=show?project.floors[floorIndex-1].elements.filter(e=>e.type==='room'||/stairs|column/.test(e.kind)).map(e=>'<g transform="'+transform(e)+'"><'+(e.points?'polygon':'rect')+' '+(e.points?'points="'+e.points.map(p=>p[0]*e.w+','+p[1]*e.h).join(' ')+'"':'width="'+e.w+'" height="'+e.h+'"')+' fill="none" stroke="#4a8cc4" stroke-width="2" stroke-dasharray="7 5"/></g>').join(''):'';}
   function clamp(n,min,max){return Math.max(min,Math.min(max,n));}
   function toast(message){$('toast').textContent=message;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),3000);}
-  function save(){clearTimeout(saveTimer);saveTimer=setTimeout(()=>{try{localStorage.setItem(STORAGE,JSON.stringify(project));storageError=false;$('saveStatus').innerHTML='<i></i>保存済み';}catch{storageError=true;$('saveStatus').textContent='データ保存が必要';toast('自動保存の容量が不足しています。「データ保存」で保存してください。');}},250);$('saveStatus').textContent='保存中…';}
+  function save(){scheduleArchive();clearTimeout(saveTimer);saveTimer=setTimeout(()=>{try{localStorage.setItem(STORAGE,JSON.stringify(project));storageError=false;$('saveStatus').innerHTML='<i></i>保存済み';}catch{storageError=true;$('saveStatus').textContent='データ保存が必要';toast('自動保存の容量が不足しています。「データ保存」で保存してください。');}},250);$('saveStatus').textContent='保存中…';}
   function remember(before=JSON.stringify(project)){history.push(before);if(history.length>60)history.shift();future=[];}
-  function change(fn){remember();fn();save();render();}
+  function change(fn){const previous=project,before=JSON.stringify(project);remember(before);fn();if(project!==previous)archiveProject(JSON.parse(before),'図面を切り替える前').catch(()=>{});save();render();}
   function undo(){if(!history.length)return;future.push(JSON.stringify(project));project=JSON.parse(history.pop());floorIndex=Math.min(floorIndex,project.floors.length-1);selected=null;save();render();fit();}
   function redo(){if(!future.length)return;history.push(JSON.stringify(project));project=JSON.parse(future.pop());floorIndex=Math.min(floorIndex,project.floors.length-1);selected=null;save();render();fit();}
   function transform(e){return `translate(${e.x} ${e.y}) rotate(${e.rotation||0} ${e.w/2} ${e.h/2})${e.mirrored&&e.type!=='room'&&e.type!=='text'?` translate(${e.w} 0) scale(-1 1)`:''}`;}
@@ -1684,12 +1740,63 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
   function showModal(title,body,eyebrow='MADORI STUDIO'){$('modalTitle').textContent=title;$('modalBody').innerHTML=body;$('modalEyebrow').textContent=eyebrow;$('modal').showModal();}
   const closeModal=()=>$('modal').close();$('modalClose').onclick=closeModal;$('modal').onclick=ev=>{if(ev.target===$('modal')){const r=$('modal').getBoundingClientRect();if(ev.clientX<r.left||ev.clientX>r.right||ev.clientY<r.top||ev.clientY>r.bottom)closeModal();}};
   function confirmAction(title,message,action,label='作成する'){showModal(title,`<p class="modal-desc">${esc(message)}</p><div class="modal-actions"><button class="btn" id="cancelAction">キャンセル</button><button class="btn primary" id="confirmAction">${esc(label)}</button></div>`);$('cancelAction').onclick=closeModal;$('confirmAction').onclick=()=>{closeModal();action();};}
+  let archiveTimer,archiveWarning=false;
+  function archiveProject(value,reason){
+    return PlanHistory.save(value,reason).then(row=>{archiveWarning=false;return row;}).catch(error=>{
+      if(!archiveWarning){toast('保存履歴を記録できませんでした。「データ保存」でJSONを保存してください。');archiveWarning=true;}
+      throw error;
+    });
+  }
+  function scheduleArchive(){clearTimeout(archiveTimer);archiveTimer=setTimeout(()=>archiveProject(project,'自動保存').catch(()=>{}),3000);}
+  function archivePreview(p){
+    const elements=p.floors[0].elements,b=getBounds(elements);
+    return '<svg viewBox="'+[b.x-20,b.y-20,b.w+40,b.h+40].join(' ')+'" aria-hidden="true"><rect x="'+(b.x-20)+'" y="'+(b.y-20)+'" width="'+(b.w+40)+'" height="'+(b.h+40)+'" fill="white"/>'+elements.filter(e=>e.type==='room').concat(elements.filter(e=>e.type!=='room')).slice(0,200).map(shape).join('')+'</svg>';
+  }
+  async function showHistory(){
+    showModal('保存履歴','<p class="modal-desc">履歴を読み込み中…</p>','SAVED PLANS');
+    const body=$('modalBody');
+    try{
+      clearTimeout(archiveTimer);
+      await archiveProject(project,'履歴を開いた時');
+      const rows=await PlanHistory.list();
+      // The user may have dismissed this dialog while storage was opening.
+      if(!$('modal').open||$('modalTitle').textContent!=='保存履歴')return;
+      body.innerHTML='<p class="modal-desc">この端末・ブラウザの最新50件です。編集を止めて約3秒で自動記録します。<br>過去の図面を開く前に、現在の状態も履歴に残します。</p><div class="history-tools"><button class="btn primary" id="archiveNow">今の状態を保存</button><label class="field">図面名で探す<input id="archiveSearch" type="search" placeholder="図面名を入力"></label></div><p class="note">別の端末には自動同期されません。大切な図面は「データ保存」でJSONも残してください。</p><div id="archiveList" class="archive-list"></div>';
+      function renderRows(){
+        const query=$('archiveSearch').value.trim().toLocaleLowerCase();
+        const shown=rows.filter(r=>String(r.title).toLocaleLowerCase().includes(query));
+        $('archiveList').innerHTML=shown.map(r=>{
+          let p;try{p=validateProject(JSON.parse(r.data));}catch{return '<article class="archive-card"><div><strong>読み込めない履歴</strong><p class="note">保存内容を確認できません。</p></div></article>';}
+          const date=new Date(r.savedAt).toLocaleString('ja-JP',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'});
+          return '<article class="archive-card"><div class="archive-preview">'+archivePreview(p)+'</div><div class="archive-details"><strong>'+esc(p.title)+'</strong><time>'+esc(date)+'</time><span class="note">'+esc(r.reason)+' · '+p.floors.length+'階分 · '+p.floors.reduce((n,f)=>n+f.elements.length,0)+'パーツ</span><button class="btn" data-open-archive="'+esc(r.id)+'">この図面を開く</button></div></article>';
+        }).join('')||'<p class="modal-desc">該当する履歴はありません。</p>';
+      }
+      $('archiveSearch').oninput=renderRows;
+      $('archiveNow').onclick=async()=>{const button=$('archiveNow');button.disabled=true;try{await archiveProject(project,'手動保存');toast('現在の図面を履歴に保存しました。');}catch{}finally{button.disabled=false;}};
+      $('archiveList').onclick=async ev=>{
+        const button=ev.target.closest('[data-open-archive]');if(!button)return;
+        const row=rows.find(r=>r.id===button.dataset.openArchive);if(!row)return;button.disabled=true;
+        try{
+          const restored=validateProject(JSON.parse(row.data));
+          const current=JSON.stringify(project);clearTimeout(archiveTimer);await archiveProject(project,'履歴を開く前');
+          if(!$('modal').open||$('modalTitle').textContent!=='保存履歴'||JSON.stringify(project)!==current)return;
+          change(()=>{project=restored;floorIndex=0;selected=null;vertexId=null;dragging=null;snapGuides=[];});
+          closeModal();fit();toast('履歴の図面を開きました。続けて編集できます。');
+        }catch{toast('図面を開けませんでした。現在の図面はそのままです。');button.disabled=false;}
+      };
+      renderRows();
+    }catch{
+      if($('modal').open&&$('modalTitle').textContent==='保存履歴')body.innerHTML='<p class="modal-desc">このブラウザで保存履歴を利用できませんでした。空き容量やブラウザの設定を確認して、再度お試しください。</p><p class="note">現在の図面は「データ保存」でJSONとして保存できます。</p>';
+    }
+  }
+  $('historyBtn').onclick=showHistory;
+
   function startBlank(){change(()=>{project=makeProject();project.title='新しい間取り';floorIndex=0;selected=null;});fit();toast('新しい間取りを作成しました。');}
   $('newBtn').onclick=()=>confirmAction('新しい間取りを作りますか？','現在の図面を残す場合は、先に「データ保存」をしてください。作成後も「元に戻す」で戻せます。',startBlank);
   function templateModal(){showModal('まずは、近い間取りから。',`<p class="modal-desc">配置や広さは、あとから自由に変えられます。<br>選ぶと図面全体をひな形の全階で置き換えます（元に戻せます）。</p><div class="template-grid">${PlanKit.templates.map(t=>{const b=getBounds(t.elements);return `<button class="template-choice" data-template="${esc(t.id)}"><svg viewBox="${b.x-15} ${b.y-15} ${b.w+30} ${b.h+30}" xmlns="http://www.w3.org/2000/svg">${t.elements.map(shape).join('')}</svg><strong>${esc(t.name)}</strong><small>${esc(t.description)}</small></button>`;}).join('')}</div>`,'START WITH A TEMPLATE');document.querySelectorAll('[data-template]').forEach(b=>b.onclick=()=>{const t=PlanKit.templates.find(x=>x.id===b.dataset.template);change(()=>{project=makeProject(t);floorIndex=0;selected=null;});closeModal();fit();toast(`${t.name}のテンプレートを読み込みました。`);});}
   $('templatesBtn').onclick=templateModal;$('emptyTemplateBtn').onclick=templateModal;
   $('helpBtn').onclick=()=>showModal('3ステップで、間取りが完成。',`<div class="help-steps"><div class="help-step"><span>01</span><div><strong>部屋を置く</strong><p>左の部屋をクリックして追加。図面の上をドラッグして配置します。テンプレートから始めることもできます。</p></div></div><div class="help-step"><span>02</span><div><strong>かたちを整える</strong><p>パーツをクリックして、名前・広さ・寸法・色を編集。四隅でサイズを変更。近づけるとマスや他のパーツの端・中央に吸着し、補助線が表示されます。「マス吸着」「補助線」で切り替え、PCではAltキーで一時解除できます。戸は「建具」から追加し、「戸の種類」で変更できます。</p></div></div><div class="help-step"><span>03</span><div><strong>保存して、使う</strong><p>「書き出し」でPNGまたはPDFを保存。「データ保存」のJSONファイルは、あとから読み込んで全パーツを編集できます。</p></div></div></div><p class="modal-desc">自動保存はこの端末・ブラウザのみです。大切な図面はJSONファイルでも保存してください。PNG・PDFから編集状態を復元することはできません。</p>`,'QUICK GUIDE');
-  function downloadJSON(){const blob=new Blob([JSON.stringify(project,null,2)],{type:'application/json'});const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=(project.title||'間取り').replace(/[<>:"/\\|?*\x00-\x1f]/g,'_')+'.madori.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);toast('編集用データを保存しました。');}
+  function downloadJSON(){archiveProject(project,'データ保存').catch(()=>{});const blob=new Blob([JSON.stringify(project,null,2)],{type:'application/json'});const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=(project.title||'間取り').replace(/[<>:"/\\|?*\x00-\x1f]/g,'_')+'.madori.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);toast('編集用データを保存しました。');}
   $('saveBtn').onclick=downloadJSON;$('loadBtn').onclick=()=>$('jsonInput').click();
   function validPoints(points){
     if(!Array.isArray(points)||points.length<3||points.length>256||!points.every(p=>Array.isArray(p)&&p.length===2&&p.every(n=>typeof n==='number'&&Number.isFinite(n)&&n>=0&&n<=1)))throw Error('部屋の頂点は0〜1の座標で3〜256個指定してください。');
@@ -1755,7 +1862,8 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
   $('photoImportBtn').onclick=()=>PhotoImport.open();
   document.querySelector('.brand').onclick=ev=>{ev.preventDefault();selected=null;render();fit();};
   renderCatalog();render();fit();
-  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){try{localStorage.setItem(STORAGE,JSON.stringify(project));}catch{}}});
+  archiveProject(project,'開始時の図面').catch(()=>{});
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){clearTimeout(archiveTimer);archiveProject(project,'自動保存').catch(()=>{});try{localStorage.setItem(STORAGE,JSON.stringify(project));}catch{}}});
 })();
 </script><script>(() => {
   'use strict';
@@ -1816,3 +1924,4 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
 
 </script>
 </body></html>
+
