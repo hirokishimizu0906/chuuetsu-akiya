@@ -140,14 +140,47 @@
 .archive-details strong{overflow-wrap:anywhere;font-size:14px}.archive-details time{font-size:12px;color:#718170}
 .archive-details .btn,.history-tools .btn{min-height:44px}
 @media(max-width:650px){.mobile-ready .project-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%}.mobile-ready .project-actions .btn{padding:0 3px;font-size:11px;gap:3px}.mobile-ready .project-actions .btn svg{display:none}.archive-preview{width:82px}.archive-preview svg{height:90px}.archive-card{gap:10px;padding:10px}}
+</style><style>
+.phone-only{display:none}
+@media(max-width:650px){
+ .mobile-ready .phone-only{display:flex}.mobile-ready [hidden]{display:none!important}
+ .mobile-ready .app-header{height:44px;min-height:44px;padding:0 10px}.mobile-ready .brand small{display:none}.mobile-ready .brand{font-size:15px}.mobile-ready .brand-mark{height:28px;width:28px}
+ .mobile-ready .header-right{gap:3px}.mobile-ready .header-right .btn{font-size:11px;padding:0 8px}
+ .mobile-ready .project-header{padding:3px 10px;gap:4px;min-height:38px;height:auto}.mobile-ready #projectTitle{font-size:16px;height:32px}
+ .mobile-ready .project-actions{display:none}.mobile-ready.phone-menu-open .project-actions{display:grid;padding:4px 0}
+ .mobile-ready.phone-focus .app-header,.mobile-ready.phone-focus .project-header{display:none}
+ .mobile-ready .workspace{margin:0 4px 4px}
+ .mobile-ready .editor-toolbar{padding:2px 4px;gap:0;min-height:48px}
+ .mobile-ready .toolbar-group:first-child{flex-wrap:nowrap;gap:2px;justify-content:space-between}
+ .mobile-ready .toolbar-group:first-child .separator,.mobile-ready #flipBtn{display:none}
+ .mobile-ready.phone-tools-open #flipBtn{display:inline-flex}.mobile-ready.phone-tools-open .toolbar-group:first-child{flex-wrap:wrap;justify-content:flex-start}
+ .mobile-ready .toolbar-group:first-child .btn{padding:0 7px;min-width:44px;height:44px;font-size:12px}
+ .mobile-ready .toolbar-group:last-child{display:none!important}
+ .mobile-ready.phone-tools-open .toolbar-group:last-child{display:flex!important;border-top:1px solid #e6ebe7;padding-top:4px}
+ .mobile-ready .phone-only.active{color:white;background:#16796e}
+ .mobile-ready .canvas-wrap{position:relative;flex:1;min-height:80px;padding:0;overflow:hidden;touch-action:none;background:white}
+ .mobile-ready .paper{margin:0!important;max-width:none;box-shadow:none;position:relative;background:white}
+ .mobile-ready #planCanvas{touch-action:none;overflow:hidden}
+ .mobile-ready .phone-gesture-hint{position:absolute;bottom:8px;left:8px;right:8px;z-index:3;pointer-events:none;justify-content:center;font-size:10px;color:#62796c;background:#ffffffdc;border-radius:5px;padding:5px}
+ .mobile-ready .canvas-meta{pointer-events:none;top:8px;left:8px;right:8px;gap:4px;z-index:2;font-size:10px;background:#ffffffdd;border-radius:4px;padding:3px}
+ .mobile-ready .canvas-meta>span:last-child{font-size:9px}
+ .mobile-ready .canvas-bottom{height:46px;padding:0;min-height:46px;margin:0;background:white;border-top:1px solid #e6ebe7}
+ .mobile-ready .zoom-control{box-shadow:none;border:0;background:white}
+ .mobile-ready .editor-footer{min-height:44px;padding:0 7px;flex-wrap:nowrap}.mobile-ready .plan-stats{padding:0}
+ .mobile-ready .phone-selection{flex-shrink:0;align-items:center;gap:6px;padding:4px 7px;min-height:52px;background:#eef8f3;border-top:1px solid #cde4d8}
+ .mobile-ready .phone-selection span{font-size:12px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .mobile-ready .phone-selection .btn{height:44px;padding:0 9px;font-size:12px}
+ .mobile-ready .mobile-nav{min-height:50px;padding-top:0;padding-bottom:env(safe-area-inset-bottom)}
+ .mobile-ready .inspector-content .field input,.mobile-ready .inspector-content .field select{min-height:44px;font-size:16px}
+}
 </style></head>
 <body>
-<header class="app-header"><a class="brand" href="#" aria-label="まどりスタジオ ホーム"><span class="brand-mark"><svg viewBox="0 0 28 28"><path d="M5 23V10l9-6 9 6v13H5zM5 15h10v8m0-19v11h8"/></svg></span><span>まどり<span class="brand-light">スタジオ</span><small>FLOOR PLAN, MADE SIMPLE.</small></span></a><div class="header-right"><span class="local-badge"><i></i>このブラウザに自動保存</span><button class="btn ghost" id="helpBtn" data-icon="help">使い方</button><span class="avatar">H</span></div></header>
+<header class="app-header"><a class="brand" href="#" aria-label="まどりスタジオ ホーム"><span class="brand-mark"><svg viewBox="0 0 28 28"><path d="M5 23V10l9-6 9 6v13H5zM5 15h10v8m0-19v11h8"/></svg></span><span>まどり<span class="brand-light">スタジオ</span><small>FLOOR PLAN, MADE SIMPLE.</small></span></a><div class="header-right"><button class="btn phone-only" id="phoneMenuBtn" aria-expanded="false">保存など</button><span class="local-badge"><i></i>このブラウザに自動保存</span><button class="btn ghost" id="helpBtn" data-icon="help">使い方</button><span class="avatar">H</span></div></header>
 <section class="project-header"><div class="project-heading"><div class="eyebrow">MY WORKSPACE <span>/</span> 間取りエディター</div><div class="title-row"><input id="projectTitle" aria-label="図面のタイトル" value="はじめての間取り"><span class="tag">編集中</span></div></div><div class="project-actions"><button class="btn" id="newBtn" data-icon="plus">新規作成</button><button class="btn" id="historyBtn" data-icon="folder">保存履歴</button><button class="btn" id="saveBtn" data-icon="save">データ保存</button><button class="btn primary" id="exportBtn" data-icon="download">書き出し <span class="export-types">PNG / PDF</span></button></div></section>
 <main class="workspace">
 <aside class="palette panel" id="mobilePartsPanel"><div class="panel-title"><h2>パーツを追加</h2><span class="mini-label">クリックで配置</span></div><div class="palette-tabs" role="tablist" aria-label="パーツの種類"><button role="tab" aria-selected="true" data-category="rooms">部屋</button><button role="tab" aria-selected="false" data-category="openings">建具</button><button role="tab" aria-selected="false" data-category="fixtures">設備・家具</button></div><div class="palette-scroll"><div class="section-caption" id="catalogCaption">作りたい部屋を選びましょう</div><button class="wide-action photo-launch" id="photoImportBtn"><span><strong>写真から取り込む</strong><small>区画を抽出・AI解析データを編集</small></span><span>↗</span></button><div id="catalog" class="catalog"></div><div class="palette-divider"></div><button class="wide-action" id="textBtn" data-icon="text">文字を追加<span>＋</span></button><button class="wide-action" id="wallBtn" data-icon="wall">壁を描く<span>＋</span></button><div class="palette-divider"></div><button class="template-card" id="templatesBtn"><span class="template-card-icon" data-icon="layout"></span><strong>テンプレートから作る</strong><small>2階建て・平屋・和室のある家</small><span class="template-arrow">↗</span></button><button class="wide-action subdued" id="underlayBtn" data-icon="image">下絵を読み込む<span>＋</span></button><button class="wide-action subdued" id="loadBtn" data-icon="folder">保存データを開く<span>↗</span></button><div id="underlayControls" hidden><label class="field">下絵の濃さ<input type="range" id="underlayOpacity" min="0.1" max="0.8" step="0.05" value="0.3"></label><button class="btn small" id="removeUnderlay">下絵を削除</button></div></div><div class="palette-foot"><span class="sparkle">✧</span><div><strong>ひらめきを、間取りに。</strong><small>パーツは何度でも編集できます。</small></div></div></aside>
-<section class="editor" id="mobileCanvasPanel"><div class="editor-toolbar"><div class="toolbar-group"><button class="icon-btn active" id="selectTool" aria-label="選択・移動" title="選択・移動" data-icon="cursor"></button><span class="separator"></span><button class="icon-btn" id="undoBtn" aria-label="元に戻す" title="元に戻す Ctrl+Z" data-icon="undo"></button><button class="icon-btn" id="redoBtn" aria-label="やり直す" title="やり直す Ctrl+Shift+Z" data-icon="redo"></button><span class="separator"></span><button class="icon-btn" id="flipBtn" aria-label="図面を左右反転" title="図面を左右反転" data-icon="flip"></button></div><div class="toolbar-group"><button class="btn small" id="houseSettingsBtn">戸建て設定</button><label class="toolbar-check"><input id="lowerFloorCheck" type="checkbox">下階</label><label class="toolbar-check" title="近くのマスにぴったり合わせる"><input id="snapCheck" type="checkbox" checked>マス吸着</label><label class="toolbar-check" title="パーツの端・中央を補助線で合わせる"><input id="alignCheck" type="checkbox" checked>補助線</label><label class="toolbar-check"><input id="dimensionCheck" type="checkbox">寸法</label><button class="icon-btn active" id="gridBtn" aria-label="グリッドを切り替え" title="グリッドを切り替え" data-icon="grid"></button></div></div>
-<div class="canvas-wrap" id="canvasWrap"><div class="canvas-meta"><span><i></i> <span id="floorCanvasLabel">1階</span> の間取り</span><span><span id="gridLabel">1マス = 910mm / 補助線455mm</span></span></div><div class="paper" id="paper"><svg id="planCanvas" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800" role="img" aria-label="編集できる間取り図"><defs id="gridDefs"><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e9eeec" stroke-width="1"/><circle cx="0" cy="0" r="1" fill="#d5ddd9"/></pattern></defs><rect id="paperBg" width="1000" height="800" fill="white"/><rect id="gridLayer" width="1000" height="800" fill="url(#grid)"/><g id="underlayLayer"></g><g id="elementsLayer"></g><g id="lowerFloorLayer" pointer-events="none"></g><g id="dimensionsLayer"></g><g id="guidesLayer" pointer-events="none" aria-hidden="true"></g><g id="selectionLayer"></g></svg><div id="emptyState" hidden><div class="empty-icon" data-icon="layout"></div><h3>ここから、間取りをつくろう。</h3><p>左のパーツをクリックして、<br>好きな場所に並べてください。</p><button class="btn" id="emptyTemplateBtn">テンプレートを選ぶ</button></div></div><div class="canvas-bottom"><span class="canvas-hint" id="canvasHint">近づけるとマス・端・中央に吸着 · 四隅でサイズ変更</span><div class="zoom-control"><button id="zoomOut" aria-label="縮小">−</button><button id="zoomReset" title="画面に合わせる">100%</button><button id="zoomIn" aria-label="拡大">＋</button><span></span><button id="fitBtn" aria-label="画面に合わせる" data-icon="fit"></button></div></div></div>
+<section class="editor" id="mobileCanvasPanel"><div class="editor-toolbar"><div class="toolbar-group"><button class="icon-btn active" id="selectTool" aria-label="選択・移動" title="選択・移動" data-icon="cursor"></button><span class="separator"></span><button class="icon-btn" id="undoBtn" aria-label="元に戻す" title="元に戻す Ctrl+Z" data-icon="undo"></button><button class="icon-btn" id="redoBtn" aria-label="やり直す" title="やり直す Ctrl+Shift+Z" data-icon="redo"></button><span class="separator"></span><button class="icon-btn" id="flipBtn" aria-label="図面を左右反転" title="図面を左右反転" data-icon="flip"></button><button class="btn phone-only" id="phonePanBtn" aria-pressed="false" title="図面を動かす">移動</button><button class="btn phone-only" id="phoneFocusBtn" aria-pressed="false" title="図面を広く表示">広く</button><button class="btn phone-only" id="phoneOptionsBtn" aria-expanded="false" title="吸着・寸法などの表示設定">設定</button></div><div class="toolbar-group"><button class="btn small" id="houseSettingsBtn">戸建て設定</button><label class="toolbar-check"><input id="lowerFloorCheck" type="checkbox">下階</label><label class="toolbar-check" title="近くのマスにぴったり合わせる"><input id="snapCheck" type="checkbox" checked>マス吸着</label><label class="toolbar-check" title="パーツの端・中央を補助線で合わせる"><input id="alignCheck" type="checkbox" checked>補助線</label><label class="toolbar-check"><input id="dimensionCheck" type="checkbox">寸法</label><button class="icon-btn active" id="gridBtn" aria-label="グリッドを切り替え" title="グリッドを切り替え" data-icon="grid"></button></div></div>
+<div class="canvas-wrap" id="canvasWrap"><div class="phone-gesture-hint phone-only">2本指で拡大・移動 ／ 部屋をタップして編集</div><div class="canvas-meta"><span><i></i> <span id="floorCanvasLabel">1階</span> の間取り</span><span><span id="gridLabel">1マス = 910mm / 補助線455mm</span></span></div><div class="paper" id="paper"><svg id="planCanvas" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800" role="img" aria-label="編集できる間取り図"><defs id="gridDefs"><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e9eeec" stroke-width="1"/><circle cx="0" cy="0" r="1" fill="#d5ddd9"/></pattern></defs><rect id="paperBg" width="1000" height="800" fill="white"/><rect id="gridLayer" width="1000" height="800" fill="url(#grid)"/><g id="underlayLayer"></g><g id="elementsLayer"></g><g id="lowerFloorLayer" pointer-events="none"></g><g id="dimensionsLayer"></g><g id="guidesLayer" pointer-events="none" aria-hidden="true"></g><g id="selectionLayer"></g></svg><div id="emptyState" hidden><div class="empty-icon" data-icon="layout"></div><h3>ここから、間取りをつくろう。</h3><p>左のパーツをクリックして、<br>好きな場所に並べてください。</p><button class="btn" id="emptyTemplateBtn">テンプレートを選ぶ</button></div></div><div class="phone-selection phone-only" id="phoneSelection" hidden><span id="phoneSelectedName"></span><button class="btn" id="phoneZoomSelected">選択を拡大</button><button class="btn primary" id="phoneEditSelected">寸法編集</button></div><div class="canvas-bottom"><span class="canvas-hint" id="canvasHint">近づけるとマス・端・中央に吸着 · 四隅でサイズ変更</span><div class="zoom-control"><button id="zoomOut" aria-label="縮小">−</button><button id="zoomReset" title="画面に合わせる">100%</button><button id="zoomIn" aria-label="拡大">＋</button><span></span><button id="fitBtn" aria-label="画面に合わせる" data-icon="fit"></button></div></div></div>
 <footer class="editor-footer"><div class="floor-tabs" id="floorTabs"></div><div class="plan-stats"><span id="roomStats">0部屋</span><span id="saveStatus"><i></i>保存済み</span></div></footer></section>
 <aside class="inspector panel" id="mobileEditPanel"><div class="panel-title"><h2 id="inspectorTitle">図面の設定</h2><span id="selectionTag" class="mini-label">PLAN</span></div><div class="inspector-content" id="inspectorContent"></div><div class="inspector-note"><span data-icon="info"></span><p>簡易的な間取り図の作成ツールです。<br>寸法・面積は入力値に基づく目安です。</p></div></aside>
 </main><nav class="mobile-nav" id="mobileNav" aria-label="編集画面の切り替え"><button type="button" data-mobile-panel="canvas" aria-controls="mobileCanvasPanel" aria-pressed="true" data-icon="layout">図面</button><button type="button" data-mobile-panel="parts" aria-controls="mobilePartsPanel" aria-pressed="false" data-icon="plus">パーツ</button><button type="button" data-mobile-panel="edit" aria-controls="mobileEditPanel" aria-pressed="false" data-icon="cursor">編集</button></nav>
@@ -1597,6 +1630,95 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
   const measurementLabel=()=>({center:'壁芯',inside:'内法',unknown:'寸法未確認'}[settings().measurement]);
   function excludedFromArea(e){return e.excludeArea===true||(e.excludeArea!==false&&['balcony','void','garden','parking','porch'].includes(e.kind));}
   function floorArea(f){return f.elements.filter(e=>e.type==='room'&&!excludedFromArea(e)).reduce((s,e)=>s+PlanKit.area(e),0);}
+  const phoneMedia=window.matchMedia('(max-width:650px)');
+  const phone=()=>phoneMedia.matches;
+  let camera={x:0,y:0,ready:false},panGesture=null,pinchGesture=null;
+  const fingers=new Map();
+  function viewport(){return {w:$('canvasWrap').clientWidth,h:$('canvasWrap').clientHeight};}
+  function cameraClamp(){
+    const s=viewport(),w=s.w/zoom,h=s.h/zoom;
+    camera.x=clamp(camera.x,-w/2,W()-w/2);
+    camera.y=clamp(camera.y,-h/2,H()-h/2);
+  }
+  function syncPhoneView(){
+    const s=viewport();if(!s.w||!s.h)return;
+    camera.lastW=s.w;camera.lastH=s.h;cameraClamp();$('paper').style.width=s.w+'px';$('paper').style.height=s.h+'px';
+    $('planCanvas').setAttribute('viewBox',[camera.x,camera.y,s.w/zoom,s.h/zoom].join(' '));
+    $('zoomReset').textContent=Math.round(zoom*100)+'%';
+  }
+  function fitPhone(elements=floor().elements){
+    const s=viewport();if(!s.w||!s.h)return;
+    const b=elements.length?getBounds(elements):{x:W()/2-300,y:H()/2-300,w:600,h:600};
+    zoom=clamp(Math.min(s.w/(b.w+80),s.h/(b.h+80)),.08,3);
+    camera={x:b.x+b.w/2-s.w/(2*zoom),y:b.y+b.h/2-s.h/(2*zoom),ready:true};
+    syncPhoneView();renderCanvas();
+  }
+  function zoomPhone(next,anchor){
+    const s=viewport(),p=anchor||{x:s.w/2,y:s.h/2};
+    const world={x:camera.x+p.x/zoom,y:camera.y+p.y/zoom};zoom=clamp(next,.08,4);
+    camera.x=world.x-p.x/zoom;camera.y=world.y-p.y/zoom;syncPhoneView();renderCanvas();
+  }
+  function cancelEditGesture(){
+    if(dragging){project=JSON.parse(dragging.before);dragging=null;snapGuides=[];render();}
+  }
+  function fingerPair(){const p=[...fingers.values()];return {x:(p[0].x+p[1].x)/2,y:(p[0].y+p[1].y)/2,distance:Math.max(1,Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y))};}
+  function phonePointerDown(ev){
+    if(!phone())return false;
+    if(ev.pointerType==='touch'){
+      fingers.set(ev.pointerId,{x:ev.clientX,y:ev.clientY});$('planCanvas').setPointerCapture(ev.pointerId);
+      if(fingers.size>=2){
+        ev.preventDefault();cancelEditGesture();panGesture=null;
+        const p=fingerPair(),r=$('planCanvas').getBoundingClientRect();
+        pinchGesture={distance:p.distance,zoom,worldX:camera.x+(p.x-r.left)/zoom,worldY:camera.y+(p.y-r.top)/zoom};return true;
+      }
+    }
+    const target=ev.target.closest('[data-el], [data-handle], [data-vertex]');
+    if(mode==='pan'||(!target&&mode!=='wall')){
+      panGesture={id:ev.pointerId,x:ev.clientX,y:ev.clientY,cx:camera.x,cy:camera.y,moved:false};
+      ev.preventDefault();$('planCanvas').setPointerCapture(ev.pointerId);return true;
+    }
+    return false;
+  }
+  function phonePointerMove(ev){
+    if(!phone())return false;
+    if(fingers.has(ev.pointerId))fingers.set(ev.pointerId,{x:ev.clientX,y:ev.clientY});
+    if(pinchGesture&&fingers.size>=2){
+      ev.preventDefault();const p=fingerPair(),r=$('planCanvas').getBoundingClientRect();
+      zoom=clamp(pinchGesture.zoom*p.distance/pinchGesture.distance,.08,4);
+      camera.x=pinchGesture.worldX-(p.x-r.left)/zoom;camera.y=pinchGesture.worldY-(p.y-r.top)/zoom;
+      syncPhoneView();renderCanvas();return true;
+    }
+    if(panGesture&&panGesture.id===ev.pointerId){
+      ev.preventDefault();const dx=ev.clientX-panGesture.x,dy=ev.clientY-panGesture.y;
+      if(Math.hypot(dx,dy)>5)panGesture.moved=true;
+      camera.x=panGesture.cx-dx/zoom;camera.y=panGesture.cy-dy/zoom;syncPhoneView();return true;
+    }
+    return false;
+  }
+  function phonePointerEnd(ev){
+    fingers.delete(ev.pointerId);
+    if(pinchGesture){
+      if(fingers.size<2){pinchGesture=null;const remaining=[...fingers.entries()][0];panGesture=remaining?{id:remaining[0],x:remaining[1].x,y:remaining[1].y,cx:camera.x,cy:camera.y,moved:true}:null;}
+      return true;
+    }
+    if(panGesture&&panGesture.id===ev.pointerId){const deselect=!panGesture.moved&&mode!=='pan';panGesture=null;if(deselect){selected=null;render();}return true;}
+    return false;
+  }
+  function updatePhoneSelection(){
+    const e=element();$('phoneSelection').hidden=!e;
+    $('phoneSelectedName').textContent=e?.label||'選択したパーツ';
+  }
+  $('phonePanBtn').onclick=()=>setMode(mode==='pan'?'select':'pan');
+  $('phoneFocusBtn').onclick=()=>{
+    const enabled=document.body.classList.toggle('phone-focus');
+    $('phoneFocusBtn').textContent=enabled?'戻す':'広く';$('phoneFocusBtn').setAttribute('aria-pressed',String(enabled));
+  };
+  $('phoneOptionsBtn').onclick=()=>{const enabled=document.body.classList.toggle('phone-tools-open');$('phoneOptionsBtn').setAttribute('aria-expanded',String(enabled));};
+  $('phoneMenuBtn').onclick=()=>{const enabled=document.body.classList.toggle('phone-menu-open');$('phoneMenuBtn').setAttribute('aria-expanded',String(enabled));};
+  $('phoneZoomSelected').onclick=()=>{if(element())fitPhone([element()]);};
+  $('phoneEditSelected').onclick=()=>{document.querySelector('[data-mobile-panel="edit"]').click();};
+  $('planCanvas').addEventListener('dblclick',ev=>{if(phone()&&element()&&ev.target.closest('[data-el]')){ev.preventDefault();fitPhone([element()]);}});
+
   function keepInCanvas(e){const b=getBounds([e]);e.x+=Math.max(0,-b.x)-Math.max(0,b.x+b.w-W());e.y+=Math.max(0,-b.y)-Math.max(0,b.y+b.h-H());}
   function fitsCanvas(e,width=W(),height=H()){const b=getBounds([e]);return b.w<=width+.001&&b.h<=height+.001;}
   function updateSettings(partial){const next=HouseSettings.normalize({...settings(),...partial});if(project.floors.some(f=>f.elements.some(e=>{const b=getBounds([e]);return b.x<-.01||b.y<-.01||b.x+b.w>next.canvasWidth+.01||b.y+b.h>next.canvasHeight+.01;}))){toast('配置したパーツが収まる作図範囲を選んでください。');renderInspector();return false;}change(()=>project.settings=next);fit();return true;}
@@ -1612,7 +1734,7 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
   function undo(){if(!history.length)return;future.push(JSON.stringify(project));project=JSON.parse(history.pop());floorIndex=Math.min(floorIndex,project.floors.length-1);selected=null;save();render();fit();}
   function redo(){if(!future.length)return;history.push(JSON.stringify(project));project=JSON.parse(future.pop());floorIndex=Math.min(floorIndex,project.floors.length-1);selected=null;save();render();fit();}
   function transform(e){return `translate(${e.x} ${e.y}) rotate(${e.rotation||0} ${e.w/2} ${e.h/2})${e.mirrored&&e.type!=='room'&&e.type!=='text'?` translate(${e.w} 0) scale(-1 1)`:''}`;}
-  function shape(e){return `<g data-el="${esc(e.id)}" class="plan-element" transform="${transform(e)}">${PlanKit.drawElement(e)}</g>`;}
+  function shape(e,hit=false){return `<g data-el="${esc(e.id)}" class="plan-element" transform="${transform(e)}">${hit===true&&phone()&&['door','window','wall'].includes(e.type)?`<rect x="${Math.min(0,(e.w-22/zoom)/2)}" y="${Math.min(0,(e.h-22/zoom)/2)}" width="${Math.max(e.w,22/zoom)}" height="${Math.max(e.h,22/zoom)}" fill="transparent"/>`:""}${PlanKit.drawElement(e)}</g>`;}
   function getBounds(elements){
     if(!elements.length)return {x:100,y:100,w:800,h:600};
     let xs=[],ys=[];for(const e of elements){const a=(e.rotation||0)*Math.PI/180,cx=e.x+e.w/2,cy=e.y+e.h/2;for(const [x,y]of [[-e.w/2,-e.h/2],[e.w/2,-e.h/2],[e.w/2,e.h/2],[-e.w/2,e.h/2]]){xs.push(cx+x*Math.cos(a)-y*Math.sin(a));ys.push(cy+x*Math.sin(a)+y*Math.cos(a));}}
@@ -1630,18 +1752,19 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
   }
   function smartOptions(ev){const grid=$('snapCheck').checked,align=$('alignCheck').checked;return {enabled:(grid||align)&&!ev.altKey,align,gridStep:grid?HouseSettings.step(settings()):0,threshold:(dragging?.pointerType==='touch'?10:7)/zoom,canvasWidth:W(),canvasHeight:H(),minSize:16};}
   function renderCanvas(){
-    $('planCanvas').setAttribute('viewBox',`0 0 ${W()} ${H()}`);$('planCanvas').setAttribute('width',W());$('planCanvas').setAttribute('height',H());$('gridDefs').innerHTML=HouseSettings.gridSvg(settings());for(const id of ['paperBg','gridLayer']){$(id).setAttribute('width',W());$(id).setAttribute('height',H());}$('gridLabel').textContent=HouseSettings.gridLabel(settings());renderLowerFloor();
+    if(phone()&&camera.ready)syncPhoneView();else $('planCanvas').setAttribute('viewBox',`0 0 ${W()} ${H()}`);$('planCanvas').setAttribute('width',W());$('planCanvas').setAttribute('height',H());$('gridDefs').innerHTML=HouseSettings.gridSvg(settings());for(const id of ['paperBg','gridLayer']){$(id).setAttribute('width',W());$(id).setAttribute('height',H());}$('gridLabel').textContent=HouseSettings.gridLabel(settings());renderLowerFloor();
     const els=floor().elements;
     // Rooms stay below doors, windows, furniture and annotations.
     const ordered=[...els.filter(e=>e.type==='room'),...els.filter(e=>e.type!=='room')];
-    $('elementsLayer').innerHTML=ordered.map(shape).join('');
+    $('elementsLayer').innerHTML=ordered.map(e=>shape(e,true)).join('');
     const u=floor().underlay;$('underlayLayer').innerHTML=u?`<image href="${esc(u.src)}" x="${u.x}" y="${u.y}" width="${u.w}" height="${u.h}" opacity="${u.opacity}" preserveAspectRatio="xMidYMid meet"/>`:'';
     $('gridLayer').style.display=showGrid?'':'none';
     $('dimensionsLayer').innerHTML=$('dimensionCheck').checked?dimensionSvg(els):'';
     renderSnapGuides();
     const e=element();
-    $('selectionLayer').innerHTML=e?`<g transform="translate(${e.x} ${e.y}) rotate(${e.rotation||0} ${e.w/2} ${e.h/2})"><rect x="-5" y="-5" width="${e.w+10}" height="${e.h+10}" fill="none" stroke="#178678" stroke-width="1.6" stroke-dasharray="5 3" pointer-events="none"/>${!e.rotation?[[0,0,'nw'],[e.w,0,'ne'],[0,e.h,'sw'],[e.w,e.h,'se']].map(([x,y,h])=>`<rect data-handle="${h}" class="selection-handle" x="${x-5}" y="${y-5}" width="10" height="10" rx="1"/>`).join(''):''}</g>`:'';
+    $('selectionLayer').innerHTML=e?`<g transform="translate(${e.x} ${e.y}) rotate(${e.rotation||0} ${e.w/2} ${e.h/2})"><rect x="-5" y="-5" width="${e.w+10}" height="${e.h+10}" fill="none" stroke="#178678" stroke-width="1.6" stroke-dasharray="5 3" pointer-events="none"/>${!e.rotation?[[0,0,'nw'],[e.w,0,'ne'],[0,e.h,'sw'],[e.w,e.h,'se']].map(([x,y,h])=>phone()?`<g><rect data-handle="${h}" x="${x-Math.min(22/zoom,Math.min(e.w,e.h)*.24)}" y="${y-Math.min(22/zoom,Math.min(e.w,e.h)*.24)}" width="${Math.min(44/zoom,Math.min(e.w,e.h)*.48)}" height="${Math.min(44/zoom,Math.min(e.w,e.h)*.48)}" fill="transparent"/><rect data-handle="${h}" class="selection-handle" x="${x-6/zoom}" y="${y-6/zoom}" width="${12/zoom}" height="${12/zoom}" rx="${3/zoom}" vector-effect="non-scaling-stroke"/></g>`:`<rect data-handle="${h}" class="selection-handle" x="${x-5}" y="${y-5}" width="10" height="10" rx="1"/>`).join(''):''}</g>`:'';
     if(e&&e.id===vertexId&&e.points&&!e.rotation)$('selectionLayer').insertAdjacentHTML('beforeend',`<g transform="translate(${e.x} ${e.y})">${e.points.map((p,i)=>`<circle data-vertex="${i}" class="poly-handle" cx="${p[0]*e.w}" cy="${p[1]*e.h}" r="6"/>`).join('')}</g>`);
+    updatePhoneSelection();
     $('emptyState').hidden=els.length>0;
     $('floorCanvasLabel').textContent=floor().name;
     const rooms=els.filter(e=>e.type==='room');$('roomStats').textContent=`${rooms.length}区画 · ${els.length}パーツ`;
@@ -1689,22 +1812,22 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
     $('mirrorElement').onclick=()=>change(()=>{if(isRoom&&e.points)e.points=e.points.map(([x,y])=>[1-x,y]);else e.mirrored=!e.mirrored;});
     $('duplicateElement').onclick=duplicate;$('deleteElement').onclick=removeSelected;
   }
-  function addPart(id){const c=PlanKit.catalog.find(x=>x.id===id);if(!c)return;const sz=c.moduleUnits?{w:c.moduleUnits[0]*HouseSettings.mm(settings())*.08,h:c.moduleUnits[1]*HouseSettings.mm(settings())*.08}:{w:c.w,h:c.h};if(sz.w>W()||sz.h>H()){toast('パーツが収まるよう作図範囲を広げてください。');return;}change(()=>{const e={...clone(c),...sz,id:uid(),x:snap(W()/2-sz.w/2),y:snap(H()/2-sz.h/2),rotation:0};delete e.category;keepInCanvas(e);floor().elements.push(e);selected=e.id;});setMode('select');toast(`${c.label}を追加しました。ドラッグで移動できます。`);}
+  function addPart(id){const c=PlanKit.catalog.find(x=>x.id===id);if(!c)return;const sz=c.moduleUnits?{w:c.moduleUnits[0]*HouseSettings.mm(settings())*.08,h:c.moduleUnits[1]*HouseSettings.mm(settings())*.08}:{w:c.w,h:c.h};if(sz.w>W()||sz.h>H()){toast('パーツが収まるよう作図範囲を広げてください。');return;}change(()=>{const e={...clone(c),...sz,id:uid(),x:snap((phone()?camera.x+(camera.lastW||viewport().w)/(2*zoom):W()/2)-sz.w/2),y:snap((phone()?camera.y+(camera.lastH||viewport().h)/(2*zoom):H()/2)-sz.h/2),rotation:0};delete e.category;keepInCanvas(e);floor().elements.push(e);selected=e.id;});setMode('select');toast(`${c.label}を追加しました。ドラッグで移動できます。`);}
   function duplicate(){const e=element();if(!e)return;change(()=>{const n={...clone(e),id:uid(),x:clamp(e.x+24,0,W()-e.w),y:clamp(e.y+24,0,H()-e.h)};keepInCanvas(n);floor().elements.push(n);selected=n.id;});}
   function removeSelected(){if(!element())return;change(()=>{floor().elements=floor().elements.filter(e=>e.id!==selected);selected=null;});}
-  function setMode(next){mode=next;$('selectTool').classList.toggle('active',mode==='select');$('wallBtn').classList.toggle('active',mode==='wall');$('planCanvas').style.cursor=mode==='wall'?'crosshair':'';$('canvasHint').textContent=mode==='wall'?'始点から終点へドラッグして壁を描く':'近づけるとマス・端・中央に吸着 · 四隅でサイズ変更';}
+  function setMode(next){mode=next;$('phonePanBtn').classList.toggle('active',mode==='pan');$('phonePanBtn').setAttribute('aria-pressed',String(mode==='pan'));$('selectTool').classList.toggle('active',mode==='select');$('wallBtn').classList.toggle('active',mode==='wall');$('planCanvas').style.cursor=mode==='wall'?'crosshair':'';$('canvasHint').textContent=mode==='wall'?'始点から終点へドラッグして壁を描く':'近づけるとマス・端・中央に吸着 · 四隅でサイズ変更';}
   function point(ev){const p=$('planCanvas').createSVGPoint();p.x=ev.clientX;p.y=ev.clientY;return p.matrixTransform($('planCanvas').getScreenCTM().inverse());}
   $('planCanvas').addEventListener('pointerdown',ev=>{
-    if(ev.button!==0||dragging)return;const p=point(ev);const v=ev.target.closest('[data-vertex]'),h=ev.target.closest('[data-handle]'),target=ev.target.closest('[data-el]');snapGuides=[];
+    if(ev.button!==0)return;if(phonePointerDown(ev))return;if(dragging)return;const p=point(ev);const v=ev.target.closest('[data-vertex]'),h=ev.target.closest('[data-handle]'),target=ev.target.closest('[data-el]');snapGuides=[];
     if(mode==='wall'){const before=JSON.stringify(project);const e={id:uid(),type:'wall',kind:'wall',label:'壁',x:clamp(snap(p.x),0,W()-8),y:clamp(snap(p.y),0,H()-8),w:8,h:8,rotation:0,fill:'#38483d'};floor().elements.push(e);selected=e.id;dragging={kind:'wall',start:p,initial:clone(e),before};}
     else if(v&&element()){dragging={kind:'vertex',vertex:Number(v.dataset.vertex),start:p,initial:clone(element()),before:JSON.stringify(project)};}
     else if(h&&element()){dragging={kind:'resize',handle:h.dataset.handle,start:p,initial:clone(element()),before:JSON.stringify(project)};}
     else if(target){selected=target.dataset.el;dragging={kind:'move',start:p,initial:clone(element()),before:JSON.stringify(project)};renderInspector();}
     else{selected=null;render();return;}
-    dragging.pointerId=ev.pointerId;dragging.pointerType=ev.pointerType;ev.preventDefault();$('planCanvas').setPointerCapture(ev.pointerId);renderCanvas();
+    dragging.clientX=ev.clientX;dragging.clientY=ev.clientY;dragging.pointerId=ev.pointerId;dragging.pointerType=ev.pointerType;ev.preventDefault();$('planCanvas').setPointerCapture(ev.pointerId);renderCanvas();
   });
   $('planCanvas').addEventListener('pointermove',ev=>{
-    if(!dragging||ev.pointerId!==dragging.pointerId)return;const p=point(ev),d=dragging,e=element(),i=d.initial;if(!e)return;
+    if(phonePointerMove(ev))return;if(!dragging||ev.pointerId!==dragging.pointerId)return;if(dragging.pointerType==='touch'&&!dragging.moved){if(Math.hypot(ev.clientX-dragging.clientX,ev.clientY-dragging.clientY)<6)return;dragging.moved=true;}const p=point(ev),d=dragging,e=element(),i=d.initial;if(!e)return;
     const dx=p.x-d.start.x,dy=p.y-d.start.y;snapGuides=[];
     if(d.kind==='vertex'){const candidate=clone(e.points);candidate[d.vertex]=[clamp((snap(p.x)-e.x)/e.w,0,1),clamp((snap(p.y)-e.y)/e.h,0,1)];try{validPoints(candidate);e.points=candidate;}catch{}}
     else if(d.kind==='move'){
@@ -1722,13 +1845,15 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
     }
     renderCanvas();
   });
-  function finishDrag(ev){if(!dragging||(ev&&ev.pointerId!==dragging.pointerId))return;if(JSON.stringify(project)!==dragging.before){remember(dragging.before);save();}if(dragging.kind==='wall')setMode('select');dragging=null;snapGuides=[];render();}
+  function finishDrag(ev){if(ev&&phonePointerEnd(ev))return;if(ev?.type==='pointercancel'){cancelEditGesture();return;}if(!dragging||(ev&&ev.pointerId!==dragging.pointerId))return;if(JSON.stringify(project)!==dragging.before){remember(dragging.before);save();}if(dragging.kind==='wall')setMode('select');dragging=null;snapGuides=[];render();}
   $('planCanvas').addEventListener('pointerup',finishDrag);$('planCanvas').addEventListener('pointercancel',finishDrag);$('planCanvas').addEventListener('lostpointercapture',finishDrag);
-  function fit(){const wrap=$('canvasWrap');zoom=clamp(Math.min((wrap.clientWidth-70)/W(),(wrap.clientHeight-110)/H()),.08,1);applyZoom();}
-  function applyZoom(){$('paper').style.width=`${W()*zoom}px`;$('paper').style.height=`${H()*zoom}px`;$('zoomReset').textContent=Math.round(zoom*100)+'%';}
-  $('zoomIn').onclick=()=>{zoom=clamp(zoom+.1,.08,2);applyZoom();};$('zoomOut').onclick=()=>{zoom=clamp(zoom-.1,.08,2);applyZoom();};$('zoomReset').onclick=fit;$('fitBtn').onclick=fit;
-  $('canvasWrap').addEventListener('wheel',ev=>{if(ev.ctrlKey){ev.preventDefault();zoom=clamp(zoom+(ev.deltaY<0?.05:-.05),.08,2);applyZoom();}},{passive:false});
-  new ResizeObserver(()=>fit()).observe($('canvasWrap'));
+  function fit(){if(phone()){fitPhone();return;}const wrap=$('canvasWrap');if(!wrap.clientWidth||!wrap.clientHeight)return;zoom=clamp(Math.min((wrap.clientWidth-70)/W(),(wrap.clientHeight-110)/H()),.08,1);applyZoom();}
+  function applyZoom(){if(phone()){syncPhoneView();return;}$('planCanvas').setAttribute('viewBox',`0 0 ${W()} ${H()}`);$('paper').style.width=`${W()*zoom}px`;$('paper').style.height=`${H()*zoom}px`;$('zoomReset').textContent=Math.round(zoom*100)+'%';}
+  $('zoomIn').onclick=()=>{if(phone()){zoomPhone(zoom*1.3);return;}zoom=clamp(zoom+.1,.08,2);applyZoom();};$('zoomOut').onclick=()=>{if(phone()){zoomPhone(zoom/1.3);return;}zoom=clamp(zoom-.1,.08,2);applyZoom();};$('zoomReset').onclick=fit;$('fitBtn').onclick=fit;
+  $('canvasWrap').addEventListener('wheel',ev=>{if(ev.ctrlKey){ev.preventDefault();if(phone()){zoomPhone(zoom*(ev.deltaY<0?1.1:1/1.1));return;}zoom=clamp(zoom+(ev.deltaY<0?.05:-.05),.08,2);applyZoom();}},{passive:false});
+  let phoneInitialized=false;
+  function refreshPhone(){if(phone()){if(!viewport().w||!viewport().h)return;if(!phoneInitialized){fitPhone();phoneInitialized=true;}else{syncPhoneView();renderCanvas();}}else{phoneInitialized=false;fit();}}
+  new ResizeObserver(refreshPhone).observe($('canvasWrap'));
   document.querySelectorAll('[data-category]').forEach(b=>b.onclick=()=>{category=b.dataset.category;renderCatalog();});
   $('catalog').onclick=ev=>{const b=ev.target.closest('[data-part]');if(b)addPart(b.dataset.part);};
   $('floorTabs').onclick=ev=>{const b=ev.target.closest('[data-floor]');if(b){floorIndex=Number(b.dataset.floor);selected=null;render();}else if(ev.target.closest('[data-add-floor]'))change(()=>{project.floors.push({id:uid(),name:`${project.floors.length+1}階`,elements:[],underlay:null});floorIndex=project.floors.length-1;selected=null;});};
@@ -1750,7 +1875,7 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
   function scheduleArchive(){clearTimeout(archiveTimer);archiveTimer=setTimeout(()=>archiveProject(project,'自動保存').catch(()=>{}),3000);}
   function archivePreview(p){
     const elements=p.floors[0].elements,b=getBounds(elements);
-    return '<svg viewBox="'+[b.x-20,b.y-20,b.w+40,b.h+40].join(' ')+'" aria-hidden="true"><rect x="'+(b.x-20)+'" y="'+(b.y-20)+'" width="'+(b.w+40)+'" height="'+(b.h+40)+'" fill="white"/>'+elements.filter(e=>e.type==='room').concat(elements.filter(e=>e.type!=='room')).slice(0,200).map(shape).join('')+'</svg>';
+    return '<svg viewBox="'+[b.x-20,b.y-20,b.w+40,b.h+40].join(' ')+'" aria-hidden="true"><rect x="'+(b.x-20)+'" y="'+(b.y-20)+'" width="'+(b.w+40)+'" height="'+(b.h+40)+'" fill="white"/>'+elements.filter(e=>e.type==='room').concat(elements.filter(e=>e.type!=='room')).slice(0,200).map(e=>shape(e)).join('')+'</svg>';
   }
   async function showHistory(){
     showModal('保存履歴','<p class="modal-desc">履歴を読み込み中…</p>','SAVED PLANS');
@@ -1793,7 +1918,7 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
 
   function startBlank(){change(()=>{project=makeProject();project.title='新しい間取り';floorIndex=0;selected=null;});fit();toast('新しい間取りを作成しました。');}
   $('newBtn').onclick=()=>confirmAction('新しい間取りを作りますか？','現在の図面を残す場合は、先に「データ保存」をしてください。作成後も「元に戻す」で戻せます。',startBlank);
-  function templateModal(){showModal('まずは、近い間取りから。',`<p class="modal-desc">配置や広さは、あとから自由に変えられます。<br>選ぶと図面全体をひな形の全階で置き換えます（元に戻せます）。</p><div class="template-grid">${PlanKit.templates.map(t=>{const b=getBounds(t.elements);return `<button class="template-choice" data-template="${esc(t.id)}"><svg viewBox="${b.x-15} ${b.y-15} ${b.w+30} ${b.h+30}" xmlns="http://www.w3.org/2000/svg">${t.elements.map(shape).join('')}</svg><strong>${esc(t.name)}</strong><small>${esc(t.description)}</small></button>`;}).join('')}</div>`,'START WITH A TEMPLATE');document.querySelectorAll('[data-template]').forEach(b=>b.onclick=()=>{const t=PlanKit.templates.find(x=>x.id===b.dataset.template);change(()=>{project=makeProject(t);floorIndex=0;selected=null;});closeModal();fit();toast(`${t.name}のテンプレートを読み込みました。`);});}
+  function templateModal(){showModal('まずは、近い間取りから。',`<p class="modal-desc">配置や広さは、あとから自由に変えられます。<br>選ぶと図面全体をひな形の全階で置き換えます（元に戻せます）。</p><div class="template-grid">${PlanKit.templates.map(t=>{const b=getBounds(t.elements);return `<button class="template-choice" data-template="${esc(t.id)}"><svg viewBox="${b.x-15} ${b.y-15} ${b.w+30} ${b.h+30}" xmlns="http://www.w3.org/2000/svg">${t.elements.map(e=>shape(e)).join('')}</svg><strong>${esc(t.name)}</strong><small>${esc(t.description)}</small></button>`;}).join('')}</div>`,'START WITH A TEMPLATE');document.querySelectorAll('[data-template]').forEach(b=>b.onclick=()=>{const t=PlanKit.templates.find(x=>x.id===b.dataset.template);change(()=>{project=makeProject(t);floorIndex=0;selected=null;});closeModal();fit();toast(`${t.name}のテンプレートを読み込みました。`);});}
   $('templatesBtn').onclick=templateModal;$('emptyTemplateBtn').onclick=templateModal;
   $('helpBtn').onclick=()=>showModal('3ステップで、間取りが完成。',`<div class="help-steps"><div class="help-step"><span>01</span><div><strong>部屋を置く</strong><p>左の部屋をクリックして追加。図面の上をドラッグして配置します。テンプレートから始めることもできます。</p></div></div><div class="help-step"><span>02</span><div><strong>かたちを整える</strong><p>パーツをクリックして、名前・広さ・寸法・色を編集。四隅でサイズを変更。近づけるとマスや他のパーツの端・中央に吸着し、補助線が表示されます。「マス吸着」「補助線」で切り替え、PCではAltキーで一時解除できます。戸は「建具」から追加し、「戸の種類」で変更できます。</p></div></div><div class="help-step"><span>03</span><div><strong>保存して、使う</strong><p>「書き出し」でPNGまたはPDFを保存。「データ保存」のJSONファイルは、あとから読み込んで全パーツを編集できます。</p></div></div></div><p class="modal-desc">自動保存はこの端末・ブラウザのみです。大切な図面はJSONファイルでも保存してください。PNG・PDFから編集状態を復元することはできません。</p>`,'QUICK GUIDE');
   function downloadJSON(){archiveProject(project,'データ保存').catch(()=>{});const blob=new Blob([JSON.stringify(project,null,2)],{type:'application/json'});const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=(project.title||'間取り').replace(/[<>:"/\\|?*\x00-\x1f]/g,'_')+'.madori.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);toast('編集用データを保存しました。');}
@@ -1831,7 +1956,7 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
     const top=heading?titles.length*30+55:25;
     const h=Math.max(sharedHeight||0,b.h+margin*2+top+(notes.length?notes.length*18+18:0));
     const ordered=[...els.filter(e=>e.type==='room'),...els.filter(e=>e.type!=='room')];
-    return `<svg xmlns="http://www.w3.org/2000/svg" width="${Math.ceil(w)}" height="${Math.ceil(h)}" viewBox="0 0 ${w} ${h}"><rect width="${w}" height="${h}" fill="white"/><g font-family="Yu Gothic UI,Meiryo,sans-serif" fill="#293d34">${heading?`${titles.map((line,i)=>`<text x="${margin}" y="${38+i*30}" font-size="22" font-weight="600">${esc(line)}</text>`).join('')}<text x="${margin}" y="${top-22}" font-size="12" fill="#7e8d82">${esc(targetFloor.name)}</text><line x1="${margin}" y1="${top-10}" x2="${w-margin}" y2="${top-10}" stroke="#e1e7df"/>`:''}<g transform="translate(${(w-b.w)/2-b.x} ${margin+top-b.y})">${ordered.map(shape).join('')}${dimensions?dimensionSvg(els):''}</g>${notes.map((line,i)=>`<text x="${margin}" y="${h-18-(notes.length-1-i)*18}" font-size="11" fill="#7b897f">${esc(line)}</text>`).join('')}</g></svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${Math.ceil(w)}" height="${Math.ceil(h)}" viewBox="0 0 ${w} ${h}"><rect width="${w}" height="${h}" fill="white"/><g font-family="Yu Gothic UI,Meiryo,sans-serif" fill="#293d34">${heading?`${titles.map((line,i)=>`<text x="${margin}" y="${38+i*30}" font-size="22" font-weight="600">${esc(line)}</text>`).join('')}<text x="${margin}" y="${top-22}" font-size="12" fill="#7e8d82">${esc(targetFloor.name)}</text><line x1="${margin}" y1="${top-10}" x2="${w-margin}" y2="${top-10}" stroke="#e1e7df"/>`:''}<g transform="translate(${(w-b.w)/2-b.x} ${margin+top-b.y})">${ordered.map(e=>shape(e)).join('')}${dimensions?dimensionSvg(els):''}</g>${notes.map((line,i)=>`<text x="${margin}" y="${h-18-(notes.length-1-i)*18}" font-size="11" fill="#7b897f">${esc(line)}</text>`).join('')}</g></svg>`;
   }
   $('exportBtn').onclick=()=>{
     if(!project.floors.some(f=>f.elements.length)){toast('部屋やパーツを追加してから書き出してください。');return;}
@@ -1857,7 +1982,7 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
     target.note=parsed.note||'写真からの推定図。配置・寸法は要確認。';target.elements.forEach(e=>e.inferred=true);if(!options.underlay)target.underlay=null;
     change(()=>{if(options.replace)project.floors[floorIndex]=target;else{project.floors.push(target);floorIndex=project.floors.length-1;}selected=null;vertexId=null;});fit();toast(`${target.elements.length}個の編集できるパーツを取り込みました。`);
   }
-  window.Madori={getProject:()=>clone(project),exportSvg,validateProject,importPhotoDraft,updateSettings};
+  window.Madori={refreshPhone,getProject:()=>clone(project),exportSvg,validateProject,importPhotoDraft,updateSettings};
   $('houseSettingsBtn').onclick=()=>{selected=null;render();};$('lowerFloorCheck').onchange=renderCanvas;
   $('photoImportBtn').onclick=()=>PhotoImport.open();
   document.querySelector('.brand').onclick=ev=>{ev.preventDefault();selected=null;render();fit();};
@@ -1878,6 +2003,7 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
   };
   // Keep zoom controls reachable when a zoomed drawing is larger than the phone.
   const zoomBar = document.querySelector('.canvas-bottom');
+  const selectionBar=document.getElementById('phoneSelection');
   const zoomParent = zoomBar?.parentNode;
   const zoomNext = zoomBar?.nextSibling;
   const footer = document.querySelector('.editor-footer');
@@ -1885,6 +2011,7 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
   function show(panel, focus) {
     if (!panels[panel]) return;
     current = panel;
+    requestAnimationFrame(()=>window.Madori?.refreshPhone());
     document.body.dataset.mobilePanel = current;
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mobilePanel === current)));
     for (const [name, node] of Object.entries(panels)) {
@@ -1912,8 +2039,8 @@ root.SmartSnap=Object.freeze({move:move,resize:resize,bounds:bounds});
   });
   const onChange = () => {
     if (zoomBar && footer && zoomParent) {
-      if (media.matches) panels.canvas.insertBefore(zoomBar, footer);
-      else zoomParent.insertBefore(zoomBar, zoomNext);
+      if (media.matches) {panels.canvas.insertBefore(selectionBar,footer);panels.canvas.insertBefore(zoomBar, footer);}
+      else {zoomParent.insertBefore(selectionBar,zoomNext);zoomParent.insertBefore(zoomBar, zoomNext);}
     }
     show(current, false);
   };
